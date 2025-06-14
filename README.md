@@ -1,3 +1,3 @@
-# Personal Website
+# personalWeb
 
-This is my personal website repository. 
+This is my personal website repository.
