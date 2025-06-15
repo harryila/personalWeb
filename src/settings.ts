@@ -22,14 +22,14 @@ export const social = {
 }
 
 export const template = {
-	website_url: 'https://yourusername.github.io', // Update this with your actual GitHub Pages URL
+	website_url: 'https://harryila.github.io/personalWeb', // Update this with your actual GitHub Pages URL
 	menu_left: false,
 	transitions: true,
 	lightTheme: 'light', // Select one of the Daisy UI Themes or create your own
 	darkTheme: 'dark', // Select one of the Daisy UI Themes or create your own
 	excerptLength: 200,
 	postPerPage: 5,
-    base: '' // Repository name starting with /
+    base: '/personalWeb' // Repository name starting with /
 }
 
 export const seo = {
