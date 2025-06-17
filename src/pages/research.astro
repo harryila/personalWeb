@@ -1,15 +1,18 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { profile } from "@/settings";
+import { publications } from "@/data/cv";
 import List from "@/components/ui/List.astro";
 import ResearchAreasGrid from "@/components/ui/ResearchAreasGrid.astro";
+import { highlightAuthor } from "@/lib/utils";
+import {template} from "@/settings";
 
 const { research_areas } = profile;
 ---
 
 <Layout title="Research | Harutyun Harry Ilanyan">
   <div class="prose max-w-none">
-    <h1 class="text-3xl font-bold mb-8">Research Statement</h1>
+    <h1 class="text-3xl font-bold mb-8">Research</h1>
 
     <div class="mb-12">
       <p class="text-lg mb-6">
@@ -39,7 +42,38 @@ const { research_areas } = profile;
       }
     ]} />
 
-    <h2 class="text-2xl font-bold mb-6">Research Impact</h2>
+    <h2 class="text-2xl font-bold mb-6 mt-12">Publications</h2>
+    
+    <div class="space-y-8 not-prose">
+      {
+        publications.map((paper) => (
+          <div class="card bg-base-200">
+            <div class="card-body">
+              <h3 class="card-title text-xl">
+                <a href={paper.link} class="hover:text-accent" target="_blank">
+                  {paper.title}
+                </a>
+              </h3>
+              <p class="text-base mb-2">
+                <span class="font-medium">Authors:</span>{" "}
+                <span set:html={highlightAuthor(paper.authors)} />
+              </p>
+              <p class="text-sm mb-3">
+                <span class="italic">{paper.journal}</span> • {paper.time}
+              </p>
+              <p class="text-sm text-base-content/80">{paper.abstract}</p>
+              <div class="card-actions justify-end mt-4">
+                <a href={paper.link} class="btn btn-sm btn-secondary text-secondary-content" target="_blank">
+                  Read Paper
+                </a>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <h2 class="text-2xl font-bold mb-6 mt-12">Research Impact</h2>
     <p class="text-lg mb-6">
       My work contributes to making AI systems more accessible through efficiency improvements, safer through alignment-aware techniques, and more beneficial through applications in education and autonomous systems. The interdisciplinary approach connects theoretical advances in optimization with practical societal needs.
     </p>

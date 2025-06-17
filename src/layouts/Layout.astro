@@ -60,9 +60,11 @@ const {
 								</BetterIcon>
 							</label>
 						</div>
-						<div class='navbar-center lg:hidden text-lg font-black'>
-							{profile.title}
-							{profile.fullName}
+						<div class='navbar-center lg:hidden text-lg font-black text-center'>
+							<div class='flex flex-col items-center'>
+								<span>{profile.title}</span>
+								<span>{profile.fullName}</span>
+							</div>
 						</div>
 						<div class='navbar-end'>
 							{!template.menu_left &&

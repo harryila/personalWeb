@@ -1,0 +1,194 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+// Sample project data - this will be replaced with dynamic data later
+const projects = [
+  {
+    title: "Quantized LLM Performance Benchmarking",
+    description: "Comprehensive evaluation of 2-bit and 4-bit quantization techniques on large language models using GPTQ and AWQ methods. Includes detailed analysis of performance degradation and optimization strategies.",
+    tags: ["Python", "PyTorch", "GPTQ", "AWQ", "Quantization", "LLM", "Benchmarking"],
+    status: "In Progress",
+    link: "#",
+    image: "/images/project-placeholder.jpg"
+  },
+  {
+    title: "Autonomous Drone Safety System",
+    description: "NASA collaborative project developing failure-mode analysis and safety constraints for autonomous drone delivery systems. Features real-time risk assessment and emergency response protocols.",
+    tags: ["Python", "ROS", "Gazebo", "Computer Vision", "Safety Systems", "Drone Technology"],
+    status: "Active",
+    link: "#",
+    image: "/images/project-placeholder.jpg"
+  },
+  {
+    title: "Educational Equity Dashboard",
+    description: "Data-driven platform analyzing dual-enrollment program accessibility and outcomes. Built with modern web technologies and integrated with educational databases.",
+    tags: ["Python", "JavaScript", "Data Visualization", "React", "Django", "PostgreSQL"],
+    status: "Completed",
+    link: "#",
+    image: "/images/project-placeholder.jpg"
+  },
+  {
+    title: "CVXPY Optimization Toolkit",
+    description: "Custom solvers and optimization algorithms for machine learning applications. Includes Newton and quasi-Newton method implementations with performance analysis.",
+    tags: ["Python", "CVXPY", "Optimization", "NumPy", "SciPy", "Algorithm Design"],
+    status: "In Progress",
+    link: "#",
+    image: "/images/project-placeholder.jpg"
+  },
+  {
+    title: "AI Safety Calibration Framework",
+    description: "Tools for measuring and improving model calibration with focus on toxicity mitigation and alignment. Includes evaluation on TruthfulQA and RealToxicityPrompts datasets.",
+    tags: ["Python", "Transformers", "AI Safety", "Model Evaluation", "Calibration"],
+    status: "Research",
+    link: "#",
+    image: "/images/project-placeholder.jpg"
+  },
+  {
+    title: "Data 8 Analytics Platform",
+    description: "Scalable data science platform built with Berkeley's Data 8 ecosystem. Features interactive dashboards and automated reporting for educational insights.",
+    tags: ["Python", "Jupyter", "Data Science", "Pandas", "Matplotlib", "Seaborn"],
+    status: "Completed",
+    link: "#",
+    image: "/images/project-placeholder.jpg"
+  }
+];
+
+function getStatusColor(status: string) {
+  switch(status) {
+    case "Completed": return "badge-success";
+    case "In Progress": return "badge-warning";
+    case "Active": return "badge-info";
+    case "Research": return "badge-secondary";
+    default: return "badge-ghost";
+  }
+}
+
+function getTagColor(tag: string) {
+  const colors = [
+    "badge-primary", "badge-secondary", "badge-accent", 
+    "badge-info", "badge-success", "badge-warning"
+  ];
+  return colors[tag.length % colors.length];
+}
+---
+
+<Layout title="Projects | Harutyun Harry Ilanyan">
+  <div class="max-w-none">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold mb-4">Projects</h1>
+      <p class="text-lg text-base-content/80 max-w-3xl mx-auto">
+        A collection of my technical projects spanning machine learning, optimization, autonomous systems, and educational technology. Each project represents a unique challenge and learning opportunity.
+      </p>
+    </div>
+
+    <!-- Filter/Sort Section -->
+    <div class="mb-8 flex flex-wrap gap-4 justify-center">
+      <div class="join">
+        <button class="join-item btn btn-sm btn-active">All</button>
+        <button class="join-item btn btn-sm">Machine Learning</button>
+        <button class="join-item btn btn-sm">Optimization</button>
+        <button class="join-item btn btn-sm">Safety Systems</button>
+        <button class="join-item btn btn-sm">Data Science</button>
+      </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {projects.map((project, index) => (
+        <div class="card bg-base-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div class="card-body p-6">
+            <!-- Status Badge -->
+            <div class="flex justify-between items-start mb-3">
+              <div class={`badge ${getStatusColor(project.status)} badge-sm`}>
+                {project.status}
+              </div>
+              <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-sm btn-circle">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
+                  </svg>
+                </div>
+                <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                  <li><a href={project.link}>View Project</a></li>
+                  <li><a href="#">View Code</a></li>
+                  <li><a href="#">Documentation</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Project Title -->
+            <h2 class="card-title text-lg mb-3 line-clamp-2">
+              {project.title}
+            </h2>
+
+            <!-- Project Description -->
+            <p class="text-sm text-base-content/80 mb-4 line-clamp-3">
+              {project.description}
+            </p>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-1 mb-4">
+              {project.tags.slice(0, 4).map((tag) => (
+                <div class={`badge badge-xs ${getTagColor(tag)}`}>
+                  {tag}
+                </div>
+              ))}
+              {project.tags.length > 4 && (
+                <div class="badge badge-xs badge-ghost">
+                  +{project.tags.length - 4}
+                </div>
+              )}
+            </div>
+
+            <!-- Actions -->
+            <div class="card-actions justify-end mt-auto">
+              <a href={project.link} class="btn btn-primary btn-sm">
+                View Project
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center mt-16 p-8 bg-base-200 rounded-2xl">
+      <h2 class="text-2xl font-bold mb-4">Interested in Collaboration?</h2>
+      <p class="text-base-content/80 mb-6 max-w-2xl mx-auto">
+        I'm always open to discussing new projects, research opportunities, and potential collaborations. 
+        Whether you're interested in machine learning, optimization, or educational technology, let's connect!
+      </p>
+      <div class="flex gap-4 justify-center flex-wrap">
+        <a href="mailto:harry_ila@berkeley.edu" class="btn btn-primary">
+          <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+          </svg>
+          Contact Me
+        </a>
+        <a href="https://github.com/harryila" class="btn btn-outline">
+          <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd" />
+          </svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+</style>

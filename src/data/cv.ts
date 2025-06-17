@@ -67,27 +67,11 @@ export const skills = [
 
 export const publications = [
 	{
-		title: 'Advanced Machine Learning Techniques for Data Analysis',
-		authors: 'Your Name, Co-Author Name',
-		journal: 'Journal of Computational Science',
-		time: '2023',
-		link: '#',
-		abstract: 'This paper presents novel approaches to machine learning that improve accuracy and efficiency in large-scale data analysis.',
+		title: 'Hallucination and Calibration in Language Models',
+		authors: 'Harutyun Harry Ilanyan',
+		journal: 'UC Berkeley',
+		time: '2025',
+		link: 'https://wp.math.berkeley.edu/drp/wp-content/uploads/sites/18/2025/05/2025_Spring_Ilanyan.pdf',
+		abstract: 'Research on hallucination detection and calibration techniques in large language models.',
 	},
-	{
-		title: 'Statistical Methods in Modern Research',
-		authors: 'Your Name, Collaborator A, Collaborator B',
-		journal: 'International Conference on Data Science',
-		time: '2022',
-		link: '#',
-		abstract: 'An exploration of statistical methodologies applied to contemporary research challenges.',
-	},
-	// {
-	// 	title: 'The Radiation of Uranium Compounds',
-	// 	authors: 'Marie Curie',
-	// 	journal: 'Comptes Rendus de l'Académie des Sciences',
-	// 	time: '1898',
-	// 	link: '#',
-	// 	abstract: 'Early research leading to the identification of uranium's radioactive properties.',
-	// },
 ];
