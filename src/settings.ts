@@ -4,8 +4,31 @@ export const profile = {
 	institute: 'UC Berkeley',
 	author_name: 'Harutyun Harry Ilanyan', // Author name to be highlighted in the papers section
 	research_areas: [
-		{ title: 'Data Science', description: 'Analysis of complex datasets and statistical modeling', field: 'data-science' },
-		{ title: 'Applied Math', description: 'Mathematical modeling and optimization', field: 'applied-math' },
+		{ 
+			title: 'Efficient Machine Learning', 
+			description: 'Low-bit quantization & model compression. 2- and 4-bit LLM work, GPTQ/AWQ experiments, Helm benchmarking, plus any CVXPY-guided loss designs you\'re testing.', 
+			field: 'efficient-ml' 
+		},
+		{ 
+			title: 'Convex Optimization & Algorithms', 
+			description: 'Theory → custom solvers. EE 364 projects, Newton/quasi-Newton analyses, and your interest in PhD-level algorithm design for ML.', 
+			field: 'convex-optimization' 
+		},
+		{ 
+			title: 'AI Safety & Alignment', 
+			description: 'Calibration, toxicity mitigation. Alignment-aware quantization (QAAT), TruthfulQA/RealToxicityPrompts evals, and your planned MATS work.', 
+			field: 'ai-safety' 
+		},
+		{ 
+			title: 'Autonomous Systems & Robotics', 
+			description: 'Drone delivery & safety constraints. NASA patent-pending research, failure-mode analysis, and any ROS/Gazebo demos or videos.', 
+			field: 'autonomous-systems' 
+		},
+		{ 
+			title: 'Data Science for Social Impact', 
+			description: 'Dual-enrollment equity & ed-tech. Stanford GSE assistantship, Edvance startup, dashboards built with Data 8/100 tooling.', 
+			field: 'social-impact' 
+		},
 	],
 }
 
