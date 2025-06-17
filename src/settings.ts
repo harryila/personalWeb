@@ -1,24 +1,24 @@
 export const profile = {
-	fullName: 'Your Name',
-	title: 'Academic Researcher & Scholar',
-	institute: 'Your University or Institution',
-	author_name: 'Your Name', // Author name to be highlighted in the papers section
+	fullName: 'Harutyun Harry Ilanyan',
+	title: 'Data Science & Applied Math ',
+	institute: 'UC Berkeley',
+	author_name: 'Harutyun Harry Ilanyan', // Author name to be highlighted in the papers section
 	research_areas: [
-		{ title: 'Computer Science', description: 'Research in artificial intelligence and machine learning', field: 'computer-science' },
 		{ title: 'Data Science', description: 'Analysis of complex datasets and statistical modeling', field: 'data-science' },
+		{ title: 'Applied Math', description: 'Mathematical modeling and optimization', field: 'applied-math' },
 	],
 }
 
 // Set equal to an empty string to hide the icon that you don't want to display
 export const social = {
-	email: 'your.email@university.edu',
-	linkedin: 'https://www.linkedin.com/in/yourprofile',
-	x: 'https://www.x.com/yourhandle',
-	github: 'https://github.com/yourusername',
+	email: 'harry_ila@berkeley.edu',
+	linkedin: 'https://www.linkedin.com/in/harry-ilanyan',
+	x: 'https://www.x.com/yourhandle', // Let's remove since we don't have/use
+	github: 'https://github.com/harryila',
 	gitlab: '',
-	scholar: 'https://scholar.google.com/citations?user=YOUR_ID',
+	scholar: 'https://scholar.google.com/citations?user=YOUR_ID', // Currently dont have, but let's look into if it's good to make one already
 	inspire: '',
-	arxiv: '',
+	arxiv: '', // This would be realy good in the near future
 }
 
 export const template = {
@@ -29,11 +29,11 @@ export const template = {
 	darkTheme: 'dark', // Select one of the Daisy UI Themes or create your own
 	excerptLength: 200,
 	postPerPage: 5,
-    base: '/personalWeb' // Repository name starting with /
+    base: process.env.NODE_ENV === 'production' ? '/personalWeb' : '' // Repository name starting with /
 }
 
 export const seo = {
-	default_title: 'Your Name - Academic Portfolio',
+	default_title: 'Harry Ilanyan',
 	default_description: 'Personal academic website showcasing research, publications, and professional experience.',
 	default_image: '/images/profile-preview.png',
 }
