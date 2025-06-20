@@ -1,54 +1,60 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 
-// Sample project data - this will be replaced with dynamic data later
+// Updated project data to match the 6 new research areas
 const projects = [
   {
     title: "Quantized LLM Performance Benchmarking",
     description: "Comprehensive evaluation of 2-bit and 4-bit quantization techniques on large language models using GPTQ and AWQ methods. Includes detailed analysis of performance degradation and optimization strategies.",
     tags: ["Python", "PyTorch", "GPTQ", "AWQ", "Quantization", "LLM", "Benchmarking"],
     status: "In Progress",
-    link: "#",
+    link: "/projects/efficient-ml",
+    category: "efficient-ml",
     image: "/images/project-placeholder.jpg"
   },
   {
-    title: "Autonomous Drone Safety System",
-    description: "NASA collaborative project developing failure-mode analysis and safety constraints for autonomous drone delivery systems. Features real-time risk assessment and emergency response protocols.",
-    tags: ["Python", "ROS", "Gazebo", "Computer Vision", "Safety Systems", "Drone Technology"],
+    title: "Multi-Agent Coordination Framework",
+    description: "Developing sophisticated coordination strategies for collaborative AI systems, exploring emergent behaviors and distributed problem-solving approaches in multi-agent environments.",
+    tags: ["Python", "Multi-Agent Systems", "Reinforcement Learning", "Coordination", "Game Theory"],
     status: "Active",
-    link: "#",
+    link: "/projects/multi-agent",
+    category: "multi-agent",
     image: "/images/project-placeholder.jpg"
   },
   {
-    title: "Educational Equity Dashboard",
-    description: "Data-driven platform analyzing dual-enrollment program accessibility and outcomes. Built with modern web technologies and integrated with educational databases.",
-    tags: ["Python", "JavaScript", "Data Visualization", "React", "Django", "PostgreSQL"],
-    status: "Completed",
-    link: "#",
-    image: "/images/project-placeholder.jpg"
-  },
-  {
-    title: "CVXPY Optimization Toolkit",
-    description: "Custom solvers and optimization algorithms for machine learning applications. Includes Newton and quasi-Newton method implementations with performance analysis.",
+    title: "CVXPY Custom Optimization Toolkit",
+    description: "Advanced optimization algorithms and custom solvers for machine learning applications, featuring Newton and quasi-Newton method implementations with comprehensive performance analysis.",
     tags: ["Python", "CVXPY", "Optimization", "NumPy", "SciPy", "Algorithm Design"],
     status: "In Progress",
-    link: "#",
+    link: "/projects/convex-optimization",
+    category: "convex-optimization",
+    image: "/images/project-placeholder.jpg"
+  },
+  {
+    title: "Neural Network Interpretability Suite",
+    description: "Tools for analyzing internal workings of neural networks, focusing on feature representations, decision processes, and mechanistic understanding of model behaviors.",
+    tags: ["Python", "Transformers", "Interpretability", "Visualization", "Analysis"],
+    status: "Research",
+    link: "/projects/mechanistic-interpretability",
+    category: "mechanistic-interpretability",
     image: "/images/project-placeholder.jpg"
   },
   {
     title: "AI Safety Calibration Framework",
-    description: "Tools for measuring and improving model calibration with focus on toxicity mitigation and alignment. Includes evaluation on TruthfulQA and RealToxicityPrompts datasets.",
+    description: "Comprehensive tools for measuring and improving model calibration with focus on toxicity mitigation, alignment, and safety evaluation using TruthfulQA and RealToxicityPrompts datasets.",
     tags: ["Python", "Transformers", "AI Safety", "Model Evaluation", "Calibration"],
-    status: "Research",
-    link: "#",
+    status: "Active",
+    link: "/projects/ai-safety",
+    category: "ai-safety",
     image: "/images/project-placeholder.jpg"
   },
   {
-    title: "Data 8 Analytics Platform",
-    description: "Scalable data science platform built with Berkeley's Data 8 ecosystem. Features interactive dashboards and automated reporting for educational insights.",
-    tags: ["Python", "Jupyter", "Data Science", "Pandas", "Matplotlib", "Seaborn"],
+    title: "Educational Equity Analytics Platform",
+    description: "Human-centered data science platform analyzing dual-enrollment program accessibility and outcomes, built with modern web technologies and focused on positive societal impact.",
+    tags: ["Python", "JavaScript", "Data Visualization", "React", "Django", "PostgreSQL"],
     status: "Completed",
-    link: "#",
+    link: "/projects/human-centered-ml",
+    category: "human-centered-ml",
     image: "/images/project-placeholder.jpg"
   }
 ];
@@ -77,25 +83,27 @@ function getTagColor(tag: string) {
     <div class="text-center mb-12">
       <h1 class="text-4xl font-bold mb-4">Projects</h1>
       <p class="text-lg text-base-content/80 max-w-3xl mx-auto">
-        A collection of my technical projects spanning machine learning, optimization, autonomous systems, and educational technology. Each project represents a unique challenge and learning opportunity.
+        A collection of my technical projects spanning the six core research areas. Each project represents a unique challenge and learning opportunity in advancing AI systems.
       </p>
     </div>
 
     <!-- Filter/Sort Section -->
     <div class="mb-8 flex flex-wrap gap-4 justify-center">
       <div class="join">
-        <button class="join-item btn btn-sm btn-active">All</button>
-        <button class="join-item btn btn-sm">Machine Learning</button>
-        <button class="join-item btn btn-sm">Optimization</button>
-        <button class="join-item btn btn-sm">Safety Systems</button>
-        <button class="join-item btn btn-sm">Data Science</button>
+        <button class="join-item btn btn-sm btn-active filter-btn" data-filter="all">All</button>
+        <button class="join-item btn btn-sm filter-btn" data-filter="efficient-ml">Efficient ML</button>
+        <button class="join-item btn btn-sm filter-btn" data-filter="multi-agent">Multi-Agent</button>
+        <button class="join-item btn btn-sm filter-btn" data-filter="convex-optimization">Optimization</button>
+        <button class="join-item btn btn-sm filter-btn" data-filter="mechanistic-interpretability">Interpretability</button>
+        <button class="join-item btn btn-sm filter-btn" data-filter="ai-safety">AI Safety</button>
+        <button class="join-item btn btn-sm filter-btn" data-filter="human-centered-ml">Human-Centered</button>
       </div>
     </div>
 
     <!-- Projects Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
       {projects.map((project, index) => (
-        <div class="card bg-base-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+        <div class={`card bg-base-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 project-card`} data-category={project.category}>
           <div class="card-body p-6">
             <!-- Status Badge -->
             <div class="flex justify-between items-start mb-3">
@@ -176,6 +184,33 @@ function getTagColor(tag: string) {
     </div>
   </div>
 </Layout>
+
+<script>
+  // Filter functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn') as NodeListOf<HTMLButtonElement>;
+    const projectCards = document.querySelectorAll('.project-card') as NodeListOf<HTMLElement>;
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function(this: HTMLButtonElement) {
+        const filter = this.getAttribute('data-filter');
+        
+        // Update active state
+        filterButtons.forEach(btn => btn.classList.remove('btn-active'));
+        this.classList.add('btn-active');
+        
+        // Filter projects
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
 
 <style>
   .line-clamp-2 {

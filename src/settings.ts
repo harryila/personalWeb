@@ -6,28 +6,33 @@ export const profile = {
 	research_areas: [
 		{ 
 			title: 'Efficient Machine Learning', 
-			description: 'Low-bit quantization & model compression. 2- and 4-bit LLM work, GPTQ/AWQ experiments, Helm benchmarking, plus any CVXPY-guided loss designs you\'re testing.', 
+			description: 'Developing advanced techniques for model compression, quantization, and optimization to make AI systems more accessible and computationally efficient while maintaining performance quality.', 
 			field: 'efficient-ml' 
 		},
 		{ 
+			title: 'Multi-Agent Learning & Reasoning', 
+			description: 'Exploring collaborative AI systems where multiple agents learn and reason together, focusing on coordination strategies, emergent behaviors, and distributed problem-solving approaches.', 
+			field: 'multi-agent' 
+		},
+		{ 
 			title: 'Convex Optimization & Algorithms', 
-			description: 'Theory → custom solvers. EE 364 projects, Newton/quasi-Newton analyses, and your interest in PhD-level algorithm design for ML.', 
+			description: 'Advancing theoretical foundations and practical implementations of optimization methods, with emphasis on custom solvers, Newton methods, and algorithm design for machine learning applications.', 
 			field: 'convex-optimization' 
 		},
 		{ 
+			title: 'Mechanistic Interpretability', 
+			description: 'Understanding the internal workings of neural networks through detailed analysis of model components, feature representations, and decision-making processes to enhance AI transparency.', 
+			field: 'mechanistic-interpretability' 
+		},
+		{ 
 			title: 'AI Safety & Alignment', 
-			description: 'Calibration, toxicity mitigation. Alignment-aware quantization (QAAT), TruthfulQA/RealToxicityPrompts evals, and your planned MATS work.', 
+			description: 'Ensuring AI systems behave reliably and beneficially through calibration techniques, toxicity mitigation, alignment-aware training, and comprehensive safety evaluation frameworks.', 
 			field: 'ai-safety' 
 		},
 		{ 
-			title: 'Autonomous Systems & Robotics', 
-			description: 'Drone delivery & safety constraints. NASA patent-pending research, failure-mode analysis, and any ROS/Gazebo demos or videos.', 
-			field: 'autonomous-systems' 
-		},
-		{ 
-			title: 'Data Science for Social Impact', 
-			description: 'Dual-enrollment equity & ed-tech. Stanford GSE assistantship, Edvance startup, dashboards built with Data 8/100 tooling.', 
-			field: 'social-impact' 
+			title: 'Human-Centered ML', 
+			description: 'Designing machine learning systems that prioritize human needs, values, and interactions, with focus on fairness, accessibility, and positive societal impact through data-driven solutions.', 
+			field: 'human-centered-ml' 
 		},
 	],
 }
@@ -36,7 +41,7 @@ export const profile = {
 export const social = {
 	email: 'harry_ila@berkeley.edu',
 	linkedin: 'https://www.linkedin.com/in/harry-ilanyan',
-	x: 'https://www.x.com/yourhandle', // Let's remove since we don't have/use
+	x: '', // Removed X/Twitter as requested
 	github: 'https://github.com/harryila',
 	gitlab: '',
 	scholar: 'https://scholar.google.com/citations?user=YOUR_ID', // Currently dont have, but let's look into if it's good to make one already
@@ -48,8 +53,8 @@ export const template = {
 	website_url: 'https://harryila.github.io/personalWeb', // Update this with your actual GitHub Pages URL
 	menu_left: false,
 	transitions: true,
-	lightTheme: 'light', // Select one of the Daisy UI Themes or create your own
-	darkTheme: 'dark', // Select one of the Daisy UI Themes or create your own
+	lightTheme: 'dark', // Changed: Default to dark theme first
+	darkTheme: 'light', // Changed: Switch to light theme when toggled
 	excerptLength: 200,
 	postPerPage: 5,
     base: process.env.NODE_ENV === 'production' ? '/personalWeb' : '' // Repository name starting with /

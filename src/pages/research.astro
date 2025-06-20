@@ -3,7 +3,6 @@ import Layout from "@/layouts/Layout.astro";
 import { profile } from "@/settings";
 import { publications } from "@/data/cv";
 import List from "@/components/ui/List.astro";
-import ResearchAreasGrid from "@/components/ui/ResearchAreasGrid.astro";
 import { highlightAuthor } from "@/lib/utils";
 import {template} from "@/settings";
 
@@ -23,8 +22,20 @@ const { research_areas } = profile;
       </p>
     </div>
 
+    <!-- Compact Research Areas Section -->
     <div class="not-prose mb-12">
-      <ResearchAreasGrid research_areas={research_areas} />
+      <h2 class="text-2xl font-bold mb-6">Research Focus Areas</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {research_areas.map((area) => (
+          <div class="flex items-center p-4 rounded-lg bg-base-200 hover:bg-base-300 transition-all duration-300 border border-base-300 hover:border-primary/20">
+            <div class="w-3 h-3 bg-primary rounded-full mr-4 flex-shrink-0"></div>
+            <div>
+              <h3 class="font-semibold text-primary text-sm mb-1">{area.title}</h3>
+              <p class="text-xs text-base-content/70 leading-relaxed">{area.description.substring(0, 80)}...</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
 
     <List listTitle="Current Projects" listItems={[
@@ -33,12 +44,20 @@ const { research_areas } = profile;
         description: "Developing efficient model compression techniques that preserve alignment properties and safety characteristics in large language models."
       },
       {
-        title: "Educational Equity Analytics",
-        description: "Building data-driven tools to analyze and improve dual-enrollment program accessibility and outcomes for underserved student populations."
+        title: "Multi-Agent Coordination Systems", 
+        description: "Exploring collaborative AI frameworks where multiple agents learn and reason together, focusing on emergent behaviors and distributed problem-solving."
       },
       {
-        title: "Autonomous Systems Reliability",
-        description: "Research on failure-mode analysis and safety constraints for autonomous drone delivery systems in collaboration with NASA."
+        title: "Educational Equity Analytics",
+        description: "Building human-centered data-driven tools to analyze and improve dual-enrollment program accessibility and outcomes for underserved student populations."
+      },
+      {
+        title: "Neural Network Interpretability",
+        description: "Advancing mechanistic understanding of deep learning models through detailed analysis of internal representations and decision-making processes."
+      },
+      {
+        title: "Convex Optimization for ML",
+        description: "Developing custom solvers and optimization algorithms with theoretical foundations for enhanced machine learning applications."
       }
     ]} />
 
@@ -77,5 +96,20 @@ const { research_areas } = profile;
     <p class="text-lg mb-6">
       My work contributes to making AI systems more accessible through efficiency improvements, safer through alignment-aware techniques, and more beneficial through applications in education and autonomous systems. The interdisciplinary approach connects theoretical advances in optimization with practical societal needs.
     </p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 not-prose">
+      <div class="stats-card p-6 bg-base-200 rounded-lg text-center">
+        <div class="text-2xl font-bold text-primary mb-2">6</div>
+        <div class="text-sm text-base-content/80">Research Areas</div>
+      </div>
+      <div class="stats-card p-6 bg-base-200 rounded-lg text-center">
+        <div class="text-2xl font-bold text-primary mb-2">5+</div>
+        <div class="text-sm text-base-content/80">Active Projects</div>
+      </div>
+      <div class="stats-card p-6 bg-base-200 rounded-lg text-center">
+        <div class="text-2xl font-bold text-primary mb-2">∞</div>
+        <div class="text-sm text-base-content/80">Learning Opportunities</div>
+      </div>
+    </div>
   </div>
 </Layout>
