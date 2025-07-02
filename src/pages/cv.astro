@@ -2,6 +2,7 @@
 import Layout from '@/layouts/Layout.astro'
 import { experiences, education, skills, publications } from '../data/cv'
 import { highlightAuthor } from '@/lib/utils'
+import { template } from '../settings'
 
 import type { Experience, Education, Publication } from '../types/cv'
 
@@ -48,7 +49,7 @@ if (publications.length > 0) {
 		<!-- Small, clean download button in top-right -->
 		<div class="flex justify-end mb-6">
 			<a 
-				href="/HarryIlanyan_Resume.html" 
+				href={`${template.base}/HarryIlanyan_Resume.html`}
 				download="HarryIlanyan_Resume.html"
 				class="btn btn-sm btn-ghost gap-2 text-base-content/70 hover:text-base-content"
 			>
