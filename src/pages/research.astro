@@ -62,17 +62,6 @@ const currentProjects = [
   <div class="prose max-w-none">
     <h1 class="text-3xl font-bold mb-8">Research</h1>
 
-    <!-- Research Focus Areas as tags under Research heading -->
-    <div class="not-prose mb-8">
-      <div class="flex flex-wrap gap-2 mb-8">
-        {research_areas.map((area) => (
-          <div class={`badge ${getTagColor(area.title)} badge-lg`} title={area.description}>
-            {area.title}
-          </div>
-        ))}
-      </div>
-    </div>
-
     <div class="mb-12">
       <p class="text-lg mb-6">
         My research spans the intersection of machine learning efficiency, optimization theory, and societal impact. I focus on developing practical solutions that bridge theoretical foundations with real-world applications, particularly in model compression, safety-aligned AI systems, and data-driven approaches to social challenges.
