@@ -16,11 +16,62 @@ function getTagColor(tag: string) {
   ];
   return colors[tag.length % colors.length];
 }
+
+// Current projects data with category mapping
+const currentProjects = [
+  {
+    title: "Quantization-Aware AI Safety",
+    description: "Developing efficient model compression techniques that preserve alignment properties and safety characteristics in large language models.",
+    category: "efficient-ml",
+    tags: ["Efficient ML", "AI Safety"]
+  },
+  {
+    title: "Multi-Agent Coordination Systems", 
+    description: "Exploring collaborative AI frameworks where multiple agents learn and reason together, focusing on emergent behaviors and distributed problem-solving.",
+    category: "multi-agent",
+    tags: ["Multi-Agent Learning"]
+  },
+  {
+    title: "Educational Equity Analytics",
+    description: "Building human-centered data-driven tools to analyze and improve dual-enrollment program accessibility and outcomes for underserved student populations.",
+    category: "human-centered-ml", 
+    tags: ["Human-Centered ML"]
+  },
+  {
+    title: "Neural Network Interpretability",
+    description: "Advancing mechanistic understanding of deep learning models through detailed analysis of internal representations and decision-making processes.",
+    category: "mechanistic-interpretability",
+    tags: ["Mechanistic Interpretability"]
+  },
+  {
+    title: "Convex Optimization for ML",
+    description: "Developing custom solvers and optimization algorithms with theoretical foundations for enhanced machine learning applications.",
+    category: "convex-optimization",
+    tags: ["Convex Optimization"]
+  },
+  {
+    title: "AI Safety Alignment Framework",
+    description: "Comprehensive tools for measuring and improving model calibration with focus on toxicity mitigation, alignment, and safety evaluation using TruthfulQA and RealToxicityPrompts datasets.",
+    category: "ai-safety",
+    tags: ["AI Safety"]
+  }
+];
 ---
 
 <Layout title="Research | Harutyun Harry Ilanyan">
   <div class="prose max-w-none">
     <h1 class="text-3xl font-bold mb-8">Research</h1>
+
+    <!-- Research Focus Areas as tags under Research heading -->
+    <div class="not-prose mb-8">
+      <div class="flex flex-wrap gap-2 mb-8">
+        {research_areas.map((area) => (
+          <div class={`badge ${getTagColor(area.title)} badge-lg`} title={area.description}>
+            {area.title}
+          </div>
+        ))}
+      </div>
+    </div>
 
     <div class="mb-12">
       <p class="text-lg mb-6">
@@ -31,82 +82,42 @@ function getTagColor(tag: string) {
       </p>
     </div>
 
-    <!-- Streamlined Research Focus Areas -->
-    <div class="not-prose mb-8">
-      <h2 class="text-2xl font-bold mb-4">Research Focus Areas</h2>
-      <div class="flex flex-wrap gap-2">
-        {research_areas.map((area) => (
-          <div class={`badge ${getTagColor(area.title)} badge-lg`} title={area.description}>
-            {area.title}
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <!-- Current Projects with Research Area Tags -->
+    <!-- Current Projects with Filter functionality -->
     <div class="not-prose mb-12">
       <h2 class="text-2xl font-bold mb-6">Current Projects</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="card bg-base-200">
-          <div class="card-body">
-            <h3 class="card-title text-lg">Quantization-Aware AI Safety</h3>
-            <p class="text-sm text-base-content/80 mb-3">
-              Developing efficient model compression techniques that preserve alignment properties and safety characteristics in large language models.
-            </p>
-            <div class="flex flex-wrap gap-1">
-              <div class="badge badge-primary badge-xs">Efficient ML</div>
-              <div class="badge badge-warning badge-xs">AI Safety</div>
-            </div>
-          </div>
+      
+      <!-- Filter buttons -->
+      <div class="mb-6 flex flex-wrap gap-2 justify-center">
+        <div class="join">
+          <button class="join-item btn btn-sm btn-active filter-btn" data-filter="all">All</button>
+          <button class="join-item btn btn-sm filter-btn" data-filter="efficient-ml">Efficient ML</button>
+          <button class="join-item btn btn-sm filter-btn" data-filter="multi-agent">Multi-Agent</button>
+          <button class="join-item btn btn-sm filter-btn" data-filter="convex-optimization">Optimization</button>
+          <button class="join-item btn btn-sm filter-btn" data-filter="mechanistic-interpretability">Interpretability</button>
+          <button class="join-item btn btn-sm filter-btn" data-filter="ai-safety">AI Safety</button>
+          <button class="join-item btn btn-sm filter-btn" data-filter="human-centered-ml">Human-Centered</button>
         </div>
+      </div>
 
-        <div class="card bg-base-200">
-          <div class="card-body">
-            <h3 class="card-title text-lg">Multi-Agent Coordination Systems</h3>
-            <p class="text-sm text-base-content/80 mb-3">
-              Exploring collaborative AI frameworks where multiple agents learn and reason together, focusing on emergent behaviors and distributed problem-solving.
-            </p>
-            <div class="flex flex-wrap gap-1">
-              <div class="badge badge-secondary badge-xs">Multi-Agent Learning</div>
+      <!-- Projects in rectangular layout -->
+      <div class="space-y-4" id="projects-container">
+        {currentProjects.map((project) => (
+          <div class={`project-card bg-base-200 rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:bg-base-300`} data-category={project.category}>
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+              <div class="flex-1 mb-3 md:mb-0 md:mr-6">
+                <h3 class="text-xl font-semibold mb-2 text-primary">{project.title}</h3>
+                <p class="text-base-content/80 leading-relaxed">{project.description}</p>
+              </div>
+              <div class="flex flex-wrap gap-1 md:flex-col md:items-end">
+                {project.tags.map((tag) => (
+                  <div class={`badge ${getTagColor(tag)} badge-sm`}>
+                    {tag}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="card bg-base-200">
-          <div class="card-body">
-            <h3 class="card-title text-lg">Educational Equity Analytics</h3>
-            <p class="text-sm text-base-content/80 mb-3">
-              Building human-centered data-driven tools to analyze and improve dual-enrollment program accessibility and outcomes for underserved student populations.
-            </p>
-            <div class="flex flex-wrap gap-1">
-              <div class="badge badge-accent badge-xs">Human-Centered ML</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card bg-base-200">
-          <div class="card-body">
-            <h3 class="card-title text-lg">Neural Network Interpretability</h3>
-            <p class="text-sm text-base-content/80 mb-3">
-              Advancing mechanistic understanding of deep learning models through detailed analysis of internal representations and decision-making processes.
-            </p>
-            <div class="flex flex-wrap gap-1">
-              <div class="badge badge-info badge-xs">Mechanistic Interpretability</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card bg-base-200">
-          <div class="card-body">
-            <h3 class="card-title text-lg">Convex Optimization for ML</h3>
-            <p class="text-sm text-base-content/80 mb-3">
-              Developing custom solvers and optimization algorithms with theoretical foundations for enhanced machine learning applications.
-            </p>
-            <div class="flex flex-wrap gap-1">
-              <div class="badge badge-success badge-xs">Convex Optimization</div>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
 
@@ -142,3 +153,42 @@ function getTagColor(tag: string) {
     </div>
   </div>
 </Layout>
+
+<script>
+  // Filter functionality for current projects
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn') as NodeListOf<HTMLButtonElement>;
+    const projectCards = document.querySelectorAll('.project-card') as NodeListOf<HTMLElement>;
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function(this: HTMLButtonElement) {
+        const filter = this.getAttribute('data-filter');
+        
+        // Update active state
+        filterButtons.forEach(btn => btn.classList.remove('btn-active'));
+        this.classList.add('btn-active');
+        
+        // Filter projects
+        projectCards.forEach(card => {
+          const cardElement = card as HTMLElement;
+          if (filter === 'all' || cardElement.getAttribute('data-category') === filter) {
+            cardElement.style.display = 'block';
+            // Add fade-in animation
+            cardElement.style.opacity = '0';
+            setTimeout(() => {
+              cardElement.style.opacity = '1';
+            }, 50);
+          } else {
+            cardElement.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  .project-card {
+    transition: opacity 0.3s ease-in-out;
+  }
+</style>
