@@ -201,10 +201,16 @@ function getTagColor(tag: string) {
         
         // Filter projects
         projectCards.forEach(card => {
-          if (filter === 'all' || card.getAttribute('data-category') === filter) {
-            card.style.display = 'block';
+          const cardElement = card as HTMLElement;
+          if (filter === 'all' || cardElement.getAttribute('data-category') === filter) {
+            cardElement.style.display = 'block';
+            // Add fade-in animation
+            cardElement.style.opacity = '0';
+            setTimeout(() => {
+              cardElement.style.opacity = '1';
+            }, 50);
           } else {
-            card.style.display = 'none';
+            cardElement.style.display = 'none';
           }
         });
       });
@@ -225,5 +231,9 @@ function getTagColor(tag: string) {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+  }
+
+  .project-card {
+    transition: opacity 0.3s ease-in-out;
   }
 </style>

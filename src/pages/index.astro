@@ -2,13 +2,31 @@
 import Layout from '../layouts/Layout.astro'
 
 import { profile } from '@/settings'
-import { publications } from '@/data/cv'
+import { skills } from '@/data/cv'
 import ProfilePictures from '@/assets/profile_pictures.jpg'
 import Hero from '@/components/ui/Hero.astro'
 import ResearchAreasGrid from '@/components/ui/ResearchAreasGrid.astro'
-import ArticleList from '@/components/ui/ArticleList.astro'
 
 const { fullName, title, institute, research_areas } = profile
+
+// Function to get tag color (same as in projects)
+function getTagColor(tag: string) {
+	const colors = [
+		"badge-primary", "badge-secondary", "badge-accent", 
+		"badge-info", "badge-success", "badge-warning"
+	];
+	return colors[tag.length % colors.length];
+}
+
+// Convert skills descriptions to individual tags
+function skillsToTags(skillsArray: typeof skills) {
+	return skillsArray.map(skill => ({
+		title: skill.title,
+		tags: skill.description.split(', ')
+	}));
+}
+
+const skillsWithTags = skillsToTags(skills);
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -30,8 +48,22 @@ const { fullName, title, institute, research_areas } = profile
 		<ResearchAreasGrid research_areas={research_areas} />
 	</section>
 
-	<!-- Recent Publications -->
+	<!-- Skills Section -->
 	<section class='py-12 border-t'>
-		<ArticleList listTitle='Recent Publications' listItems={publications} />
+		<h2 class='text-3xl font-bold mb-8'>Skills & Expertise</h2>
+		<div class='grid grid-cols-1 md:grid-cols-3 gap-8'>
+			{skillsWithTags.map((skillCategory) => (
+				<div class='bg-base-200 p-6 rounded-lg'>
+					<h3 class='text-xl font-semibold mb-4 text-primary'>{skillCategory.title}</h3>
+					<div class='flex flex-wrap gap-2'>
+						{skillCategory.tags.map((tag) => (
+							<div class={`badge badge-sm ${getTagColor(tag)}`}>
+								{tag}
+							</div>
+						))}
+					</div>
+				</div>
+			))}
+		</div>
 	</section>
 </Layout>
