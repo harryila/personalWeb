@@ -118,7 +118,7 @@ const currentProjects = [
           <div class="card bg-base-200">
             <div class="card-body">
               <h3 class="card-title text-xl">
-                <a href={paper.link} class="hover:text-accent" target="_blank">
+                <a href={paper.link} class="text-blue-600 hover:text-blue-800 transition-colors" target="_blank">
                   {paper.title}
                 </a>
               </h3>
@@ -129,9 +129,18 @@ const currentProjects = [
               <p class="text-sm mb-3">
                 <span class="italic">{paper.journal}</span> • {paper.time}
               </p>
-              <p class="text-sm text-base-content/80">{paper.abstract}</p>
+              {paper.tags && paper.tags.length > 0 && (
+                <div class="flex flex-wrap gap-2 mb-3">
+                  {paper.tags.map((tag) => (
+                    <div class={`badge ${getTagColor(tag)} badge-sm`}>
+                      {tag}
+                    </div>
+                  ))}
+                </div>
+              )}
+              <p class="text-sm text-base-content/80 leading-relaxed">{paper.abstract}</p>
               <div class="card-actions justify-end mt-4">
-                <a href={paper.link} class="btn btn-sm btn-secondary text-secondary-content" target="_blank">
+                <a href={paper.link} class="btn btn-sm text-white bg-blue-600 hover:bg-blue-700 border-blue-600 hover:border-blue-700 transition-colors" target="_blank">
                   Read Paper
                 </a>
               </div>
