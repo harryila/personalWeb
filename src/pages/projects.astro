@@ -186,36 +186,53 @@ function getTagColor(tag: string) {
 </Layout>
 
 <script>
-  // Filter functionality
-  document.addEventListener('DOMContentLoaded', function() {
+  // Filter functionality - improved version that works with client-side routing
+  function initializeProjectFilters() {
     const filterButtons = document.querySelectorAll('.filter-btn') as NodeListOf<HTMLButtonElement>;
     const projectCards = document.querySelectorAll('.project-card') as NodeListOf<HTMLElement>;
 
+    // Exit if elements don't exist yet
+    if (!filterButtons.length || !projectCards.length) return;
+
     filterButtons.forEach(button => {
-      button.addEventListener('click', function(this: HTMLButtonElement) {
-        const filter = this.getAttribute('data-filter');
-        
-        // Update active state
-        filterButtons.forEach(btn => btn.classList.remove('btn-active'));
-        this.classList.add('btn-active');
-        
-        // Filter projects
-        projectCards.forEach(card => {
-          const cardElement = card as HTMLElement;
-          if (filter === 'all' || cardElement.getAttribute('data-category') === filter) {
-            cardElement.style.display = 'block';
-            // Add fade-in animation
-            cardElement.style.opacity = '0';
-            setTimeout(() => {
-              cardElement.style.opacity = '1';
-            }, 50);
-          } else {
-            cardElement.style.display = 'none';
-          }
-        });
-      });
+      // Remove any existing listeners to prevent duplicates
+      button.removeEventListener('click', handleFilterClick);
+      button.addEventListener('click', handleFilterClick);
     });
-  });
+
+    function handleFilterClick(this: HTMLButtonElement) {
+      const filter = this.getAttribute('data-filter');
+      
+      // Update active state
+      filterButtons.forEach(btn => btn.classList.remove('btn-active'));
+      this.classList.add('btn-active');
+      
+      // Filter projects
+      projectCards.forEach(card => {
+        const cardElement = card as HTMLElement;
+        if (filter === 'all' || cardElement.getAttribute('data-category') === filter) {
+          cardElement.style.display = 'block';
+          // Add fade-in animation
+          cardElement.style.opacity = '0';
+          setTimeout(() => {
+            cardElement.style.opacity = '1';
+          }, 50);
+        } else {
+          cardElement.style.display = 'none';
+        }
+      });
+    }
+  }
+
+  // Initialize immediately if DOM is ready, otherwise wait
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeProjectFilters);
+  } else {
+    initializeProjectFilters();
+  }
+
+  // Also initialize on Astro's page load events for client-side routing
+  document.addEventListener('astro:page-load', initializeProjectFilters);
 </script>
 
 <style>
