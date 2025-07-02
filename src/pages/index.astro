@@ -9,7 +9,7 @@ import ResearchAreasGrid from '@/components/ui/ResearchAreasGrid.astro'
 
 const { fullName, title, institute, research_areas } = profile
 
-// Function to get tag color (same as in projects)
+// Function to get consistent tag colors
 function getTagColor(tag: string) {
 	const colors = [
 		"badge-primary", "badge-secondary", "badge-accent", 
@@ -18,11 +18,21 @@ function getTagColor(tag: string) {
 	return colors[tag.length % colors.length];
 }
 
-// Convert skills descriptions to individual tags
+// Convert skills descriptions to individual tags with consistent naming
 function skillsToTags(skillsArray: typeof skills) {
 	return skillsArray.map(skill => ({
 		title: skill.title,
-		tags: skill.description.split(', ')
+		tags: skill.description.split(', ').map(tag => {
+			// Normalize tag names for consistency
+			const tagNormalization: { [key: string]: string } = {
+				'ML': 'Machine Learning',
+				'AI': 'Artificial Intelligence',
+				'JS': 'JavaScript',
+				'HTML/CSS': 'Web Development',
+				'C++': 'C Plus Plus'
+			};
+			return tagNormalization[tag] || tag;
+		})
 	}));
 }
 
@@ -51,10 +61,13 @@ const skillsWithTags = skillsToTags(skills);
 	<!-- Skills Section -->
 	<section class='py-12 border-t'>
 		<h2 class='text-3xl font-bold mb-8'>Skills & Expertise</h2>
-		<div class='grid grid-cols-1 md:grid-cols-3 gap-8'>
+		<!-- Changed to rectangular cards similar to publications layout -->
+		<div class='space-y-6'>
 			{skillsWithTags.map((skillCategory) => (
-				<div class='bg-base-200 p-6 rounded-lg'>
-					<h3 class='text-xl font-semibold mb-4 text-primary'>{skillCategory.title}</h3>
+				<div class='group p-6 rounded-lg bg-base-200 hover:bg-base-300 transition-all duration-300 border border-base-300 hover:border-primary/20 hover:shadow-lg'>
+					<h3 class='text-xl font-semibold mb-4 text-primary group-hover:text-primary-focus transition-colors'>
+						{skillCategory.title}
+					</h3>
 					<div class='flex flex-wrap gap-2'>
 						{skillCategory.tags.map((tag) => (
 							<div class={`badge badge-sm ${getTagColor(tag)}`}>

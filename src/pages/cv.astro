@@ -45,105 +45,222 @@ if (publications.length > 0) {
 
 <Layout title="CV | Harutyun Harry Ilanyan">
 	<div class="max-w-4xl mx-auto bg-white dark:bg-base-100 p-8 shadow-lg rounded-lg">
-		<!-- Header -->
-		<div class="text-center mb-8 border-b pb-6">
-			<h1 class="text-4xl font-bold text-base-content mb-2">Harutyun Harry Ilanyan</h1>
-			<p class="text-xl text-base-content/80 mb-2">Data Science & Applied Mathematics Student</p>
-			<p class="text-lg text-base-content/70">UC Berkeley</p>
-			<div class="flex justify-center gap-4 mt-4 text-sm">
-				<span class="text-base-content/70">📧 harry_ila@berkeley.edu</span>
-				<span class="text-base-content/70">🔗 linkedin.com/in/harry-ilanyan</span>
-				<span class="text-base-content/70">💻 github.com/harryila</span>
-			</div>
-		</div>
-
-		<!-- Education Section -->
-		{orderdEducations.length > 0 && (
-			<section class="mb-8">
-				<h2 class="text-2xl font-bold mb-4 text-base-content border-b border-primary pb-2">Education</h2>
-				{orderdEducations.map((edu) => (
-					<div class="mb-4">
-						<div class="flex justify-between items-start mb-1">
-							<h3 class="text-lg font-semibold text-base-content">{edu.degree}</h3>
-							<span class="text-sm font-medium text-base-content/80">{edu.time}</span>
-						</div>
-						<p class="text-base-content/80 font-medium">{edu.school}</p>
-						<p class="text-sm text-base-content/70">{edu.location}</p>
-						{edu.description && <p class="text-sm text-base-content/80 mt-1">{edu.description}</p>}
-					</div>
-				))}
-			</section>
-		)}
-
-		<!-- Experience Section -->
-		{orderdExperiences.length > 0 && (
-			<section class="mb-8">
-				<h2 class="text-2xl font-bold mb-4 text-base-content border-b border-primary pb-2">Experience</h2>
-				{orderdExperiences.map((exp) => (
-					<div class="mb-4">
-						<div class="flex justify-between items-start mb-1">
-							<h3 class="text-lg font-semibold text-base-content">{exp.title}</h3>
-							<span class="text-sm font-medium text-base-content/80">{exp.time}</span>
-						</div>
-						<p class="text-base-content/80 font-medium">{exp.company}</p>
-						<p class="text-sm text-base-content/70">{exp.location}</p>
-						{exp.description && <p class="text-sm text-base-content/80 mt-1">{exp.description}</p>}
-					</div>
-				))}
-			</section>
-		)}
-
-		<!-- Skills Section -->
-		{skills.length > 0 && (
-			<section class="mb-8">
-				<h2 class="text-2xl font-bold mb-4 text-base-content border-b border-primary pb-2">Skills</h2>
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-					{skills.map((skill) => (
-						<div>
-							<h3 class="font-semibold text-base-content mb-2">{skill.title}</h3>
-							<p class="text-sm text-base-content/80">{skill.description}</p>
-						</div>
-					))}
-				</div>
-			</section>
-		)}
-
-		<!-- Publications Section -->
-		{orderedPublications.length > 0 && (
-			<section class="mb-8">
-				<h2 class="text-2xl font-bold mb-4 text-base-content border-b border-primary pb-2">Publications</h2>
-				{orderedPublications.map((paper) => (
-					<div class="mb-4">
-						<h3 class="text-lg font-semibold text-base-content mb-1">
-							{paper.link ? (
-								<a href={paper.link} class="hover:text-primary" target="_blank">{paper.title}</a>
-							) : (
-								paper.title
-							)}
-						</h3>
-						<p class="text-sm text-base-content/80 mb-1">
-							<span set:html={highlightAuthor(paper.authors)} />
-						</p>
-						<p class="text-sm text-base-content/70 mb-2">
-							<em>{paper.journal}</em> • {paper.time}
-						</p>
-						{paper.abstract && <p class="text-sm text-base-content/80">{paper.abstract}</p>}
-					</div>
-				))}
-			</section>
-		)}
-
-		<!-- Download/Print Button -->
-		<div class="text-center mt-8 pt-6 border-t">
+		<!-- Download Button at the top -->
+		<div class="text-center mb-8 pb-6 border-b">
+			<a 
+				href="/HarryIlanyan_Resume.html" 
+				download="HarryIlanyan_Resume.html"
+				class="btn btn-primary mr-4"
+			>
+				<svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+					<path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+				</svg>
+				Download Resume
+			</a>
 			<button 
 				onclick="window.print()" 
-				class="btn btn-primary"
+				class="btn btn-outline"
 			>
 				<svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
 					<path fill-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zM5 14H4v-3h1v3zm4 0H7v2h2v-2zm2 0h2v2h-2v-2zm2 0h1v-3h-1v3z" clip-rule="evenodd" />
 				</svg>
-				Print/Save CV
+				Print
 			</button>
+		</div>
+
+		<!-- Resume Content - preserving original formatting -->
+		<div class="resume-content">
+			<!-- Header -->
+			<div class="text-center mb-8">
+				<h1 class="text-5xl font-bold text-base-content mb-2">Harry Ilanyan</h1>
+				<p class="text-lg text-base-content/80 mb-2">(818)-983-8775 | <a href="https://linkedin.com/in/harry-ilanyan/" class="text-primary hover:underline">linkedin.com/in/harry-ilanyan/</a> | harry_ila@berkeley.edu</p>
+			</div>
+
+			<!-- Education -->
+			<section class="mb-6">
+				<h2 class="text-xl font-bold mb-3 text-base-content border-b-2 border-black pb-1">EDUCATION</h2>
+				<div class="flex justify-between items-start mb-2">
+					<div>
+						<h3 class="font-bold">UC Berkeley</h3>
+						<p class="italic font-semibold">B.A Data Science, Applied Mathematics - Minor Computer Science</p>
+					</div>
+					<span class="font-bold">June 2027</span>
+				</div>
+				<ul class="ml-4 space-y-1 text-sm">
+					<li><strong>Courses:</strong> Adv Data Structures & Algorithms, Object Oriented Programming, Calculus III, Linear Algebra, Computer Architecture & Organization, Physics III, Discrete Structures, Convex Optimization, Ordinary Differential Equations</li>
+					<li><strong>Involvement:</strong> Honor Society Researcher, UCLA CCCP, Armenian Student Association, VP Psychology Club</li>
+				</ul>
+			</section>
+
+			<!-- Professional Experience -->
+			<section class="mb-6">
+				<h2 class="text-xl font-bold mb-3 text-base-content border-b-2 border-black pb-1">PROFESSIONAL EXPERIENCE</h2>
+				
+				<!-- Los Angeles Mission College -->
+				<div class="mb-4">
+					<div class="flex justify-between items-start mb-1">
+						<h3 class="font-bold">Los Angeles Mission College</h3>
+						<span class="text-sm">Los Angeles, CA</span>
+					</div>
+					<div class="flex justify-between items-start mb-2">
+						<p class="italic font-semibold">Programming Assistant: SWE</p>
+						<span class="italic text-sm">December 2022 - Current</span>
+					</div>
+					<ul class="ml-4 space-y-1 text-sm">
+						<li>Developed 10+ software/scripts to improve time efficiency by up to 50% for the Administrative Operations Technician.</li>
+						<li>Extracted data through VBA, automating 10+ contracts districtwide, increasing productivity, reducing time by 30%.</li>
+						<li>Leading full-stack SwiftKit navigational application targeting 500 students aimed to optimize on-campus navigation.</li>
+					</ul>
+				</div>
+
+				<!-- Stanford Action Research -->
+				<div class="mb-4">
+					<div class="flex justify-between items-start mb-1">
+						<h3 class="font-bold">Stanford Action Research</h3>
+						<span class="text-sm">Los Angeles, CA</span>
+					</div>
+					<div class="flex justify-between items-start mb-2">
+						<p class="italic font-semibold">Research Fellowship, Assistant</p>
+						<span class="italic text-sm">August 2023 - Current</span>
+					</div>
+					<ul class="ml-4 space-y-1 text-sm">
+						<li>Partnered with Stanford's Gardner Center, interviewing 50+ students on dual enrollment to identify accessibility barriers.</li>
+						<li>Synthesized over 100 interview codes: devised insight for the Los Angeles Scholars Investment Fund toward system changes.</li>
+						<li>Developed a web app for high schools to enable dual enrollment further, presented multifaceted solutions, published memo</li>
+					</ul>
+				</div>
+
+				<!-- NASA -->
+				<div class="mb-4">
+					<div class="flex justify-between items-start mb-1">
+						<h3 class="font-bold">NASA - NASA Aerospace Scholars Alumni</h3>
+						<span class="text-sm">Hampton, VA</span>
+					</div>
+					
+					<!-- Mission 3: Innovate -->
+					<div class="mb-3">
+						<div class="flex justify-between items-start mb-1">
+							<p class="italic font-semibold">Mission 3: Innovate</p>
+							<span class="italic text-sm">July 2023 - August 2023</span>
+						</div>
+						<ul class="ml-4 space-y-1 text-sm">
+							<li>Lead researcher specializing in Machine Learning to address autonomous last-mile drone delivery in Advanced Air Mobility.</li>
+							<li>Analyzed 25+ academic/NASA reports, synthesizing 30+ page research proposals presented at Langley Research Center.</li>
+							<li>Collaborated with Amazon System Design Engineer to evaluate 10 autonomy systems, guiding team analysis in Q-Learning.</li>
+						</ul>
+					</div>
+
+					<!-- Mission 2: Explore -->
+					<div class="mb-3">
+						<div class="flex justify-between items-start mb-1">
+							<p class="italic font-semibold">Mission 2: Explore</p>
+							<span class="italic text-sm">March 2023 - April 2023</span>
+						</div>
+						<ul class="ml-4 space-y-1 text-sm">
+							<li>Worked as a computer/systems research engineer with 8 members: analyzed 15 NASA systems to aid NASA's lunar projects.</li>
+							<li>Developed a knowledge base with Pykg2vec to optimize up to 51% of high-yield results and cost-efficient structures.</li>
+							<li>Combined findings to propose solutions to 10+ NASA panelists achieve higher scientific returns in future lunar projects</li>
+						</ul>
+					</div>
+
+					<!-- Mission 1: Discover -->
+					<div class="mb-3">
+						<div class="flex justify-between items-start mb-1">
+							<p class="italic font-semibold">Mission 1: Discover</p>
+							<span class="italic text-sm">December 2022 - January 2023</span>
+						</div>
+						<ul class="ml-4 space-y-1 text-sm">
+							<li>Investigated NASA's mission directorates to formulate solutions to improve current Space Technology Mission Directorate.</li>
+							<li>Analyzed 10+ NASA reports on STMD, synthesized gap analysis in research, presented to 5 NASA committee members.</li>
+							<li>Developed 5+ projects using 10+ research papers to highlight significance of previous NASA missions: VIPER, MAVEN.</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<!-- Projects -->
+			<section class="mb-6">
+				<h2 class="text-xl font-bold mb-3 text-base-content border-b-2 border-black pb-1">PROJECTS</h2>
+				
+				<!-- ORI -->
+				<div class="mb-4">
+					<div class="flex justify-between items-start mb-1">
+						<h3 class="font-bold">ORI</h3>
+						<span class="text-sm">June 2023</span>
+					</div>
+					<ul class="ml-4 space-y-1 text-sm">
+						<li>Transforming Siri as a personal consultant: streamlines daily tasks and time management optimization for Cal AI Hacks.</li>
+						<li>Collaborating with Apple Developers Program to leverage SiriKit and OpenAI's API to integrate SIRI with GPT-4 model.</li>
+						<li>Garnered over 95% positive feedback, demonstrating a significant enhancement in users' daily time efficiency by 40%.</li>
+					</ul>
+				</div>
+
+				<!-- 2Niche -->
+				<div class="mb-4">
+					<div class="flex justify-between items-start mb-1">
+						<h3 class="font-bold">2Niche</h3>
+						<span class="text-sm">April 2023</span>
+					</div>
+					<ul class="ml-4 space-y-1 text-sm">
+						<li>Created a web app tailored to travel locations based on user-specified parameters, achieving 90% positive user feedback.</li>
+						<li>Worked with 3 other members to code and deck 2Niche at LA Hacks: utilized Django and Flask with Google Maps API.</li>
+						<li>Coded both front-end and back-end; developed a new algorithm to search and sort through combinations of parameters.</li>
+					</ul>
+				</div>
+
+				<!-- Hermes Mail -->
+				<div class="mb-4">
+					<div class="flex justify-between items-start mb-1">
+						<h3 class="font-bold">Hermes Mail</h3>
+						<span class="text-sm">December 2022</span>
+					</div>
+					<ul class="ml-4 space-y-1 text-sm">
+						<li>Programmed a full-stack emailing web app, mimicking Gmail's register and email functionalities through Flask framework.</li>
+						<li>Implemented front-end design using Figma and Bootstrap to enhance UX, resulting in a 30% increase in user engagement.</li>
+						<li>Integrated with Werkzeug library for leveraged password encryption in the backend, ensuring client security and privacy.</li>
+					</ul>
+				</div>
+			</section>
+
+			<!-- Leadership -->
+			<section class="mb-6">
+				<h2 class="text-xl font-bold mb-3 text-base-content border-b-2 border-black pb-1">LEADERSHIP</h2>
+				
+				<!-- Rising Horizons Non-Profit -->
+				<div class="mb-4">
+					<div class="flex justify-between items-start mb-1">
+						<h3 class="font-bold">Rising Horizons Non-Profit</h3>
+						<span class="text-sm">July 2023</span>
+					</div>
+					<ul class="ml-4 space-y-1 text-sm">
+						<li>Leader and founder of a nonprofit aimed to increase STEM exposure to lower socioeconomic Middle Eastern students.</li>
+						<li>Organized business management and web-development strategies for Rising Horizons, aimed to reduce a 40% cost margin.</li>
+						<li>Taught lectures for 25 undergraduate students in Armenia on ML/AI; created scholarships with TCO for college students.</li>
+					</ul>
+				</div>
+
+				<!-- AI & ML Association -->
+				<div class="mb-4">
+					<div class="flex justify-between items-start mb-1">
+						<h3 class="font-bold">AI & ML Association</h3>
+						<span class="text-sm">April 2023</span>
+					</div>
+					<ul class="ml-4 space-y-1 text-sm">
+						<li>Founded and organized in collaboration with the CS Chair to enhance Machine Learning exposure for CC students.</li>
+						<li>Led weekly lessons supplementing limited ML class available districtwide, aimed at increasing student enrollment by 75%.</li>
+						<li>Partnered with UCLA's Break Through Tech AI & UCB to aid curriculum aimed to increase student satisfaction by 90%.</li>
+					</ul>
+				</div>
+			</section>
+
+			<!-- Skills -->
+			<section class="mb-6">
+				<h2 class="text-xl font-bold mb-3 text-base-content border-b-2 border-black pb-1">SKILLS</h2>
+				<div class="space-y-1 text-sm">
+					<p><strong>Skills:</strong> Python, SQL, HTML/CSS, JS, Bootstrap, Java, C++, Scikit-Learn, Numpy, Matplotlib, VBA, Excel, Pandas, Tensor</p>
+					<p><strong>Awards & Certificates:</strong> Leadership Scholarship, Harvard: CS50, Web-Development, AI Python, Stanford: ML Specialization</p>
+				</div>
+			</section>
 		</div>
 	</div>
 </Layout>
@@ -161,5 +278,33 @@ if (publications.length > 0) {
 		.shadow-lg {
 			box-shadow: none !important;
 		}
+		
+		.border-b-2 {
+			border-bottom: 2px solid black !important;
+		}
+	}
+
+	.resume-content {
+		font-family: "EB Garamond", serif;
+		line-height: 1.2;
+	}
+
+	.resume-content h1 {
+		font-family: "EB Garamond", serif;
+		font-weight: 700;
+	}
+
+	.resume-content h2 {
+		font-family: "EB Garamond", serif;
+		font-weight: 700;
+	}
+
+	.resume-content h3 {
+		font-family: "EB Garamond", serif;
+		font-weight: 700;
+	}
+
+	.resume-content ul {
+		list-style-type: disc;
 	}
 </style>

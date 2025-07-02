@@ -49,7 +49,7 @@ export const education = [
 export const skills = [
 	{
 		title: 'Programming Languages',
-		description: 'Python, R, JavaScript, C++, MATLAB',
+		description: 'Python, R, JavaScript, C Plus Plus, MATLAB',
 	},
 	{
 		title: 'Machine Learning',
