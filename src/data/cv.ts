@@ -49,15 +49,15 @@ export const education = [
 export const skills = [
 	{
 		title: 'Programming Languages',
-		description: 'Python, R, JavaScript, C Plus Plus, MATLAB',
+		description: 'Python • Java • C/C++ • SQL (PostgreSQL/MySQL) • JavaScript / TypeScript • Bash/Shell • x86/MIPS Assembly • HTML / CSS • CUDA • MATLAB',
 	},
 	{
 		title: 'Machine Learning',
-		description: 'Deep Learning, Neural Networks, Statistical Analysis, Data Mining',
+		description: 'Supervised & unsupervised models • RL • Deep learning (Python + PyTorch / Lightning) • LLM fine-tuning & bit quantization (GPTQ/AWQ) • Reinforcement & multi-agent strategy • Convex optimization (CVXPY) • Probabilistic modeling & statistical inference • Algorithms & data-structures foundations • Distributed/network-aware ML systems • AI-safety & alignment evaluation',
 	},
 	{
-		title: 'Research Tools',
-		description: 'TensorFlow, PyTorch, Jupyter, Git, LaTeX, Academic Writing',
+		title: 'Research Tools & Frameworks',
+		description: 'PyTorch / Lightning • Hugging Face Transformers & Datasets • scikit-learn • NumPy • SciPy • Pandas • Seaborn • Matplotlib • CVXPY • SQL DBs (PostgreSQL/MySQL) • Docker • Git/GitHub • GitHub Actions • JupyterLab / Notebooks • Slurm job scripting • OpenAI & Anthropic APIs • HELM eval • TensorFlow.js • D3.js • Tailwind CSS & React (basic, for personal-site work) • LaTeX / Overleaf • CUDA & Nsight profiling • Flask',
 	},
 	// {
 	// 	title: 'Experimental Techniques',

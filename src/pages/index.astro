@@ -9,29 +9,28 @@ import ResearchAreasGrid from '@/components/ui/ResearchAreasGrid.astro'
 
 const { fullName, title, institute, research_areas } = profile
 
-// Function to get consistent tag colors
+// Function to get consistent tag colors - all light cloud blue
 function getTagColor(tag: string) {
-	const colors = [
-		"badge-primary", "badge-secondary", "badge-accent", 
-		"badge-info", "badge-success", "badge-warning"
-	];
-	return colors[tag.length % colors.length];
+	return "badge-info"; // Light cloud blue color
 }
 
 // Convert skills descriptions to individual tags with consistent naming
 function skillsToTags(skillsArray: typeof skills) {
 	return skillsArray.map(skill => ({
 		title: skill.title,
-		tags: skill.description.split(', ').map(tag => {
+		tags: skill.description.split(' • ').map(tag => {
 			// Normalize tag names for consistency
 			const tagNormalization: { [key: string]: string } = {
 				'ML': 'Machine Learning',
 				'AI': 'Artificial Intelligence',
 				'JS': 'JavaScript',
 				'HTML/CSS': 'Web Development',
-				'C++': 'C Plus Plus'
+				'HTML / CSS': 'Web Development',
+				'C++': 'C Plus Plus',
+				'C/C++': 'C/C++',
+				'RL': 'Reinforcement Learning'
 			};
-			return tagNormalization[tag] || tag;
+			return tagNormalization[tag] || tag.trim();
 		})
 	}));
 }
