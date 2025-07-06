@@ -45,7 +45,44 @@ export default {
                     "error-content": "#FFFFFF",   // White text on error
                 },
             },
-            "dark",
+            {
+                dark: {
+                    // Primary colors - RH sage tones adapted for dark mode
+                    "primary": "#9FB29F",           // Slightly brighter sage green for dark backgrounds
+                    "primary-content": "#1A1A1A",   // Dark text on primary
+                    
+                    // Secondary colors - warm earth tones adapted for dark
+                    "secondary": "#B8956B",         // Brighter warm tan/gold for dark backgrounds
+                    "secondary-content": "#1A1A1A", // Dark text on secondary
+                    
+                    // Accent colors - muted blue-gray adapted for dark
+                    "accent": "#A8B5C0",           // Lighter soft blue-gray for dark backgrounds
+                    "accent-content": "#1A1A1A",   // Dark text on accent
+                    
+                    // Neutral colors - sophisticated warm grays for dark mode
+                    "neutral": "#4A453F",          // Darker warm gray
+                    "neutral-content": "#E8E4DF",  // Light text on neutral
+                    
+                    // Base colors - sophisticated dark backgrounds with warm undertones
+                    "base-100": "#1A1A1A",         // Primary background - deep charcoal
+                    "base-200": "#252520",         // Secondary background - warm dark gray
+                    "base-300": "#2F2F2A",         // Tertiary background - medium warm gray
+                    "base-content": "#E8E4DF",     // Main text color - warm off-white
+                    
+                    // Semantic colors with RH aesthetic adapted for dark
+                    "info": "#8AACB8",             // Brighter muted blue for dark backgrounds
+                    "info-content": "#1A1A1A",     // Dark text on info
+                    
+                    "success": "#9FB29F",          // Brighter sage green (same as primary)
+                    "success-content": "#1A1A1A",  // Dark text on success
+                    
+                    "warning": "#E4C8A6",          // Brighter warm beige for dark backgrounds
+                    "warning-content": "#1A1A1A",  // Dark text on warning
+                    
+                    "error": "#B68C7C",           // Brighter muted terracotta for dark backgrounds
+                    "error-content": "#1A1A1A",   // Dark text on error
+                },
+            },
             "cupcake",
             "bumblebee",
             "emerald",
