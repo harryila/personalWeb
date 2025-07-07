@@ -38,3 +38,32 @@ import {template} from  '../../settings.ts'
     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
   </svg>
 </label>
+
+<script>
+  // Custom script to handle silk/dim theme switching
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggles = document.querySelectorAll('[data-choose-theme]');
+    
+    toggles.forEach(toggle => {
+      toggle.addEventListener('change', function() {
+        const isDark = this.checked;
+        const newTheme = isDark ? 'dim' : 'silk';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+      });
+    });
+  });
+
+  // Re-initialize after Astro view transitions
+  document.addEventListener('astro:after-swap', () => {
+    const currentTheme = localStorage.getItem('theme') || 'silk';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    
+    // Update toggle state
+    const toggles = document.querySelectorAll('[data-choose-theme]');
+    toggles.forEach(toggle => {
+      toggle.checked = currentTheme === 'dim';
+    });
+  });
+</script>

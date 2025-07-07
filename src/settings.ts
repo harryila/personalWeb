@@ -53,8 +53,8 @@ export const template = {
 	website_url: 'https://harryila.github.io/personalWeb', // Update this with your actual GitHub Pages URL
 	menu_left: false,
 	transitions: true,
-	lightTheme: 'dark', // Changed: Default to dark theme first
-	darkTheme: 'light', // Changed: Switch to light theme when toggled
+	lightTheme: 'silk', // Changed: Use silk as the default light theme
+	darkTheme: 'dim', // Changed: Use dim as the dark theme (complements silk well)
 	excerptLength: 200,
 	postPerPage: 5,
     base: process.env.NODE_ENV === 'production' ? '/personalWeb' : '' // Repository name starting with /

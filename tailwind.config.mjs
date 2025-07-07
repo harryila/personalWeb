@@ -7,8 +7,11 @@ export default {
     plugins: [require("@tailwindcss/typography"), require("daisyui")],
     daisyui: {
         themes: [
-            "light",
-            "dark",
+            "silk",      // Light silk theme
+            "dim",       // Dark theme that pairs well with silk
+            "light",     // Keep original light as backup
+            "dark",      // Keep original dark as backup
+            // Other themes for the theme selector
             "cupcake",
             "bumblebee",
             "emerald",
@@ -36,10 +39,10 @@ export default {
             "night",
             "coffee",
             "winter",
-            "dim",
             "nord",
             "sunset",
         ],
     },
-    // darkMode: ['selector', '[data-theme="synthwave"]']
+    // Enable dark mode support for silk theme
+    darkMode: ['selector', '[data-theme="dim"]']
 };
