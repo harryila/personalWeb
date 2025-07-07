@@ -328,6 +328,301 @@ export default {
                     "error-content": "#1A1A1A",
                 },
             },
+            // === VIBRANT PALETTES - More saturated and eye-catching === //
+            // Vibrant Sage Palette
+            {
+                "vibrant-sage-light": {
+                    "primary": "#6B9B6B",           // Vibrant sage green
+                    "primary-content": "#FFFFFF",
+                    "secondary": "#CC8F44",         // Vibrant warm gold
+                    "secondary-content": "#FFFFFF",
+                    "accent": "#4A88A8",           // Vibrant blue-gray
+                    "accent-content": "#FFFFFF",
+                    "neutral": "#5A5650",          // Rich warm gray
+                    "neutral-content": "#FFFFFF",
+                    "base-100": "#FEFDFB",         // Crisp warm white
+                    "base-200": "#F8F5F0",         // Light cream
+                    "base-300": "#F0EBE4",         // Warm beige
+                    "base-content": "#1F1F1F",     // Sharp charcoal
+                    "info": "#4A88A8",
+                    "info-content": "#FFFFFF",
+                    "success": "#6B9B6B",
+                    "success-content": "#FFFFFF",
+                    "warning": "#E6B366",
+                    "warning-content": "#1F1F1F",
+                    "error": "#C55A5A",
+                    "error-content": "#FFFFFF",
+                },
+            },
+            {
+                "vibrant-sage-dark": {
+                    "primary": "#7BAD7B",           // Brighter vibrant sage
+                    "primary-content": "#1A1A1A",
+                    "secondary": "#DDA054",         // Brighter vibrant gold
+                    "secondary-content": "#1A1A1A",
+                    "accent": "#5A98B8",           // Brighter vibrant blue
+                    "accent-content": "#1A1A1A",
+                    "neutral": "#403C36",          // Dark rich gray
+                    "neutral-content": "#F0EBE4",
+                    "base-100": "#1C1C1C",         // Rich dark
+                    "base-200": "#282824",         // Warm dark gray
+                    "base-300": "#343430",         // Medium warm gray
+                    "base-content": "#F0EBE4",     // Warm light text
+                    "info": "#5A98B8",
+                    "info-content": "#1A1A1A",
+                    "success": "#7BAD7B",
+                    "success-content": "#1A1A1A",
+                    "warning": "#F6C376",
+                    "warning-content": "#1A1A1A",
+                    "error": "#D56A6A",
+                    "error-content": "#1A1A1A",
+                },
+            },
+            // Vibrant Blues Palette
+            {
+                "vibrant-blues-light": {
+                    "primary": "#4A88CC",           // Vibrant ocean blue
+                    "primary-content": "#FFFFFF",
+                    "secondary": "#6AA4D0",         // Vibrant sky blue
+                    "secondary-content": "#FFFFFF",
+                    "accent": "#8BB8E0",           // Vibrant light blue
+                    "accent-content": "#FFFFFF",
+                    "neutral": "#4A5A6B",          // Rich cool gray
+                    "neutral-content": "#FFFFFF",
+                    "base-100": "#FAFBFC",         // Cool crisp white
+                    "base-200": "#F2F6FA",         // Light blue-white
+                    "base-300": "#E8F0F6",         // Soft blue-gray
+                    "base-content": "#1A2A3A",     // Deep blue-charcoal
+                    "info": "#4A88CC",
+                    "info-content": "#FFFFFF",
+                    "success": "#4A88CC",
+                    "success-content": "#FFFFFF",
+                    "warning": "#E6B366",
+                    "warning-content": "#1A2A3A",
+                    "error": "#C55A5A",
+                    "error-content": "#FFFFFF",
+                },
+            },
+            {
+                "vibrant-blues-dark": {
+                    "primary": "#5A98DC",           // Brighter vibrant blue
+                    "primary-content": "#1A1A1A",
+                    "secondary": "#7AB4E0",         // Brighter sky blue
+                    "secondary-content": "#1A1A1A",
+                    "accent": "#9BC8F0",           // Brighter light blue
+                    "accent-content": "#1A1A1A",
+                    "neutral": "#354555",          // Dark cool gray
+                    "neutral-content": "#E8F0F6",
+                    "base-100": "#1A1F28",         // Deep blue-black
+                    "base-200": "#242934",         // Dark blue-gray
+                    "base-300": "#2E3544",         // Medium blue-gray
+                    "base-content": "#E8F0F6",     // Cool light text
+                    "info": "#5A98DC",
+                    "info-content": "#1A1A1A",
+                    "success": "#5A98DC",
+                    "success-content": "#1A1A1A",
+                    "warning": "#F6C376",
+                    "warning-content": "#1A1A1A",
+                    "error": "#D56A6A",
+                    "error-content": "#1A1A1A",
+                },
+            },
+            // Vibrant Earthy Palette
+            {
+                "vibrant-earthy-light": {
+                    "primary": "#B8763C",           // Vibrant terracotta
+                    "primary-content": "#FFFFFF",
+                    "secondary": "#CC8F44",         // Vibrant amber
+                    "secondary-content": "#FFFFFF",
+                    "accent": "#A67C60",           // Vibrant clay
+                    "accent-content": "#FFFFFF",
+                    "neutral": "#6B4A35",          // Rich earth brown
+                    "neutral-content": "#FFFFFF",
+                    "base-100": "#FEFAF6",         // Warm cream
+                    "base-200": "#FAF0E6",         // Light terracotta
+                    "base-300": "#F0E0CC",         // Warm tan
+                    "base-content": "#2A1A0F",     // Deep earth brown
+                    "info": "#B8763C",
+                    "info-content": "#FFFFFF",
+                    "success": "#B8763C",
+                    "success-content": "#FFFFFF",
+                    "warning": "#E6B366",
+                    "warning-content": "#2A1A0F",
+                    "error": "#C55A5A",
+                    "error-content": "#FFFFFF",
+                },
+            },
+            {
+                "vibrant-earthy-dark": {
+                    "primary": "#C8864C",           // Brighter terracotta
+                    "primary-content": "#1A1A1A",
+                    "secondary": "#DDA054",         // Brighter amber
+                    "secondary-content": "#1A1A1A",
+                    "accent": "#B68C70",           // Brighter clay
+                    "accent-content": "#1A1A1A",
+                    "neutral": "#4A3525",          // Dark earth brown
+                    "neutral-content": "#F0E0CC",
+                    "base-100": "#1F1A12",         // Deep earth black
+                    "base-200": "#2A231A",         // Dark earth brown
+                    "base-300": "#352C22",         // Medium earth brown
+                    "base-content": "#F0E0CC",     // Warm earth text
+                    "info": "#C8864C",
+                    "info-content": "#1A1A1A",
+                    "success": "#C8864C",
+                    "success-content": "#1A1A1A",
+                    "warning": "#F6C376",
+                    "warning-content": "#1A1A1A",
+                    "error": "#D56A6A",
+                    "error-content": "#1A1A1A",
+                },
+            },
+            // Vibrant Greens Palette
+            {
+                "vibrant-greens-light": {
+                    "primary": "#4A9B5A",           // Vibrant forest green
+                    "primary-content": "#FFFFFF",
+                    "secondary": "#6BB870",         // Vibrant leaf green
+                    "secondary-content": "#FFFFFF",
+                    "accent": "#7FC588",           // Vibrant mint
+                    "accent-content": "#FFFFFF",
+                    "neutral": "#4A6050",          // Rich green-gray
+                    "neutral-content": "#FFFFFF",
+                    "base-100": "#FBFEFA",         // Fresh green-white
+                    "base-200": "#F2F8F2",         // Light green
+                    "base-300": "#E6F2E6",         // Soft green
+                    "base-content": "#1A2A1F",     // Deep forest
+                    "info": "#4A9B5A",
+                    "info-content": "#FFFFFF",
+                    "success": "#4A9B5A",
+                    "success-content": "#FFFFFF",
+                    "warning": "#E6B366",
+                    "warning-content": "#1A2A1F",
+                    "error": "#C55A5A",
+                    "error-content": "#FFFFFF",
+                },
+            },
+            {
+                "vibrant-greens-dark": {
+                    "primary": "#5AAB6A",           // Brighter forest green
+                    "primary-content": "#1A1A1A",
+                    "secondary": "#7BC880",         // Brighter leaf green
+                    "secondary-content": "#1A1A1A",
+                    "accent": "#8FD598",           // Brighter mint
+                    "accent-content": "#1A1A1A",
+                    "neutral": "#354540",          // Dark green-gray
+                    "neutral-content": "#E6F2E6",
+                    "base-100": "#181D1A",         // Deep forest black
+                    "base-200": "#222822",         // Dark forest
+                    "base-300": "#2D342D",         // Medium forest
+                    "base-content": "#E6F2E6",     // Light green text
+                    "info": "#5AAB6A",
+                    "info-content": "#1A1A1A",
+                    "success": "#5AAB6A",
+                    "success-content": "#1A1A1A",
+                    "warning": "#F6C376",
+                    "warning-content": "#1A1A1A",
+                    "error": "#D56A6A",
+                    "error-content": "#1A1A1A",
+                },
+            },
+            // Vibrant Neutrals Palette
+            {
+                "vibrant-neutrals-light": {
+                    "primary": "#7A7A7A",           // Vibrant charcoal
+                    "primary-content": "#FFFFFF",
+                    "secondary": "#9A9090",         // Vibrant warm gray
+                    "secondary-content": "#FFFFFF",
+                    "accent": "#B0A8A0",           // Vibrant stone
+                    "accent-content": "#FFFFFF",
+                    "neutral": "#5A5550",          // Rich neutral
+                    "neutral-content": "#FFFFFF",
+                    "base-100": "#FDFDFC",         // Pure white
+                    "base-200": "#F8F6F4",         // Light neutral
+                    "base-300": "#F0ECE8",         // Soft neutral
+                    "base-content": "#1A1A1A",     // Sharp black
+                    "info": "#7A7A7A",
+                    "info-content": "#FFFFFF",
+                    "success": "#7A7A7A",
+                    "success-content": "#FFFFFF",
+                    "warning": "#E6B366",
+                    "warning-content": "#1A1A1A",
+                    "error": "#C55A5A",
+                    "error-content": "#FFFFFF",
+                },
+            },
+            {
+                "vibrant-neutrals-dark": {
+                    "primary": "#8A8A8A",           // Brighter charcoal
+                    "primary-content": "#1A1A1A",
+                    "secondary": "#AAA0A0",         // Brighter warm gray
+                    "secondary-content": "#1A1A1A",
+                    "accent": "#C0B8B0",           // Brighter stone
+                    "accent-content": "#1A1A1A",
+                    "neutral": "#404040",          // Dark neutral
+                    "neutral-content": "#F0ECE8",
+                    "base-100": "#1A1A1A",         // Sharp black
+                    "base-200": "#252525",         // Dark neutral
+                    "base-300": "#303030",         // Medium neutral
+                    "base-content": "#F0ECE8",     // Light neutral text
+                    "info": "#8A8A8A",
+                    "info-content": "#1A1A1A",
+                    "success": "#8A8A8A",
+                    "success-content": "#1A1A1A",
+                    "warning": "#F6C376",
+                    "warning-content": "#1A1A1A",
+                    "error": "#D56A6A",
+                    "error-content": "#1A1A1A",
+                },
+            },
+            // Vibrant Warm Palette
+            {
+                "vibrant-warm-light": {
+                    "primary": "#E6A544",           // Vibrant golden yellow
+                    "primary-content": "#1A1A1A",
+                    "secondary": "#CC8833",         // Vibrant amber
+                    "secondary-content": "#FFFFFF",
+                    "accent": "#F6C366",           // Vibrant buttercream
+                    "accent-content": "#1A1A1A",
+                    "neutral": "#8B6A35",          // Rich warm brown
+                    "neutral-content": "#FFFFFF",
+                    "base-100": "#FFFEF9",         // Warm ivory
+                    "base-200": "#FDF8ED",         // Light gold
+                    "base-300": "#F8F0E1",         // Warm cream
+                    "base-content": "#2A1F0F",     // Deep warm brown
+                    "info": "#E6A544",
+                    "info-content": "#1A1A1A",
+                    "success": "#E6A544",
+                    "success-content": "#1A1A1A",
+                    "warning": "#F6C366",
+                    "warning-content": "#1A1A1A",
+                    "error": "#C55A5A",
+                    "error-content": "#FFFFFF",
+                },
+            },
+            {
+                "vibrant-warm-dark": {
+                    "primary": "#F6B554",           // Brighter golden yellow
+                    "primary-content": "#1A1A1A",
+                    "secondary": "#DC9843",         // Brighter amber
+                    "secondary-content": "#1A1A1A",
+                    "accent": "#FFD376",           // Brighter buttercream
+                    "accent-content": "#1A1A1A",
+                    "neutral": "#5A4A25",          // Dark warm brown
+                    "neutral-content": "#F8F0E1",
+                    "base-100": "#1F1A0F",         // Deep warm black
+                    "base-200": "#2A231A",         // Dark warm brown
+                    "base-300": "#352C22",         // Medium warm brown
+                    "base-content": "#F8F0E1",     // Light warm text
+                    "info": "#F6B554",
+                    "info-content": "#1A1A1A",
+                    "success": "#F6B554",
+                    "success-content": "#1A1A1A",
+                    "warning": "#FFD376",
+                    "warning-content": "#1A1A1A",
+                    "error": "#D56A6A",
+                    "error-content": "#1A1A1A",
+                },
+            },
             // Keep existing themes for compatibility
             "cupcake",
             "bumblebee",
