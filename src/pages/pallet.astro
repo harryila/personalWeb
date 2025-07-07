@@ -17,7 +17,7 @@ import { profile } from '@/settings'
       </p>
       <div class="alert alert-info">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-        <span>Your selected palette will persist across pages and after refreshing! Choose your favorite combination.</span>
+        <span>Your selected palette will persist across pages and sync with the top-right theme toggle!</span>
       </div>
     </div>
 
@@ -276,13 +276,14 @@ import { profile } from '@/settings'
     <div class="alert alert-success mb-8">
       <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
       <div>
-        <h4 class="font-bold">Enhanced Palette Persistence:</h4>
+        <h4 class="font-bold">Enhanced Palette & Global Theme Sync:</h4>
         <ol class="list-decimal list-inside mt-2 space-y-1">
           <li>Click "Apply [Palette Name] Palette" to activate a color scheme</li>
           <li>Use the light/dark toggle to switch between modes for that palette</li>
-          <li>Your selection will persist when navigating to other pages</li>
-          <li>Refreshing the page will maintain your chosen palette</li>
-          <li>The palette will remain active until you select a different one!</li>
+          <li>The top-right theme toggle will sync with your palette selection</li>
+          <li>Changing the main theme toggle will update all palette toggles</li>
+          <li>Your selection persists when navigating to other pages</li>
+          <li>All theme toggles work together seamlessly!</li>
         </ol>
       </div>
     </div>
@@ -290,21 +291,32 @@ import { profile } from '@/settings'
 </Layout>
 
 <script>
-// Enhanced palette switching with persistence
-document.addEventListener('DOMContentLoaded', function() {
+// Enhanced palette switching with global theme sync
+function initializePalettePage() {
   // Initialize page with current saved palette state
   initializePaletteState();
   
   // Handle palette buttons
   document.querySelectorAll('.palette-btn').forEach(button => {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function(this: HTMLButtonElement) {
       const lightTheme = this.getAttribute('data-light-theme');
       const darkTheme = this.getAttribute('data-dark-theme');
+      
+      if (!lightTheme || !darkTheme) return;
       
       // Start with light mode when selecting new palette
       const isDarkMode = false;
       
-      // Dispatch palette change event for persistence
+      // Save palette selection
+      localStorage.setItem('selectedLightTheme', lightTheme);
+      localStorage.setItem('selectedDarkTheme', darkTheme);
+      localStorage.setItem('isDarkMode', isDarkMode.toString());
+      
+      // Apply theme immediately
+      document.documentElement.setAttribute('data-theme', lightTheme);
+      localStorage.setItem('theme', lightTheme);
+      
+      // Dispatch palette change event for persistence and main toggle sync
       window.dispatchEvent(new CustomEvent('paletteChanged', {
         detail: { lightTheme, darkTheme, isDarkMode }
       }));
@@ -313,29 +325,55 @@ document.addEventListener('DOMContentLoaded', function() {
       updateToggleStates(lightTheme, darkTheme, isDarkMode);
       
       // Visual feedback
-      this.classList.add('btn-success');
-      setTimeout(() => this.classList.remove('btn-success'), 1000);
+      (this as HTMLButtonElement).classList.add('btn-success');
+      setTimeout(() => (this as HTMLButtonElement).classList.remove('btn-success'), 1000);
     });
   });
 
   // Handle individual theme toggles
   document.querySelectorAll('.theme-toggle').forEach(toggle => {
-    toggle.addEventListener('change', function() {
+    const inputToggle = toggle as HTMLInputElement;
+    inputToggle.addEventListener('change', function(this: HTMLInputElement) {
       const lightTheme = this.getAttribute('data-light-theme');
       const darkTheme = this.getAttribute('data-dark-theme');
       const isDarkMode = this.checked;
       
-      // Dispatch mode toggle event for persistence
+      if (!lightTheme || !darkTheme) return;
+      
+      // Save state
+      localStorage.setItem('isDarkMode', isDarkMode.toString());
+      localStorage.setItem('selectedLightTheme', lightTheme);
+      localStorage.setItem('selectedDarkTheme', darkTheme);
+      
+      // Apply theme immediately
+      const newTheme = isDarkMode ? darkTheme : lightTheme;
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      // Dispatch mode toggle event for main toggle sync
       window.dispatchEvent(new CustomEvent('modeToggled', {
-        detail: { isDarkMode }
+        detail: { isDarkMode, lightTheme, darkTheme }
       }));
       
       // Update other toggles of the same palette to match
-      document.querySelectorAll(`.theme-toggle[data-light-theme="${lightTheme}"]`).forEach(otherToggle => {
-        if (otherToggle !== this) {
-          otherToggle.checked = isDarkMode;
+      document.querySelectorAll(`.theme-toggle[data-light-theme="${lightTheme}"][data-dark-theme="${darkTheme}"]`).forEach(otherToggle => {
+        const otherInputToggle = otherToggle as HTMLInputElement;
+        if (otherInputToggle !== this) {
+          otherInputToggle.checked = isDarkMode;
         }
       });
+    });
+  });
+
+  // Listen for main toggle changes to update palette toggles
+  window.addEventListener('mainToggleChanged', function(event) {
+    const customEvent = event as CustomEvent;
+    const { isDarkMode, lightTheme, darkTheme } = customEvent.detail;
+    
+    // Update all toggles for the active palette
+    document.querySelectorAll(`.theme-toggle[data-light-theme="${lightTheme}"][data-dark-theme="${darkTheme}"]`).forEach(toggle => {
+      const inputToggle = toggle as HTMLInputElement;
+      inputToggle.checked = isDarkMode;
     });
   });
 
@@ -355,23 +393,22 @@ document.addEventListener('DOMContentLoaded', function() {
       );
       if (activeButton) {
         activeButton.classList.add('btn-active');
-        activeButton.textContent = activeButton.textContent.replace('Apply', 'Active:');
+        activeButton.textContent = activeButton.textContent?.replace('Apply', 'Active:') || 'Active';
       }
     }
   }
   
-  function updateToggleStates(lightTheme, darkTheme, isDarkMode) {
+  function updateToggleStates(lightTheme: string, darkTheme: string, isDarkMode: boolean) {
     // Update all toggles for this palette
-    document.querySelectorAll(`.theme-toggle[data-light-theme="${lightTheme}"]`).forEach(toggle => {
-      if (toggle.getAttribute('data-dark-theme') === darkTheme) {
-        toggle.checked = isDarkMode;
-      }
+    document.querySelectorAll(`.theme-toggle[data-light-theme="${lightTheme}"][data-dark-theme="${darkTheme}"]`).forEach(toggle => {
+      const inputToggle = toggle as HTMLInputElement;
+      inputToggle.checked = isDarkMode;
     });
     
     // Reset all palette buttons
     document.querySelectorAll('.palette-btn').forEach(btn => {
       btn.classList.remove('btn-active', 'btn-success');
-      btn.textContent = btn.textContent.replace('Active:', 'Apply');
+      btn.textContent = btn.textContent?.replace('Active:', 'Apply') || 'Apply';
     });
     
     // Highlight active palette button
@@ -380,10 +417,16 @@ document.addEventListener('DOMContentLoaded', function() {
     );
     if (activeButton) {
       activeButton.classList.add('btn-active');
-      activeButton.textContent = activeButton.textContent.replace('Apply', 'Active:');
+      activeButton.textContent = activeButton.textContent?.replace('Apply', 'Active:') || 'Active';
     }
   }
-});
+}
+
+// Initialize on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', initializePalettePage);
+
+// Re-initialize after page transitions
+document.addEventListener('astro:after-swap', initializePalettePage);
 </script>
 
 <style>
