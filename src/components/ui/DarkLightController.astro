@@ -7,7 +7,7 @@ import {template} from  '../../settings.ts'
     type="checkbox"
     value={template.darkTheme}
     class="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1 main-theme-toggle"
-    data-choose-theme
+    checked
 />
   <svg
     class="stroke-base-100 fill-base-100 col-start-1 row-start-1"
@@ -39,91 +39,28 @@ import {template} from  '../../settings.ts'
   </svg>
 </label>
 
-<script>
-  // Enhanced main theme toggle to work with palette persistence
-  function initializeDarkLightController() {
-    const mainToggle = document.querySelector('.main-theme-toggle') as HTMLInputElement;
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.querySelector('.main-theme-toggle');
+    if (!toggle) return;
+
+    // Initialize toggle state - start with dark mode (checked = dark)
+    const savedIsDarkMode = localStorage.getItem('isDarkMode');
+    const isDarkMode = savedIsDarkMode === null ? true : savedIsDarkMode === 'true';
     
-    if (!mainToggle) return;
-    
-    // Initialize main toggle state
-    initializeMainToggleState();
-    
-    // Handle main toggle changes
-    mainToggle.addEventListener('change', function(this: HTMLInputElement) {
+    toggle.checked = isDarkMode;
+
+    // Handle toggle changes
+    toggle.addEventListener('change', function() {
       const isDarkMode = this.checked;
       
-      // Check if user has a selected palette
-      const selectedLightTheme = localStorage.getItem('selectedLightTheme');
-      const selectedDarkTheme = localStorage.getItem('selectedDarkTheme');
-      
-      // Save the dark mode preference
+      // Save preference
       localStorage.setItem('isDarkMode', isDarkMode.toString());
       
-      if (selectedLightTheme && selectedDarkTheme) {
-        // Apply the palette theme with new mode
-        const newTheme = isDarkMode ? selectedDarkTheme : selectedLightTheme;
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        
-        // Notify palette page to update its toggles
-        window.dispatchEvent(new CustomEvent('mainToggleChanged', {
-          detail: { isDarkMode, lightTheme: selectedLightTheme, darkTheme: selectedDarkTheme }
-        }));
-      } else {
-        // Use default themes - set default palette
-        const defaultLight = 'light';
-        const defaultDark = 'dark';
-        localStorage.setItem('selectedLightTheme', defaultLight);
-        localStorage.setItem('selectedDarkTheme', defaultDark);
-        
-        const newTheme = isDarkMode ? defaultDark : defaultLight;
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        
-        // Notify palette page
-        window.dispatchEvent(new CustomEvent('mainToggleChanged', {
-          detail: { isDarkMode, lightTheme: defaultLight, darkTheme: defaultDark }
-        }));
-      }
+      // Emit event for theme system
+      window.dispatchEvent(new CustomEvent('themeToggled', {
+        detail: { isDarkMode }
+      }));
     });
-    
-    // Listen for palette theme changes to update main toggle
-    window.addEventListener('paletteThemeChanged', function(event) {
-      const customEvent = event as CustomEvent;
-      const { isDarkMode } = customEvent.detail;
-      if (mainToggle.checked !== isDarkMode) {
-        mainToggle.checked = isDarkMode;
-      }
-    });
-    
-    function initializeMainToggleState() {
-      const isDarkMode = localStorage.getItem('isDarkMode') === 'true';
-      const selectedLightTheme = localStorage.getItem('selectedLightTheme');
-      const selectedDarkTheme = localStorage.getItem('selectedDarkTheme');
-      
-      // Set toggle state based on saved preference
-      mainToggle.checked = isDarkMode;
-      
-      // Apply correct theme if we have a saved palette
-      if (selectedLightTheme && selectedDarkTheme) {
-        const currentTheme = isDarkMode ? selectedDarkTheme : selectedLightTheme;
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        localStorage.setItem('theme', currentTheme);
-      } else {
-        // Set defaults
-        localStorage.setItem('selectedLightTheme', 'light');
-        localStorage.setItem('selectedDarkTheme', 'dark');
-        const currentTheme = isDarkMode ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        localStorage.setItem('theme', currentTheme);
-      }
-    }
-  }
-  
-  // Initialize on DOMContentLoaded
-  document.addEventListener('DOMContentLoaded', initializeDarkLightController);
-  
-  // Re-initialize after page transitions
-  document.addEventListener('astro:after-swap', initializeDarkLightController);
+  });
 </script>

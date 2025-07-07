@@ -45,99 +45,38 @@ const { title, description, image } = Astro.props
 <meta property='twitter:description' content={description} />
 <meta property='twitter:image' content={new URL(image, Astro.url)} />
 
-<!-- Enhanced Theme System with Palette Persistence -->
+<!-- Silk Theme System - Starts with Dark Mode -->
 <script is:inline define:vars={{lightTheme: template.lightTheme, darkTheme: template.darkTheme}}>
-  // Enhanced theme management for palette persistence
-  function getPaletteTheme() {
-    // Check if user has selected a palette theme
-    const selectedLightTheme = localStorage.getItem('selectedLightTheme');
-    const selectedDarkTheme = localStorage.getItem('selectedDarkTheme');
-    const isDarkMode = localStorage.getItem('isDarkMode') === 'true';
-    
-    // If palette themes are selected, use them
-    if (selectedLightTheme && selectedDarkTheme) {
-      return isDarkMode ? selectedDarkTheme : selectedLightTheme;
+  // Simple theme management - defaults to dark mode
+  function getTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      return savedTheme;
     }
     
-    // Otherwise, fall back to default theme based on dark mode preference
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme) {
-      return currentTheme;
+    // Default to dark mode as requested
+    const isDarkMode = localStorage.getItem('isDarkMode');
+    if (isDarkMode === null) {
+      // First visit - default to dark mode
+      localStorage.setItem('isDarkMode', 'true');
+      return darkTheme;
     }
     
-    // Final fallback - check if dark mode is preferred
-    return isDarkMode ? darkTheme : lightTheme;
+    return isDarkMode === 'true' ? darkTheme : lightTheme;
   }
 
   // Apply theme immediately to prevent flash
-  const currentTheme = getPaletteTheme();
-  document.documentElement.setAttribute('data-theme', currentTheme);
+  const theme = getTheme();
+  document.documentElement.setAttribute('data-theme', theme);
 
-  // Save current theme to localStorage for consistency
-  localStorage.setItem('theme', currentTheme);
-
-  // Re-apply theme after navigation
-  document.addEventListener('astro:after-swap', () => {
-    const theme = getPaletteTheme();
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  });
-
-  // Listen for palette changes from palette tester
-  window.addEventListener('paletteChanged', (event) => {
-    const customEvent = event;
-    const { lightTheme, darkTheme, isDarkMode } = customEvent.detail;
-    
-    // Save palette selection
-    localStorage.setItem('selectedLightTheme', lightTheme);
-    localStorage.setItem('selectedDarkTheme', darkTheme);
-    localStorage.setItem('isDarkMode', isDarkMode.toString());
-    
-    // Apply the appropriate theme
-    const newTheme = isDarkMode ? darkTheme : lightTheme;
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-  });
-
-  // Listen for mode toggle (light/dark within selected palette)
-  window.addEventListener('modeToggled', (event) => {
-    const customEvent = event;
-    const { isDarkMode } = customEvent.detail;
-    const selectedLightTheme = localStorage.getItem('selectedLightTheme');
-    const selectedDarkTheme = localStorage.getItem('selectedDarkTheme');
-    
-    if (selectedLightTheme && selectedDarkTheme) {
-      localStorage.setItem('isDarkMode', isDarkMode.toString());
-      const newTheme = isDarkMode ? selectedDarkTheme : selectedLightTheme;
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-    } else {
-      // Handle default theme toggle
-      const newTheme = isDarkMode ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      localStorage.setItem('isDarkMode', isDarkMode.toString());
-    }
-  });
-
-  // Listen for main toggle changes to apply theme
-  window.addEventListener('mainToggleChanged', (event) => {
-    const customEvent = event;
-    const { isDarkMode, lightTheme, darkTheme } = customEvent.detail;
-    
-    // Apply the theme immediately
-    const newTheme = isDarkMode ? darkTheme : lightTheme;
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    localStorage.setItem('isDarkMode', isDarkMode.toString());
-  });
-
-  // Listen for theme changes from main toggle (for backwards compatibility)
+  // Listen for theme changes from the toggle
   window.addEventListener('themeToggled', (event) => {
-    const { isDarkMode, theme } = event.detail;
-    // Theme is already applied by the main toggle, just ensure consistency
+    const { isDarkMode } = event.detail;
+    const newTheme = isDarkMode ? darkTheme : lightTheme;
+    
+    localStorage.setItem('theme', newTheme);
     localStorage.setItem('isDarkMode', isDarkMode.toString());
-    localStorage.setItem('theme', theme);
+    document.documentElement.setAttribute('data-theme', newTheme);
   });
 </script>
 

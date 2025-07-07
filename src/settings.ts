@@ -53,8 +53,8 @@ export const template = {
 	website_url: 'https://harryila.github.io/personalWeb', // Update this with your actual GitHub Pages URL
 	menu_left: false,
 	transitions: true,
-	lightTheme: 'light', // Fixed: Should be 'light' not 'dark'
-	darkTheme: 'dark',
+	lightTheme: 'silk-light',
+	darkTheme: 'silk-dark',
 	excerptLength: 200,
 	postPerPage: 5,
     base: process.env.NODE_ENV === 'production' ? '/personalWeb' : '' // Repository name starting with /
