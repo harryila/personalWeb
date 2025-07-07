@@ -1097,6 +1097,63 @@ export default {
             "dim",
             "nord",
             "sunset",
+            // === CREATIVE PALETTES - Unique and artistic themes === //
+            // DaisyUI Modern Palette - Based on contemporary daisyUI design philosophy
+            {
+                "daisy-modern-light": {
+                    "primary": "#6366f1",           // Modern indigo - contemporary
+                    "primary-content": "#FFFFFF",
+                    "secondary": "#8b5cf6",         // Rich purple
+                    "secondary-content": "#FFFFFF",
+                    "accent": "#06b6d4",           // Vibrant cyan
+                    "accent-content": "#FFFFFF",
+                    "neutral": "#374151",          // Professional slate
+                    "neutral-content": "#FFFFFF",
+                    "base-100": "#ffffff",         // Pure white base
+                    "base-200": "#f9fafb",         // Clean light gray
+                    "base-300": "#e5e7eb",         // Subtle gray
+                    "base-content": "#1f2937",     // Sharp charcoal text
+                    "info": "#3b82f6",            // Modern blue
+                    "info-content": "#FFFFFF",
+                    "success": "#10b981",          // Fresh green
+                    "success-content": "#FFFFFF",
+                    "warning": "#f59e0b",          // Vibrant amber
+                    "warning-content": "#FFFFFF",
+                    "error": "#ef4444",           // Modern red
+                    "error-content": "#FFFFFF",
+                },
+            },
+            {
+                "daisy-modern-dark": {
+                    // MODERN DARK MODE - Contemporary design with vibrant accents
+                    "primary": "#818cf8",           // Bright modern indigo - distinctive
+                    "primary-content": "#1e1b4b",
+                    
+                    "secondary": "#a78bfa",         // Bright purple
+                    "secondary-content": "#4c1d95",
+                    
+                    "accent": "#22d3ee",           // Electric cyan
+                    "accent-content": "#164e63",
+                    
+                    "neutral": "#4b5563",          // Modern neutral
+                    "neutral-content": "#f9fafb",
+                    
+                    // Unique modern dark backgrounds
+                    "base-100": "#111827",         // Deep modern charcoal (UNIQUE)
+                    "base-200": "#1f2937",         // Dark modern slate (UNIQUE)
+                    "base-300": "#374151",         // Medium modern gray (UNIQUE)
+                    "base-content": "#f9fafb",     // Clean light text (UNIQUE)
+                    
+                    "info": "#60a5fa",
+                    "info-content": "#1e3a8a",
+                    "success": "#34d399",
+                    "success-content": "#064e3b",
+                    "warning": "#fbbf24",
+                    "warning-content": "#92400e",
+                    "error": "#f87171",
+                    "error-content": "#7f1d1d",
+                },
+            },
         ],
     },
     // darkMode: ['selector', '[data-theme="synthwave"]']
