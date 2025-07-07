@@ -1066,6 +1066,68 @@ export default {
                     "error-content": "#FFFFFF",
                 },
             },
+            // Custom DaisyUI Inspired Palette
+            {
+                "custom-daisy-light": {
+                    // CUSTOM LIGHT MODE - Inspired by the DaisyUI theme generator
+                    "primary": "#570df8",           // Vibrant purple
+                    "primary-content": "#FFFFFF",
+                    
+                    "secondary": "#f000b8",         // Bright magenta
+                    "secondary-content": "#FFFFFF",
+                    
+                    "accent": "#37cdbe",           // Turquoise accent
+                    "accent-content": "#FFFFFF",
+                    
+                    "neutral": "#3d4451",          // Dark gray-blue
+                    "neutral-content": "#FFFFFF",
+                    
+                    "base-100": "#ffffff",         // Pure white
+                    "base-200": "#f2f2f2",         // Light gray
+                    "base-300": "#e5e5e5",         // Medium gray
+                    "base-content": "#1f2937",     // Dark text
+                    
+                    "info": "#3abff8",             // Bright blue
+                    "info-content": "#002B3D",
+                    "success": "#36d399",          // Green
+                    "success-content": "#003320",
+                    "warning": "#fbbd23",          // Yellow
+                    "warning-content": "#382800",
+                    "error": "#f87272",            // Red
+                    "error-content": "#470000",
+                },
+            },
+            {
+                "custom-daisy-dark": {
+                    // CUSTOM DARK MODE - Neon cyberpunk inspired
+                    "primary": "#7c3aed",           // Deep purple
+                    "primary-content": "#FFFFFF",
+                    
+                    "secondary": "#e11d8f",         // Deep magenta
+                    "secondary-content": "#FFFFFF",
+                    
+                    "accent": "#2dd4bf",           // Bright turquoise
+                    "accent-content": "#003328",
+                    
+                    "neutral": "#1e293b",          // Deep slate
+                    "neutral-content": "#e2e8f0",
+                    
+                    // Unique dark backgrounds
+                    "base-100": "#0f172a",         // Deep dark blue
+                    "base-200": "#1e293b",         // Darker slate
+                    "base-300": "#334155",         // Medium slate
+                    "base-content": "#e2e8f0",     // Light gray text
+                    
+                    "info": "#38bdf8",
+                    "info-content": "#001322",
+                    "success": "#34d399",
+                    "success-content": "#001f13",
+                    "warning": "#fbbf24",
+                    "warning-content": "#1f1200",
+                    "error": "#fb7185",
+                    "error-content": "#FFFFFF",
+                },
+            },
             // Keep existing themes for compatibility
             "cupcake",
             "bumblebee",
