@@ -6,7 +6,7 @@ import {template} from  '../../settings.ts'
   <input
     type="checkbox"
     value={template.darkTheme}
-    class="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1"
+    class="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1 main-theme-toggle"
     data-choose-theme
 />
   <svg
@@ -38,3 +38,80 @@ import {template} from  '../../settings.ts'
     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
   </svg>
 </label>
+
+<script>
+  // Enhanced main theme toggle to work with palette persistence
+  document.addEventListener('DOMContentLoaded', function() {
+    const mainToggle = document.querySelector('.main-theme-toggle');
+    
+    if (mainToggle) {
+      // Initialize main toggle state
+      initializeMainToggle();
+      
+      // Handle main toggle changes
+      mainToggle.addEventListener('change', function() {
+        const isDarkMode = this.checked;
+        
+        // Check if user has a selected palette
+        const selectedLightTheme = localStorage.getItem('selectedLightTheme');
+        const selectedDarkTheme = localStorage.getItem('selectedDarkTheme');
+        
+        if (selectedLightTheme && selectedDarkTheme) {
+          // Use selected palette
+          window.dispatchEvent(new CustomEvent('modeToggled', {
+            detail: { isDarkMode }
+          }));
+        } else {
+          // Use default themes
+          const newTheme = isDarkMode ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+        }
+      });
+      
+      // Listen for palette changes to update main toggle
+      window.addEventListener('paletteChanged', function(event) {
+        const { isDarkMode } = event.detail;
+        mainToggle.checked = isDarkMode;
+      });
+      
+      window.addEventListener('modeToggled', function(event) {
+        const { isDarkMode } = event.detail;
+        mainToggle.checked = isDarkMode;
+      });
+    }
+    
+    function initializeMainToggle() {
+      // Set main toggle based on current state
+      const selectedLightTheme = localStorage.getItem('selectedLightTheme');
+      const selectedDarkTheme = localStorage.getItem('selectedDarkTheme');
+      const isDarkMode = localStorage.getItem('isDarkMode') === 'true';
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      
+      if (selectedLightTheme && selectedDarkTheme) {
+        // Use palette preference
+        mainToggle.checked = isDarkMode;
+      } else {
+        // Use theme name to determine state
+        mainToggle.checked = currentTheme === 'dark';
+      }
+    }
+  });
+  
+  // Re-initialize after page transitions
+  document.addEventListener('astro:after-swap', function() {
+    const mainToggle = document.querySelector('.main-theme-toggle');
+    if (mainToggle) {
+      const selectedLightTheme = localStorage.getItem('selectedLightTheme');
+      const selectedDarkTheme = localStorage.getItem('selectedDarkTheme');
+      const isDarkMode = localStorage.getItem('isDarkMode') === 'true';
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      
+      if (selectedLightTheme && selectedDarkTheme) {
+        mainToggle.checked = isDarkMode;
+      } else {
+        mainToggle.checked = currentTheme === 'dark';
+      }
+    }
+  });
+</script>

@@ -45,21 +45,65 @@ const { title, description, image } = Astro.props
 <meta property='twitter:description' content={description} />
 <meta property='twitter:image' content={new URL(image, Astro.url)} />
 
-<!-- Theme selector scripts -->
+<!-- Enhanced Theme System with Palette Persistence -->
 <script is:inline define:vars={{lightTheme: template.lightTheme}}>
-  // Get stored theme or default to configured light theme
-  const getStoredTheme = () => {
+  // Enhanced theme management for palette persistence
+  function getPaletteTheme() {
+    // Check if user has selected a palette theme
+    const selectedLightTheme = localStorage.getItem('selectedLightTheme');
+    const selectedDarkTheme = localStorage.getItem('selectedDarkTheme');
+    const isDarkMode = localStorage.getItem('isDarkMode') === 'true';
+    
+    // If palette themes are selected, use them
+    if (selectedLightTheme && selectedDarkTheme) {
+      return isDarkMode ? selectedDarkTheme : selectedLightTheme;
+    }
+    
+    // Otherwise, fall back to default theme or stored theme
     return localStorage.getItem('theme') || lightTheme;
   }
 
   // Apply theme immediately to prevent flash
-  const theme = getStoredTheme();
-  document.documentElement.setAttribute('data-theme', theme);
+  const currentTheme = getPaletteTheme();
+  document.documentElement.setAttribute('data-theme', currentTheme);
+
+  // Save current theme to localStorage for consistency
+  localStorage.setItem('theme', currentTheme);
 
   // Re-apply theme after navigation
   document.addEventListener('astro:after-swap', () => {
-    const currentTheme = getStoredTheme();
-    document.documentElement.setAttribute('data-theme', currentTheme);
+    const theme = getPaletteTheme();
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  });
+
+  // Listen for palette changes from palette tester
+  window.addEventListener('paletteChanged', (event) => {
+    const { lightTheme, darkTheme, isDarkMode } = event.detail;
+    
+    // Save palette selection
+    localStorage.setItem('selectedLightTheme', lightTheme);
+    localStorage.setItem('selectedDarkTheme', darkTheme);
+    localStorage.setItem('isDarkMode', isDarkMode);
+    
+    // Apply the appropriate theme
+    const newTheme = isDarkMode ? darkTheme : lightTheme;
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
+
+  // Listen for mode toggle (light/dark within selected palette)
+  window.addEventListener('modeToggled', (event) => {
+    const { isDarkMode } = event.detail;
+    const selectedLightTheme = localStorage.getItem('selectedLightTheme');
+    const selectedDarkTheme = localStorage.getItem('selectedDarkTheme');
+    
+    if (selectedLightTheme && selectedDarkTheme) {
+      localStorage.setItem('isDarkMode', isDarkMode);
+      const newTheme = isDarkMode ? selectedDarkTheme : selectedLightTheme;
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
   });
 </script>
 <script>
@@ -68,6 +112,6 @@ const { title, description, image } = Astro.props
 
   // Re-initialize after Astro view transitions
   document.addEventListener('astro:after-swap', () => {
-    themeChange(false); // false = don't persist to localStorage
+    themeChange(false); // false = don't persist to localStorage (we handle this ourselves)
   });
 </script>

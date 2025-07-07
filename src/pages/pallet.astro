@@ -17,7 +17,7 @@ import { profile } from '@/settings'
       </p>
       <div class="alert alert-info">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-        <span>This page is for testing purposes only. Choose your favorite palette and we'll implement it as your main theme!</span>
+        <span>Your selected palette will persist across pages and after refreshing! Choose your favorite combination.</span>
       </div>
     </div>
 
@@ -273,16 +273,16 @@ import { profile } from '@/settings'
     </div>
 
     <!-- Instructions -->
-    <div class="alert alert-warning mb-8">
-      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.96-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+    <div class="alert alert-success mb-8">
+      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
       <div>
-        <h4 class="font-bold">How to Use This Tester:</h4>
+        <h4 class="font-bold">Enhanced Palette Persistence:</h4>
         <ol class="list-decimal list-inside mt-2 space-y-1">
           <li>Click "Apply [Palette Name] Palette" to activate a color scheme</li>
           <li>Use the light/dark toggle to switch between modes for that palette</li>
-          <li>Navigate around the site to see how the palette affects different pages</li>
-          <li>Take note of which palette you prefer for both light and dark modes</li>
-          <li>Let me know your favorite and I'll make it your permanent theme!</li>
+          <li>Your selection will persist when navigating to other pages</li>
+          <li>Refreshing the page will maintain your chosen palette</li>
+          <li>The palette will remain active until you select a different one!</li>
         </ol>
       </div>
     </div>
@@ -290,25 +290,31 @@ import { profile } from '@/settings'
 </Layout>
 
 <script>
-// Palette switching functionality
+// Enhanced palette switching with persistence
 document.addEventListener('DOMContentLoaded', function() {
+  // Initialize page with current saved palette state
+  initializePaletteState();
+  
   // Handle palette buttons
   document.querySelectorAll('.palette-btn').forEach(button => {
     button.addEventListener('click', function() {
       const lightTheme = this.getAttribute('data-light-theme');
       const darkTheme = this.getAttribute('data-dark-theme');
       
-      // Apply light theme by default
-      document.documentElement.setAttribute('data-theme', lightTheme);
+      // Start with light mode when selecting new palette
+      const isDarkMode = false;
       
-      // Update all toggles for this palette set
-      document.querySelectorAll(`.theme-toggle[data-light-theme="${lightTheme}"]`).forEach(toggle => {
-        toggle.checked = false; // Start with light mode
-      });
+      // Dispatch palette change event for persistence
+      window.dispatchEvent(new CustomEvent('paletteChanged', {
+        detail: { lightTheme, darkTheme, isDarkMode }
+      }));
       
-      // Store current palette info
-      localStorage.setItem('currentLightTheme', lightTheme);
-      localStorage.setItem('currentDarkTheme', darkTheme);
+      // Update all toggles for this palette set to light mode
+      updateToggleStates(lightTheme, darkTheme, isDarkMode);
+      
+      // Visual feedback
+      this.classList.add('btn-success');
+      setTimeout(() => this.classList.remove('btn-success'), 1000);
     });
   });
 
@@ -317,36 +323,71 @@ document.addEventListener('DOMContentLoaded', function() {
     toggle.addEventListener('change', function() {
       const lightTheme = this.getAttribute('data-light-theme');
       const darkTheme = this.getAttribute('data-dark-theme');
+      const isDarkMode = this.checked;
       
-      if (this.checked) {
-        // Switch to dark theme
-        document.documentElement.setAttribute('data-theme', darkTheme);
-      } else {
-        // Switch to light theme
-        document.documentElement.setAttribute('data-theme', lightTheme);
-      }
+      // Dispatch mode toggle event for persistence
+      window.dispatchEvent(new CustomEvent('modeToggled', {
+        detail: { isDarkMode }
+      }));
+      
+      // Update other toggles of the same palette to match
+      document.querySelectorAll(`.theme-toggle[data-light-theme="${lightTheme}"]`).forEach(otherToggle => {
+        if (otherToggle !== this) {
+          otherToggle.checked = isDarkMode;
+        }
+      });
     });
   });
 
-  // Set initial state based on current theme
-  const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-  
-  // Update toggles to match current theme
-  document.querySelectorAll('.theme-toggle').forEach(toggle => {
-    const lightTheme = toggle.getAttribute('data-light-theme');
-    const darkTheme = toggle.getAttribute('data-dark-theme');
+  function initializePaletteState() {
+    // Get current saved palette state
+    const selectedLightTheme = localStorage.getItem('selectedLightTheme');
+    const selectedDarkTheme = localStorage.getItem('selectedDarkTheme');
+    const isDarkMode = localStorage.getItem('isDarkMode') === 'true';
     
-    if (currentTheme === darkTheme) {
-      toggle.checked = true;
-    } else if (currentTheme === lightTheme) {
-      toggle.checked = false;
+    if (selectedLightTheme && selectedDarkTheme) {
+      // Update toggle states to match saved palette
+      updateToggleStates(selectedLightTheme, selectedDarkTheme, isDarkMode);
+      
+      // Highlight the active palette button
+      const activeButton = document.querySelector(
+        `.palette-btn[data-light-theme="${selectedLightTheme}"][data-dark-theme="${selectedDarkTheme}"]`
+      );
+      if (activeButton) {
+        activeButton.classList.add('btn-active');
+        activeButton.textContent = activeButton.textContent.replace('Apply', 'Active:');
+      }
     }
-  });
+  }
+  
+  function updateToggleStates(lightTheme, darkTheme, isDarkMode) {
+    // Update all toggles for this palette
+    document.querySelectorAll(`.theme-toggle[data-light-theme="${lightTheme}"]`).forEach(toggle => {
+      if (toggle.getAttribute('data-dark-theme') === darkTheme) {
+        toggle.checked = isDarkMode;
+      }
+    });
+    
+    // Reset all palette buttons
+    document.querySelectorAll('.palette-btn').forEach(btn => {
+      btn.classList.remove('btn-active', 'btn-success');
+      btn.textContent = btn.textContent.replace('Active:', 'Apply');
+    });
+    
+    // Highlight active palette button
+    const activeButton = document.querySelector(
+      `.palette-btn[data-light-theme="${lightTheme}"][data-dark-theme="${darkTheme}"]`
+    );
+    if (activeButton) {
+      activeButton.classList.add('btn-active');
+      activeButton.textContent = activeButton.textContent.replace('Apply', 'Active:');
+    }
+  }
 });
 </script>
 
 <style>
-/* Custom styles for the palette tester */
+/* Enhanced styles for the palette tester */
 .palette-btn {
   transition: all 0.3s ease;
 }
@@ -354,6 +395,11 @@ document.addEventListener('DOMContentLoaded', function() {
 .palette-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.palette-btn.btn-active {
+  border: 2px solid oklch(var(--s));
+  background: oklch(var(--s) / 0.1);
 }
 
 .card {
@@ -378,5 +424,16 @@ document.addEventListener('DOMContentLoaded', function() {
 .w-8.h-8.rounded-full:hover {
   transform: scale(1.1);
   border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Success animation */
+@keyframes pulse-success {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.btn-success {
+  animation: pulse-success 0.6s ease-out;
 }
 </style>
