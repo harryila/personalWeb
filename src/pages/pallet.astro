@@ -1,0 +1,382 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { profile } from '@/settings'
+---
+
+<Layout 
+  title="Color Palette Tester" 
+  description="Test different RH-inspired color palettes for the website"
+  image="/images/default-image.jpg"
+>
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold mb-4">RH Color Palette Tester</h1>
+      <p class="text-lg opacity-80 mb-6">
+        Experiment with different Restoration Hardware-inspired color schemes. 
+        Click a palette button to apply it, then use the toggle to switch between light and dark modes.
+      </p>
+      <div class="alert alert-info">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <span>This page is for testing purposes only. Choose your favorite palette and we'll implement it as your main theme!</span>
+      </div>
+    </div>
+
+    <!-- Palette Selection Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      
+      <!-- Current RH Sage Palette -->
+      <div class="card bg-base-200 shadow-xl">
+        <div class="card-body">
+          <h3 class="card-title text-lg">Current RH Sage</h3>
+          <p class="text-sm opacity-70 mb-4">Your current palette with sage green, warm earth tones</p>
+          
+          <!-- Color Preview -->
+          <div class="flex gap-2 mb-4">
+            <div class="w-8 h-8 rounded-full" style="background-color: #8FA68F" title="Sage Green Primary"></div>
+            <div class="w-8 h-8 rounded-full" style="background-color: #A0855B" title="Warm Tan Secondary"></div>
+            <div class="w-8 h-8 rounded-full" style="background-color: #9BA5B0" title="Blue-Gray Accent"></div>
+            <div class="w-8 h-8 rounded-full" style="background-color: #FAF9F6" title="Warm White" class="border border-base-300"></div>
+          </div>
+          
+          <div class="card-actions flex-col gap-2">
+            <button class="btn btn-primary w-full palette-btn" data-light-theme="light" data-dark-theme="dark">
+              Apply Current Palette
+            </button>
+            
+            <!-- Light/Dark Toggle -->
+            <div class="flex items-center justify-between w-full">
+              <span class="text-sm">Light</span>
+              <label class="swap swap-rotate">
+                <input type="checkbox" class="theme-toggle" data-light-theme="light" data-dark-theme="dark"/>
+                <svg class="swap-off fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/></svg>
+                <svg class="swap-on fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/></svg>
+              </label>
+              <span class="text-sm">Dark</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RH Blues Palette -->
+      <div class="card bg-base-200 shadow-xl">
+        <div class="card-body">
+          <h3 class="card-title text-lg">RH Blues</h3>
+          <p class="text-sm opacity-70 mb-4">Shore, Dusk, and Atmosphere blue tones</p>
+          
+          <!-- Color Preview -->
+          <div class="flex gap-2 mb-4">
+            <div class="w-8 h-8 rounded-full" style="background-color: #7A9CA8" title="Shore Blue Primary"></div>
+            <div class="w-8 h-8 rounded-full" style="background-color: #9BA5B0" title="Atmosphere Blue"></div>
+            <div class="w-8 h-8 rounded-full" style="background-color: #A8B8C5" title="Soft Blue-Gray"></div>
+            <div class="w-8 h-8 rounded-full" style="background-color: #F8F9FA" title="Cool White" class="border border-base-300"></div>
+          </div>
+          
+          <div class="card-actions flex-col gap-2">
+            <button class="btn btn-primary w-full palette-btn" data-light-theme="rh-blues-light" data-dark-theme="rh-blues-dark">
+              Apply Blues Palette
+            </button>
+            
+            <!-- Light/Dark Toggle -->
+            <div class="flex items-center justify-between w-full">
+              <span class="text-sm">Light</span>
+              <label class="swap swap-rotate">
+                <input type="checkbox" class="theme-toggle" data-light-theme="rh-blues-light" data-dark-theme="rh-blues-dark"/>
+                <svg class="swap-off fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/></svg>
+                <svg class="swap-on fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/></svg>
+              </label>
+              <span class="text-sm">Dark</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RH Earthy Palette -->
+      <div class="card bg-base-200 shadow-xl">
+        <div class="card-body">
+          <h3 class="card-title text-lg">RH Earthy</h3>
+          <p class="text-sm opacity-70 mb-4">Chocolate, warm tan, and stone tones</p>
+          
+          <!-- Color Preview -->
+          <div class="flex gap-2 mb-4">
+            <div class="w-8 h-8 rounded-full" style="background-color: #8B6F47" title="Chocolate Brown"></div>
+            <div class="w-8 h-8 rounded-full" style="background-color: #A0855B" title="Warm Tan"></div>
+            <div class="w-8 h-8 rounded-full" style="background-color: #9B8B7A" title="Stone Gray"></div>
+            <div class="w-8 h-8 rounded-full" style="background-color: #FAF8F4" title="Warm Cream" class="border border-base-300"></div>
+          </div>
+          
+          <div class="card-actions flex-col gap-2">
+            <button class="btn btn-primary w-full palette-btn" data-light-theme="rh-earthy-light" data-dark-theme="rh-earthy-dark">
+              Apply Earthy Palette
+            </button>
+            
+            <!-- Light/Dark Toggle -->
+            <div class="flex items-center justify-between w-full">
+              <span class="text-sm">Light</span>
+              <label class="swap swap-rotate">
+                <input type="checkbox" class="theme-toggle" data-light-theme="rh-earthy-light" data-dark-theme="rh-earthy-dark"/>
+                <svg class="swap-off fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/></svg>
+                <svg class="swap-on fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/></svg>
+              </label>
+              <span class="text-sm">Dark</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RH Greens Palette -->
+      <div class="card bg-base-200 shadow-xl">
+        <div class="card-body">
+          <h3 class="card-title text-lg">RH Greens</h3>
+          <p class="text-sm opacity-70 mb-4">Bay Laurel, sage, and Spanish moss greens</p>
+          
+          <!-- Color Preview -->
+          <div class="flex gap-2 mb-4">
+            <div class="w-8 h-8 rounded-full" style="background-color: #7A8B6F" title="Bay Laurel Green"></div>
+            <div class="w-8 h-8 rounded-full" style="background-color: #8FA68F" title="Sage Green"></div>
+            <div class="w-8 h-8 rounded-full" style="background-color: #9BA095" title="Spanish Moss"></div>
+            <div class="w-8 h-8 rounded-full" style="background-color: #F8FAF6" title="Light Green-White" class="border border-base-300"></div>
+          </div>
+          
+          <div class="card-actions flex-col gap-2">
+            <button class="btn btn-primary w-full palette-btn" data-light-theme="rh-greens-light" data-dark-theme="rh-greens-dark">
+              Apply Greens Palette
+            </button>
+            
+            <!-- Light/Dark Toggle -->
+            <div class="flex items-center justify-between w-full">
+              <span class="text-sm">Light</span>
+              <label class="swap swap-rotate">
+                <input type="checkbox" class="theme-toggle" data-light-theme="rh-greens-light" data-dark-theme="rh-greens-dark"/>
+                <svg class="swap-off fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/></svg>
+                <svg class="swap-on fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/></svg>
+              </label>
+              <span class="text-sm">Dark</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RH Neutrals Palette -->
+      <div class="card bg-base-200 shadow-xl">
+        <div class="card-body">
+          <h3 class="card-title text-lg">RH Neutrals</h3>
+          <p class="text-sm opacity-70 mb-4">Fog, pumice, gravel, and stone tones</p>
+          
+          <!-- Color Preview -->
+          <div class="flex gap-2 mb-4">
+            <div class="w-8 h-8 rounded-full" style="background-color: #8B8680" title="Fog/Pumice"></div>
+            <div class="w-8 h-8 rounded-full" style="background-color: #9B9088" title="Gravel"></div>
+            <div class="w-8 h-8 rounded-full" style="background-color: #A0958C" title="Stone"></div>
+            <div class="w-8 h-8 rounded-full" style="background-color: #FAFAF9" title="The Right White" class="border border-base-300"></div>
+          </div>
+          
+          <div class="card-actions flex-col gap-2">
+            <button class="btn btn-primary w-full palette-btn" data-light-theme="rh-neutrals-light" data-dark-theme="rh-neutrals-dark">
+              Apply Neutrals Palette
+            </button>
+            
+            <!-- Light/Dark Toggle -->
+            <div class="flex items-center justify-between w-full">
+              <span class="text-sm">Light</span>
+              <label class="swap swap-rotate">
+                <input type="checkbox" class="theme-toggle" data-light-theme="rh-neutrals-light" data-dark-theme="rh-neutrals-dark"/>
+                <svg class="swap-off fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/></svg>
+                <svg class="swap-on fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/></svg>
+              </label>
+              <span class="text-sm">Dark</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RH Warm Palette -->
+      <div class="card bg-base-200 shadow-xl">
+        <div class="card-body">
+          <h3 class="card-title text-lg">RH Warm</h3>
+          <p class="text-sm opacity-70 mb-4">Butter, saffron, and warm golden tones</p>
+          
+          <!-- Color Preview -->
+          <div class="flex gap-2 mb-4">
+            <div class="w-8 h-8 rounded-full" style="background-color: #C8A882" title="Butter/Saffron"></div>
+            <div class="w-8 h-8 rounded-full" style="background-color: #B8956B" title="Warm Gold"></div>
+            <div class="w-8 h-8 rounded-full" style="background-color: #D4B896" title="Buttercream"></div>
+            <div class="w-8 h-8 rounded-full" style="background-color: #FEFCF8" title="Warm Cream" class="border border-base-300"></div>
+          </div>
+          
+          <div class="card-actions flex-col gap-2">
+            <button class="btn btn-primary w-full palette-btn" data-light-theme="rh-warm-light" data-dark-theme="rh-warm-dark">
+              Apply Warm Palette
+            </button>
+            
+            <!-- Light/Dark Toggle -->
+            <div class="flex items-center justify-between w-full">
+              <span class="text-sm">Light</span>
+              <label class="swap swap-rotate">
+                <input type="checkbox" class="theme-toggle" data-light-theme="rh-warm-light" data-dark-theme="rh-warm-dark"/>
+                <svg class="swap-off fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/></svg>
+                <svg class="swap-on fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/></svg>
+              </label>
+              <span class="text-sm">Dark</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sample Content Section -->
+    <div class="divider"></div>
+    
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold mb-6 text-center">Sample Content Preview</h2>
+      <p class="text-center text-lg opacity-80 mb-8">
+        This content changes with each palette to show how different elements look.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Sample Card 1 -->
+        <div class="card bg-base-200 shadow-xl">
+          <div class="card-body">
+            <h3 class="card-title">Sample Research Paper</h3>
+            <p class="text-sm opacity-70">A sample academic paper title to show text readability</p>
+            <div class="card-actions justify-end">
+              <button class="btn btn-primary btn-sm">View Paper</button>
+              <button class="btn btn-secondary btn-sm">Download</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sample Card 2 -->
+        <div class="card bg-base-200 shadow-xl">
+          <div class="card-body">
+            <h3 class="card-title">Featured Project</h3>
+            <p class="text-sm opacity-70">An example project description with various UI elements</p>
+            <div class="flex gap-2 mt-4">
+              <div class="badge badge-info">Research</div>
+              <div class="badge badge-success">Published</div>
+              <div class="badge badge-warning">Featured</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sample Card 3 -->
+        <div class="card bg-base-200 shadow-xl">
+          <div class="card-body">
+            <h3 class="card-title">Navigation Example</h3>
+            <p class="text-sm opacity-70">See how buttons and accents look in this palette</p>
+            <div class="card-actions flex-col gap-2 mt-4">
+              <button class="btn btn-accent w-full">Accent Button</button>
+              <button class="btn btn-outline w-full">Outline Button</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Instructions -->
+    <div class="alert alert-warning mb-8">
+      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.96-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+      <div>
+        <h4 class="font-bold">How to Use This Tester:</h4>
+        <ol class="list-decimal list-inside mt-2 space-y-1">
+          <li>Click "Apply [Palette Name] Palette" to activate a color scheme</li>
+          <li>Use the light/dark toggle to switch between modes for that palette</li>
+          <li>Navigate around the site to see how the palette affects different pages</li>
+          <li>Take note of which palette you prefer for both light and dark modes</li>
+          <li>Let me know your favorite and I'll make it your permanent theme!</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+// Palette switching functionality
+document.addEventListener('DOMContentLoaded', function() {
+  // Handle palette buttons
+  document.querySelectorAll('.palette-btn').forEach(button => {
+    button.addEventListener('click', function() {
+      const lightTheme = this.getAttribute('data-light-theme');
+      const darkTheme = this.getAttribute('data-dark-theme');
+      
+      // Apply light theme by default
+      document.documentElement.setAttribute('data-theme', lightTheme);
+      
+      // Update all toggles for this palette set
+      document.querySelectorAll(`.theme-toggle[data-light-theme="${lightTheme}"]`).forEach(toggle => {
+        toggle.checked = false; // Start with light mode
+      });
+      
+      // Store current palette info
+      localStorage.setItem('currentLightTheme', lightTheme);
+      localStorage.setItem('currentDarkTheme', darkTheme);
+    });
+  });
+
+  // Handle individual theme toggles
+  document.querySelectorAll('.theme-toggle').forEach(toggle => {
+    toggle.addEventListener('change', function() {
+      const lightTheme = this.getAttribute('data-light-theme');
+      const darkTheme = this.getAttribute('data-dark-theme');
+      
+      if (this.checked) {
+        // Switch to dark theme
+        document.documentElement.setAttribute('data-theme', darkTheme);
+      } else {
+        // Switch to light theme
+        document.documentElement.setAttribute('data-theme', lightTheme);
+      }
+    });
+  });
+
+  // Set initial state based on current theme
+  const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+  
+  // Update toggles to match current theme
+  document.querySelectorAll('.theme-toggle').forEach(toggle => {
+    const lightTheme = toggle.getAttribute('data-light-theme');
+    const darkTheme = toggle.getAttribute('data-dark-theme');
+    
+    if (currentTheme === darkTheme) {
+      toggle.checked = true;
+    } else if (currentTheme === lightTheme) {
+      toggle.checked = false;
+    }
+  });
+});
+</script>
+
+<style>
+/* Custom styles for the palette tester */
+.palette-btn {
+  transition: all 0.3s ease;
+}
+
+.palette-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle {
+  transition: all 0.3s ease;
+}
+
+/* Color preview circles */
+.w-8.h-8.rounded-full {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.w-8.h-8.rounded-full:hover {
+  transform: scale(1.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+</style>
