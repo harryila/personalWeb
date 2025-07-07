@@ -46,7 +46,7 @@ const { title, description, image } = Astro.props
 <meta property='twitter:image' content={new URL(image, Astro.url)} />
 
 <!-- Enhanced Theme System with Palette Persistence -->
-<script is:inline define:vars={{lightTheme: template.lightTheme}}>
+<script is:inline define:vars={{lightTheme: template.lightTheme, darkTheme: template.darkTheme}}>
   // Enhanced theme management for palette persistence
   function getPaletteTheme() {
     // Check if user has selected a palette theme
@@ -59,8 +59,14 @@ const { title, description, image } = Astro.props
       return isDarkMode ? selectedDarkTheme : selectedLightTheme;
     }
     
-    // Otherwise, fall back to default theme or stored theme
-    return localStorage.getItem('theme') || lightTheme;
+    // Otherwise, fall back to default theme based on dark mode preference
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+      return currentTheme;
+    }
+    
+    // Final fallback - check if dark mode is preferred
+    return isDarkMode ? darkTheme : lightTheme;
   }
 
   // Apply theme immediately to prevent flash
@@ -103,15 +109,21 @@ const { title, description, image } = Astro.props
       const newTheme = isDarkMode ? selectedDarkTheme : selectedLightTheme;
       document.documentElement.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
+    } else {
+      // Fallback to default themes if no palette selected
+      localStorage.setItem('isDarkMode', isDarkMode);
+      const newTheme = isDarkMode ? darkTheme : lightTheme;
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
     }
   });
-</script>
-<script>
-	import { themeChange } from 'theme-change'
-	themeChange()
 
-  // Re-initialize after Astro view transitions
-  document.addEventListener('astro:after-swap', () => {
-    themeChange(false); // false = don't persist to localStorage (we handle this ourselves)
+  // Listen for theme changes from main toggle
+  window.addEventListener('themeToggled', (event) => {
+    const { isDarkMode, theme } = event.detail;
+    // Theme is already applied by the main toggle, just ensure consistency
+    localStorage.setItem('isDarkMode', isDarkMode);
+    localStorage.setItem('theme', theme);
   });
 </script>
+<!-- Note: Using custom theme system instead of DaisyUI themeChange to avoid conflicts -->
