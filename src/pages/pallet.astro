@@ -759,51 +759,67 @@ import { profile } from '@/settings'
 </Layout>
 
 <script>
-// Enhanced palette switching with global theme sync
+// Clean and simple palette system with proper unique dark mode support
 function initializePalettePage() {
-  // Initialize page with current saved palette state
   initializePaletteState();
+  setupPaletteButtons();
+  setupThemeToggles();
+  setupMainToggleSync();
+}
+
+function initializePaletteState() {
+  // Get saved state or set defaults
+  const selectedLightTheme = localStorage.getItem('selectedLightTheme') || 'light';
+  const selectedDarkTheme = localStorage.getItem('selectedDarkTheme') || 'dark';
+  const isDarkMode = localStorage.getItem('isDarkMode') === 'true';
   
-  // Handle palette buttons
+  // Apply current theme
+  const currentTheme = isDarkMode ? selectedDarkTheme : selectedLightTheme;
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  localStorage.setItem('theme', currentTheme);
+  
+  // Update UI to reflect current state
+  updateAllToggles(selectedLightTheme, selectedDarkTheme, isDarkMode);
+  highlightActiveButton(selectedLightTheme, selectedDarkTheme);
+}
+
+function setupPaletteButtons() {
   document.querySelectorAll('.palette-btn').forEach(button => {
-    button.addEventListener('click', function(this: HTMLButtonElement) {
+    button.addEventListener('click', function() {
       const lightTheme = this.getAttribute('data-light-theme');
       const darkTheme = this.getAttribute('data-dark-theme');
       
       if (!lightTheme || !darkTheme) return;
       
-      // Respect current dark/light state when selecting new palette
+      // Preserve current dark/light preference when switching palettes
       const currentIsDarkMode = localStorage.getItem('isDarkMode') === 'true';
-      const isDarkMode = currentIsDarkMode;
       
-      // Save palette selection
+      // Save new palette selection
       localStorage.setItem('selectedLightTheme', lightTheme);
       localStorage.setItem('selectedDarkTheme', darkTheme);
-      localStorage.setItem('isDarkMode', isDarkMode.toString());
       
-      // Apply theme immediately with correct mode
-      const newTheme = isDarkMode ? darkTheme : lightTheme;
+      // Apply the appropriate theme (light or dark of this palette)
+      const newTheme = currentIsDarkMode ? darkTheme : lightTheme;
       document.documentElement.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
       
-      // Dispatch palette change event for persistence and main toggle sync
-      window.dispatchEvent(new CustomEvent('paletteChanged', {
-        detail: { lightTheme, darkTheme, isDarkMode }
-      }));
+      // Update all UI elements
+      updateAllToggles(lightTheme, darkTheme, currentIsDarkMode);
+      highlightActiveButton(lightTheme, darkTheme);
       
-      // Update all toggles for this palette set to light mode
-      updateToggleStates(lightTheme, darkTheme, isDarkMode);
+      // Sync with main toggle
+      syncMainToggle(currentIsDarkMode);
       
       // Visual feedback
-      (this as HTMLButtonElement).classList.add('btn-success');
-      setTimeout(() => (this as HTMLButtonElement).classList.remove('btn-success'), 1000);
+      this.classList.add('btn-success');
+      setTimeout(() => this.classList.remove('btn-success'), 1000);
     });
   });
+}
 
-  // Handle individual theme toggles
+function setupThemeToggles() {
   document.querySelectorAll('.theme-toggle').forEach(toggle => {
-    const inputToggle = toggle as HTMLInputElement;
-    inputToggle.addEventListener('change', function(this: HTMLInputElement) {
+    toggle.addEventListener('change', function() {
       const lightTheme = this.getAttribute('data-light-theme');
       const darkTheme = this.getAttribute('data-dark-theme');
       const isDarkMode = this.checked;
@@ -820,82 +836,73 @@ function initializePalettePage() {
       document.documentElement.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
       
-      // Dispatch mode toggle event for main toggle sync
-      window.dispatchEvent(new CustomEvent('modeToggled', {
-        detail: { isDarkMode, lightTheme, darkTheme }
-      }));
+      // Update other toggles for this palette
+      updatePaletteToggles(lightTheme, darkTheme, isDarkMode);
+      highlightActiveButton(lightTheme, darkTheme);
       
-      // Update other toggles of the same palette to match
-      document.querySelectorAll(`.theme-toggle[data-light-theme="${lightTheme}"][data-dark-theme="${darkTheme}"]`).forEach(otherToggle => {
-        const otherInputToggle = otherToggle as HTMLInputElement;
-        if (otherInputToggle !== this) {
-          otherInputToggle.checked = isDarkMode;
-        }
-      });
+      // Sync with main toggle
+      syncMainToggle(isDarkMode);
     });
   });
+}
 
-  // Listen for main toggle changes to update palette toggles
+function setupMainToggleSync() {
+  // Listen for main toggle changes
   window.addEventListener('mainToggleChanged', function(event) {
-    const customEvent = event as CustomEvent;
-    const { isDarkMode, lightTheme, darkTheme } = customEvent.detail;
-    
-    // Update all toggles for the active palette
-    document.querySelectorAll(`.theme-toggle[data-light-theme="${lightTheme}"][data-dark-theme="${darkTheme}"]`).forEach(toggle => {
-      const inputToggle = toggle as HTMLInputElement;
-      inputToggle.checked = isDarkMode;
-    });
+    const { isDarkMode, lightTheme, darkTheme } = event.detail;
+    updateAllToggles(lightTheme, darkTheme, isDarkMode);
   });
+}
 
-  function initializePaletteState() {
-    // Get current saved palette state
-    const selectedLightTheme = localStorage.getItem('selectedLightTheme');
-    const selectedDarkTheme = localStorage.getItem('selectedDarkTheme');
-    const isDarkMode = localStorage.getItem('isDarkMode') === 'true';
-    
-    if (selectedLightTheme && selectedDarkTheme) {
-      // Update toggle states to match saved palette
-      updateToggleStates(selectedLightTheme, selectedDarkTheme, isDarkMode);
-      
-      // Highlight the active palette button
-      const activeButton = document.querySelector(
-        `.palette-btn[data-light-theme="${selectedLightTheme}"][data-dark-theme="${selectedDarkTheme}"]`
-      );
-      if (activeButton) {
-        activeButton.classList.add('btn-active');
-        activeButton.textContent = activeButton.textContent?.replace('Apply', 'Active:') || 'Active';
-      }
-    }
-  }
+function updateAllToggles(lightTheme: string, darkTheme: string, isDarkMode: boolean) {
+  // Update all toggles for the current palette
+  updatePaletteToggles(lightTheme, darkTheme, isDarkMode);
+}
+
+function updatePaletteToggles(lightTheme: string, darkTheme: string, isDarkMode: boolean) {
+  // Update toggles for this specific palette
+  document.querySelectorAll(`.theme-toggle[data-light-theme="${lightTheme}"][data-dark-theme="${darkTheme}"]`)
+    .forEach(toggle => {
+      (toggle as HTMLInputElement).checked = isDarkMode;
+    });
+}
+
+function highlightActiveButton(lightTheme: string, darkTheme: string) {
+  // Reset all buttons
+  document.querySelectorAll('.palette-btn').forEach(btn => {
+    btn.classList.remove('btn-active');
+    const originalText = btn.textContent?.replace('Active: ', 'Apply ') || 'Apply';
+    btn.textContent = originalText;
+  });
   
-  function updateToggleStates(lightTheme: string, darkTheme: string, isDarkMode: boolean) {
-    // Update all toggles for this palette
-    document.querySelectorAll(`.theme-toggle[data-light-theme="${lightTheme}"][data-dark-theme="${darkTheme}"]`).forEach(toggle => {
-      const inputToggle = toggle as HTMLInputElement;
-      inputToggle.checked = isDarkMode;
-    });
-    
-    // Reset all palette buttons
-    document.querySelectorAll('.palette-btn').forEach(btn => {
-      btn.classList.remove('btn-active', 'btn-success');
-      btn.textContent = btn.textContent?.replace('Active:', 'Apply') || 'Apply';
-    });
-    
-    // Highlight active palette button
-    const activeButton = document.querySelector(
-      `.palette-btn[data-light-theme="${lightTheme}"][data-dark-theme="${darkTheme}"]`
-    );
-    if (activeButton) {
-      activeButton.classList.add('btn-active');
-      activeButton.textContent = activeButton.textContent?.replace('Apply', 'Active:') || 'Active';
-    }
+  // Highlight the active button
+  const activeButton = document.querySelector(
+    `.palette-btn[data-light-theme="${lightTheme}"][data-dark-theme="${darkTheme}"]`
+  );
+  if (activeButton) {
+    activeButton.classList.add('btn-active');
+    const newText = activeButton.textContent?.replace('Apply ', 'Active: ') || 'Active: Palette';
+    activeButton.textContent = newText;
   }
 }
 
-// Initialize on DOMContentLoaded
+function syncMainToggle(isDarkMode: boolean) {
+  // Notify main toggle to update its state
+  const mainToggle = document.querySelector('.main-theme-toggle') as HTMLInputElement;
+  if (mainToggle) {
+    mainToggle.checked = isDarkMode;
+  }
+  
+  // Also dispatch event for other components
+  window.dispatchEvent(new CustomEvent('paletteThemeChanged', {
+    detail: { isDarkMode }
+  }));
+}
+
+// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', initializePalettePage);
 
-// Re-initialize after page transitions
+// Re-initialize after page transitions (for Astro)
 document.addEventListener('astro:after-swap', initializePalettePage);
 </script>
 
@@ -911,8 +918,9 @@ document.addEventListener('astro:after-swap', initializePalettePage);
 }
 
 .palette-btn.btn-active {
-  border: 2px solid oklch(var(--s));
-  background: oklch(var(--s) / 0.1);
+  border: 2px solid oklch(var(--p));
+  background: oklch(var(--p) / 0.1);
+  font-weight: 600;
 }
 
 .card {
@@ -948,5 +956,12 @@ document.addEventListener('astro:after-swap', initializePalettePage);
 
 .btn-success {
   animation: pulse-success 0.6s ease-out;
+}
+
+/* Active palette highlighting */
+.card:has(.btn-active) {
+  border-color: oklch(var(--p)) !important;
+  border-width: 3px;
+  background: oklch(var(--p) / 0.05);
 }
 </style>
