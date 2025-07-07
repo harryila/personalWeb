@@ -47,40 +47,33 @@ export default {
             },
             {
                 dark: {
-                    // Primary colors - RH sage tones adapted for dark mode
-                    "primary": "#9FB29F",           // Slightly brighter sage green for dark backgrounds
-                    "primary-content": "#1A1A1A",   // Dark text on primary
+                    // SAGE DARK MODE - Deep forest with sage undertones
+                    "primary": "#8FA68F",           // Signature sage green - distinctive
+                    "primary-content": "#FFFFFF",   // White text on primary
                     
-                    // Secondary colors - warm earth tones adapted for dark
-                    "secondary": "#B8956B",         // Brighter warm tan/gold for dark backgrounds
-                    "secondary-content": "#1A1A1A", // Dark text on secondary
+                    "secondary": "#7A9B7A",         // Forest sage secondary
+                    "secondary-content": "#FFFFFF", // White text on secondary
                     
-                    // Accent colors - muted blue-gray adapted for dark
-                    "accent": "#A8B5C0",           // Lighter soft blue-gray for dark backgrounds
+                    "accent": "#A0B8A0",           // Pale sage accent
                     "accent-content": "#1A1A1A",   // Dark text on accent
                     
-                    // Neutral colors - sophisticated warm grays for dark mode
-                    "neutral": "#4A453F",          // Darker warm gray
-                    "neutral-content": "#E8E4DF",  // Light text on neutral
+                    "neutral": "#2D3B2D",          // Deep sage-tinted neutral
+                    "neutral-content": "#E8F0E8",  // Light sage-tinted text
                     
-                    // Base colors - sophisticated dark backgrounds with warm undertones
-                    "base-100": "#1A1A1A",         // Primary background - deep charcoal
-                    "base-200": "#252520",         // Secondary background - warm dark gray
-                    "base-300": "#2F2F2A",         // Tertiary background - medium warm gray
-                    "base-content": "#E8E4DF",     // Main text color - warm off-white
+                    // Unique sage dark backgrounds
+                    "base-100": "#0F1B0F",         // Very deep sage-black (UNIQUE)
+                    "base-200": "#1A2B1A",         // Dark sage-charcoal (UNIQUE)
+                    "base-300": "#253525",         // Medium sage-gray (UNIQUE)
+                    "base-content": "#E8F0E8",     // Sage-tinted light text (UNIQUE)
                     
-                    // Semantic colors with RH aesthetic adapted for dark
-                    "info": "#8AACB8",             // Brighter muted blue for dark backgrounds
-                    "info-content": "#1A1A1A",     // Dark text on info
-                    
-                    "success": "#9FB29F",          // Brighter sage green (same as primary)
-                    "success-content": "#1A1A1A",  // Dark text on success
-                    
-                    "warning": "#E4C8A6",          // Brighter warm beige for dark backgrounds
-                    "warning-content": "#1A1A1A",  // Dark text on warning
-                    
-                    "error": "#B68C7C",           // Brighter muted terracotta for dark backgrounds
-                    "error-content": "#1A1A1A",   // Dark text on error
+                    "info": "#6B9B6B",
+                    "info-content": "#FFFFFF",
+                    "success": "#8FA68F",
+                    "success-content": "#FFFFFF",
+                    "warning": "#C8B896",
+                    "warning-content": "#1A1A1A",
+                    "error": "#B67C7C",
+                    "error-content": "#FFFFFF",
                 },
             },
             // RH Blues Palette
@@ -110,26 +103,33 @@ export default {
             },
             {
                 "rh-blues-dark": {
-                    "primary": "#8AACB8",           // Brighter shore blue
-                    "primary-content": "#1A1A1A",
-                    "secondary": "#AAB5C0",         // Brighter atmosphere blue
-                    "secondary-content": "#1A1A1A",
-                    "accent": "#B8C5D2",           // Lighter blue-gray
+                    // OCEANIC DARK MODE - Deep ocean with blue undertones
+                    "primary": "#5A9CAA",           // Ocean blue - distinctive
+                    "primary-content": "#FFFFFF",
+                    
+                    "secondary": "#4A8C9A",         // Deep sea blue
+                    "secondary-content": "#FFFFFF",
+                    
+                    "accent": "#7AB5C5",           // Light ocean blue
                     "accent-content": "#1A1A1A",
-                    "neutral": "#3A4450",          // Dark cool gray
-                    "neutral-content": "#E8F0F4",
-                    "base-100": "#1A1F25",         // Deep blue-charcoal
-                    "base-200": "#242A32",         // Dark blue-gray
-                    "base-300": "#2E3440",         // Medium blue-gray
-                    "base-content": "#E8F0F4",     // Cool off-white
-                    "info": "#8AACB8",
-                    "info-content": "#1A1A1A",
-                    "success": "#8AACB8",
-                    "success-content": "#1A1A1A",
-                    "warning": "#C8B098",
+                    
+                    "neutral": "#1A2B35",          // Deep ocean neutral
+                    "neutral-content": "#D0E8F0",  // Ocean-tinted light text
+                    
+                    // Unique oceanic dark backgrounds
+                    "base-100": "#061218",         // Deep ocean black (UNIQUE)
+                    "base-200": "#0F1F28",         // Dark ocean charcoal (UNIQUE)
+                    "base-300": "#1A2F3A",         // Medium ocean gray (UNIQUE)
+                    "base-content": "#D0E8F0",     // Ocean-tinted light text (UNIQUE)
+                    
+                    "info": "#5A9CAA",
+                    "info-content": "#FFFFFF",
+                    "success": "#4A9CAA",
+                    "success-content": "#FFFFFF",
+                    "warning": "#B8A588",
                     "warning-content": "#1A1A1A",
-                    "error": "#B68C7C",
-                    "error-content": "#1A1A1A",
+                    "error": "#AA6C6C",
+                    "error-content": "#FFFFFF",
                 },
             },
             // RH Earthy Palette
@@ -159,26 +159,33 @@ export default {
             },
             {
                 "rh-earthy-dark": {
-                    "primary": "#A08057",           // Brighter chocolate
-                    "primary-content": "#1A1A1A",
-                    "secondary": "#B8956B",         // Brighter tan
-                    "secondary-content": "#1A1A1A",
-                    "accent": "#AB9B8A",           // Lighter stone
+                    // DESERT CAVE DARK MODE - Deep earth with rich brown undertones
+                    "primary": "#B8763C",           // Rich terracotta - distinctive
+                    "primary-content": "#FFFFFF",
+                    
+                    "secondary": "#A8652C",         // Deep desert brown
+                    "secondary-content": "#FFFFFF",
+                    
+                    "accent": "#C8956B",           // Warm sand accent
                     "accent-content": "#1A1A1A",
-                    "neutral": "#4A3A2F",          // Dark warm gray
-                    "neutral-content": "#F0E8DC",
-                    "base-100": "#1F1A15",         // Deep brown-black
-                    "base-200": "#2A2318",         // Dark brown
-                    "base-300": "#352D20",         // Medium brown
-                    "base-content": "#F0E8DC",     // Warm cream text
-                    "info": "#9B8365",
-                    "info-content": "#1A1A1A",
-                    "success": "#A08057",
-                    "success-content": "#1A1A1A",
-                    "warning": "#E4C8A6",
+                    
+                    "neutral": "#3B2418",          // Deep earth neutral
+                    "neutral-content": "#F0D8C0",  // Warm sand-tinted text
+                    
+                    // Unique desert cave dark backgrounds
+                    "base-100": "#1A0F06",         // Very deep earth-black (UNIQUE)
+                    "base-200": "#2D1A0F",         // Dark earth-brown (UNIQUE)
+                    "base-300": "#4A2F1A",         // Medium earth-brown (UNIQUE)
+                    "base-content": "#F0D8C0",     // Warm sand-tinted text (UNIQUE)
+                    
+                    "info": "#B8763C",
+                    "info-content": "#FFFFFF",
+                    "success": "#A8652C",
+                    "success-content": "#FFFFFF",
+                    "warning": "#E6B366",
                     "warning-content": "#1A1A1A",
-                    "error": "#B68C7C",
-                    "error-content": "#1A1A1A",
+                    "error": "#CC5A5A",
+                    "error-content": "#FFFFFF",
                 },
             },
             // RH Greens Palette
@@ -208,26 +215,33 @@ export default {
             },
             {
                 "rh-greens-dark": {
-                    "primary": "#8A9B7F",           // Brighter bay laurel
-                    "primary-content": "#1A1A1A",
-                    "secondary": "#9FB29F",         // Brighter sage
-                    "secondary-content": "#1A1A1A",
-                    "accent": "#ABB0A5",           // Lighter spanish moss
+                    // DEEP FOREST DARK MODE - Rich forest with green undertones
+                    "primary": "#5A8B5A",           // Deep forest green - distinctive
+                    "primary-content": "#FFFFFF",
+                    
+                    "secondary": "#4A7B4A",         // Rich woodland green
+                    "secondary-content": "#FFFFFF",
+                    
+                    "accent": "#7AA67A",           // Fresh forest accent
                     "accent-content": "#1A1A1A",
-                    "neutral": "#404A35",          // Dark green-gray
-                    "neutral-content": "#E8F0E4",
-                    "base-100": "#181D15",         // Deep green-black
-                    "base-200": "#222818",         // Dark green
-                    "base-300": "#2D321C",         // Medium green
-                    "base-content": "#E8F0E4",     // Light green text
-                    "info": "#8A9B88",
-                    "info-content": "#1A1A1A",
-                    "success": "#8A9B7F",
-                    "success-content": "#1A1A1A",
-                    "warning": "#C8B098",
+                    
+                    "neutral": "#1A3B1A",          // Deep forest neutral
+                    "neutral-content": "#D8F0D8",  // Forest-tinted light text
+                    
+                    // Unique deep forest dark backgrounds
+                    "base-100": "#061806",         // Very deep forest-black (UNIQUE)
+                    "base-200": "#0F2B0F",         // Dark forest-charcoal (UNIQUE)
+                    "base-300": "#1A3F1A",         // Medium forest-gray (UNIQUE)
+                    "base-content": "#D8F0D8",     // Forest-tinted light text (UNIQUE)
+                    
+                    "info": "#5A8B5A",
+                    "info-content": "#FFFFFF",
+                    "success": "#4A7B4A",
+                    "success-content": "#FFFFFF",
+                    "warning": "#B8A566",
                     "warning-content": "#1A1A1A",
-                    "error": "#B68C7C",
-                    "error-content": "#1A1A1A",
+                    "error": "#AA5C5C",
+                    "error-content": "#FFFFFF",
                 },
             },
             // RH Neutrals Palette
@@ -257,26 +271,33 @@ export default {
             },
             {
                 "rh-neutrals-dark": {
-                    "primary": "#9B9690",           // Brighter fog
-                    "primary-content": "#1A1A1A",
-                    "secondary": "#ABA098",         // Brighter gravel
-                    "secondary-content": "#1A1A1A",
-                    "accent": "#B0A59C",           // Lighter stone
+                    // CARBON DARK MODE - Deep charcoal with cool undertones
+                    "primary": "#8A8A8A",           // Pure carbon gray - distinctive
+                    "primary-content": "#FFFFFF",
+                    
+                    "secondary": "#7A7A7A",         // Deep charcoal
+                    "secondary-content": "#FFFFFF",
+                    
+                    "accent": "#A0A0A0",           // Light carbon accent
                     "accent-content": "#1A1A1A",
-                    "neutral": "#45403C",          // Dark neutral
-                    "neutral-content": "#F0EDE8",
-                    "base-100": "#1A1A19",         // Deep neutral
-                    "base-200": "#252320",         // Dark neutral
-                    "base-300": "#302D28",         // Medium neutral
-                    "base-content": "#F0EDE8",     // Light neutral text
-                    "info": "#9B9590",
-                    "info-content": "#1A1A1A",
-                    "success": "#9B9690",
-                    "success-content": "#1A1A1A",
-                    "warning": "#D8C8B0",
+                    
+                    "neutral": "#2A2A2A",          // Deep carbon neutral
+                    "neutral-content": "#E8E8E8",  // Cool light text
+                    
+                    // Unique carbon dark backgrounds
+                    "base-100": "#0A0A0A",         // Deep carbon-black (UNIQUE)
+                    "base-200": "#151515",         // Dark carbon-charcoal (UNIQUE)
+                    "base-300": "#2A2A2A",         // Medium carbon-gray (UNIQUE)
+                    "base-content": "#E8E8E8",     // Pure light text (UNIQUE)
+                    
+                    "info": "#8A8A8A",
+                    "info-content": "#FFFFFF",
+                    "success": "#7A7A7A",
+                    "success-content": "#FFFFFF",
+                    "warning": "#C8B866",
                     "warning-content": "#1A1A1A",
-                    "error": "#B68C7C",
-                    "error-content": "#1A1A1A",
+                    "error": "#AA5A5A",
+                    "error-content": "#FFFFFF",
                 },
             },
             // RH Warm Palette
@@ -306,26 +327,33 @@ export default {
             },
             {
                 "rh-warm-dark": {
-                    "primary": "#D8B892",           // Brighter butter
+                    // GOLDEN CAVE DARK MODE - Deep amber with rich golden undertones
+                    "primary": "#E6A544",           // Rich golden amber - distinctive
                     "primary-content": "#1A1A1A",
-                    "secondary": "#C8A57B",         // Brighter gold
+                    
+                    "secondary": "#D6953C",         // Deep golden bronze
                     "secondary-content": "#1A1A1A",
-                    "accent": "#E4C8A6",           // Lighter buttercream
+                    
+                    "accent": "#F6C366",           // Bright golden accent
                     "accent-content": "#1A1A1A",
-                    "neutral": "#5A4A35",          // Dark warm brown
-                    "neutral-content": "#F8F0E4",
-                    "base-100": "#1F1A15",         // Deep warm brown
-                    "base-200": "#2A2318",         // Dark gold
-                    "base-300": "#352D20",         // Medium gold
-                    "base-content": "#F8F0E4",     // Warm cream text
-                    "info": "#C8B098",
+                    
+                    "neutral": "#4A3818",          // Deep golden neutral
+                    "neutral-content": "#F8E8C0",  // Golden-tinted light text
+                    
+                    // Unique golden cave dark backgrounds
+                    "base-100": "#1A1206",         // Very deep golden-black (UNIQUE)
+                    "base-200": "#2D2418",         // Dark golden-brown (UNIQUE)
+                    "base-300": "#4A3F2A",         // Medium golden-brown (UNIQUE)
+                    "base-content": "#F8E8C0",     // Golden-tinted light text (UNIQUE)
+                    
+                    "info": "#E6A544",
                     "info-content": "#1A1A1A",
-                    "success": "#D8B892",
+                    "success": "#D6953C",
                     "success-content": "#1A1A1A",
-                    "warning": "#E4C8A6",
+                    "warning": "#F6C366",
                     "warning-content": "#1A1A1A",
-                    "error": "#B68C7C",
-                    "error-content": "#1A1A1A",
+                    "error": "#CC5A5A",
+                    "error-content": "#FFFFFF",
                 },
             },
             // === VIBRANT PALETTES - More saturated and eye-catching === //
@@ -356,26 +384,33 @@ export default {
             },
             {
                 "vibrant-sage-dark": {
-                    "primary": "#7BAD7B",           // Brighter vibrant sage
+                    // ELECTRIC FOREST DARK MODE - Neon sage with electric undertones
+                    "primary": "#6BB870",           // Electric sage green - distinctive
                     "primary-content": "#1A1A1A",
-                    "secondary": "#DDA054",         // Brighter vibrant gold
+                    
+                    "secondary": "#E6A544",         // Electric gold
                     "secondary-content": "#1A1A1A",
-                    "accent": "#5A98B8",           // Brighter vibrant blue
+                    
+                    "accent": "#4A9CD0",           // Electric blue
                     "accent-content": "#1A1A1A",
-                    "neutral": "#403C36",          // Dark rich gray
-                    "neutral-content": "#F0EBE4",
-                    "base-100": "#1C1C1C",         // Rich dark
-                    "base-200": "#282824",         // Warm dark gray
-                    "base-300": "#343430",         // Medium warm gray
-                    "base-content": "#F0EBE4",     // Warm light text
-                    "info": "#5A98B8",
+                    
+                    "neutral": "#2D4A2D",          // Deep electric neutral
+                    "neutral-content": "#D8F8D8",  // Electric sage-tinted text
+                    
+                    // Unique electric forest dark backgrounds
+                    "base-100": "#091A09",         // Very deep electric forest-black (UNIQUE)
+                    "base-200": "#143514",         // Dark electric forest (UNIQUE)
+                    "base-300": "#1F4F1F",         // Medium electric forest (UNIQUE)
+                    "base-content": "#D8F8D8",     // Electric sage-tinted text (UNIQUE)
+                    
+                    "info": "#4A9CD0",
                     "info-content": "#1A1A1A",
-                    "success": "#7BAD7B",
+                    "success": "#6BB870",
                     "success-content": "#1A1A1A",
-                    "warning": "#F6C376",
+                    "warning": "#E6A544",
                     "warning-content": "#1A1A1A",
-                    "error": "#D56A6A",
-                    "error-content": "#1A1A1A",
+                    "error": "#E65A5A",
+                    "error-content": "#FFFFFF",
                 },
             },
             // Vibrant Blues Palette
@@ -405,26 +440,33 @@ export default {
             },
             {
                 "vibrant-blues-dark": {
-                    "primary": "#5A98DC",           // Brighter vibrant blue
-                    "primary-content": "#1A1A1A",
-                    "secondary": "#7AB4E0",         // Brighter sky blue
-                    "secondary-content": "#1A1A1A",
-                    "accent": "#9BC8F0",           // Brighter light blue
+                    // NEON OCEAN DARK MODE - Electric blue with cyberpunk undertones
+                    "primary": "#00AAFF",           // Electric ocean blue - distinctive
+                    "primary-content": "#FFFFFF",
+                    
+                    "secondary": "#0088CC",         // Deep neon blue
+                    "secondary-content": "#FFFFFF",
+                    
+                    "accent": "#33BBFF",           // Bright electric blue
                     "accent-content": "#1A1A1A",
-                    "neutral": "#354555",          // Dark cool gray
-                    "neutral-content": "#E8F0F6",
-                    "base-100": "#1A1F28",         // Deep blue-black
-                    "base-200": "#242934",         // Dark blue-gray
-                    "base-300": "#2E3544",         // Medium blue-gray
-                    "base-content": "#E8F0F6",     // Cool light text
-                    "info": "#5A98DC",
-                    "info-content": "#1A1A1A",
-                    "success": "#5A98DC",
-                    "success-content": "#1A1A1A",
-                    "warning": "#F6C376",
+                    
+                    "neutral": "#0A2A4A",          // Deep ocean neutral
+                    "neutral-content": "#B8E8FF",  // Electric blue-tinted text
+                    
+                    // Unique neon ocean dark backgrounds
+                    "base-100": "#051218",         // Very deep neon ocean-black (UNIQUE)
+                    "base-200": "#0A2535",         // Dark neon ocean (UNIQUE)
+                    "base-300": "#0F3F55",         // Medium neon ocean (UNIQUE)
+                    "base-content": "#B8E8FF",     // Electric blue-tinted text (UNIQUE)
+                    
+                    "info": "#00AAFF",
+                    "info-content": "#FFFFFF",
+                    "success": "#0088CC",
+                    "success-content": "#FFFFFF",
+                    "warning": "#FFA544",
                     "warning-content": "#1A1A1A",
-                    "error": "#D56A6A",
-                    "error-content": "#1A1A1A",
+                    "error": "#FF5A5A",
+                    "error-content": "#FFFFFF",
                 },
             },
             // Vibrant Earthy Palette
@@ -454,26 +496,33 @@ export default {
             },
             {
                 "vibrant-earthy-dark": {
-                    "primary": "#C8864C",           // Brighter terracotta
-                    "primary-content": "#1A1A1A",
-                    "secondary": "#DDA054",         // Brighter amber
-                    "secondary-content": "#1A1A1A",
-                    "accent": "#B68C70",           // Brighter clay
+                    // MOLTEN LAVA DARK MODE - Fiery earth with glowing undertones
+                    "primary": "#FF6B35",           // Molten orange - distinctive
+                    "primary-content": "#FFFFFF",
+                    
+                    "secondary": "#FF8844",         // Glowing amber
+                    "secondary-content": "#FFFFFF",
+                    
+                    "accent": "#FFAA55",           // Bright flame accent
                     "accent-content": "#1A1A1A",
-                    "neutral": "#4A3525",          // Dark earth brown
-                    "neutral-content": "#F0E0CC",
-                    "base-100": "#1F1A12",         // Deep earth black
-                    "base-200": "#2A231A",         // Dark earth brown
-                    "base-300": "#352C22",         // Medium earth brown
-                    "base-content": "#F0E0CC",     // Warm earth text
-                    "info": "#C8864C",
-                    "info-content": "#1A1A1A",
-                    "success": "#C8864C",
-                    "success-content": "#1A1A1A",
-                    "warning": "#F6C376",
+                    
+                    "neutral": "#4A1808",          // Deep molten neutral
+                    "neutral-content": "#FFD8B8",  // Molten-tinted light text
+                    
+                    // Unique molten lava dark backgrounds
+                    "base-100": "#1A0806",         // Very deep molten-black (UNIQUE)
+                    "base-200": "#351810",         // Dark molten earth (UNIQUE)
+                    "base-300": "#4A2518",         // Medium molten earth (UNIQUE)
+                    "base-content": "#FFD8B8",     // Molten-tinted light text (UNIQUE)
+                    
+                    "info": "#FF6B35",
+                    "info-content": "#FFFFFF",
+                    "success": "#FF8844",
+                    "success-content": "#FFFFFF",
+                    "warning": "#FFAA55",
                     "warning-content": "#1A1A1A",
-                    "error": "#D56A6A",
-                    "error-content": "#1A1A1A",
+                    "error": "#FF4444",
+                    "error-content": "#FFFFFF",
                 },
             },
             // Vibrant Greens Palette
@@ -503,26 +552,33 @@ export default {
             },
             {
                 "vibrant-greens-dark": {
-                    "primary": "#5AAB6A",           // Brighter forest green
+                    // NEON JUNGLE DARK MODE - Electric green with bioluminescent undertones
+                    "primary": "#00FF88",           // Neon jungle green - distinctive
                     "primary-content": "#1A1A1A",
-                    "secondary": "#7BC880",         // Brighter leaf green
+                    
+                    "secondary": "#44FF99",         // Electric leaf green
                     "secondary-content": "#1A1A1A",
-                    "accent": "#8FD598",           // Brighter mint
+                    
+                    "accent": "#66FFAA",           // Bright neon mint
                     "accent-content": "#1A1A1A",
-                    "neutral": "#354540",          // Dark green-gray
-                    "neutral-content": "#E6F2E6",
-                    "base-100": "#181D1A",         // Deep forest black
-                    "base-200": "#222822",         // Dark forest
-                    "base-300": "#2D342D",         // Medium forest
-                    "base-content": "#E6F2E6",     // Light green text
-                    "info": "#5AAB6A",
+                    
+                    "neutral": "#0A4A20",          // Deep jungle neutral
+                    "neutral-content": "#B8FFD8",  // Neon green-tinted text
+                    
+                    // Unique neon jungle dark backgrounds
+                    "base-100": "#051A0A",         // Very deep jungle-black (UNIQUE)
+                    "base-200": "#0F3518",         // Dark neon jungle (UNIQUE)
+                    "base-300": "#1A4F28",         // Medium neon jungle (UNIQUE)
+                    "base-content": "#B8FFD8",     // Neon green-tinted text (UNIQUE)
+                    
+                    "info": "#00FF88",
                     "info-content": "#1A1A1A",
-                    "success": "#5AAB6A",
+                    "success": "#44FF99",
                     "success-content": "#1A1A1A",
-                    "warning": "#F6C376",
+                    "warning": "#FFAA44",
                     "warning-content": "#1A1A1A",
-                    "error": "#D56A6A",
-                    "error-content": "#1A1A1A",
+                    "error": "#FF5555",
+                    "error-content": "#FFFFFF",
                 },
             },
             // Vibrant Neutrals Palette
@@ -552,26 +608,33 @@ export default {
             },
             {
                 "vibrant-neutrals-dark": {
-                    "primary": "#8A8A8A",           // Brighter charcoal
+                    // SILVER VOID DARK MODE - Metallic silver with chrome undertones
+                    "primary": "#CCCCCC",           // Bright silver - distinctive
                     "primary-content": "#1A1A1A",
-                    "secondary": "#AAA0A0",         // Brighter warm gray
+                    
+                    "secondary": "#BBBBBB",         // Chrome silver
                     "secondary-content": "#1A1A1A",
-                    "accent": "#C0B8B0",           // Brighter stone
+                    
+                    "accent": "#DDDDDD",           // Light silver accent
                     "accent-content": "#1A1A1A",
-                    "neutral": "#404040",          // Dark neutral
-                    "neutral-content": "#F0ECE8",
-                    "base-100": "#1A1A1A",         // Sharp black
-                    "base-200": "#252525",         // Dark neutral
-                    "base-300": "#303030",         // Medium neutral
-                    "base-content": "#F0ECE8",     // Light neutral text
-                    "info": "#8A8A8A",
+                    
+                    "neutral": "#404040",          // Deep void neutral
+                    "neutral-content": "#E8E8E8",  // Bright silver-tinted text
+                    
+                    // Unique silver void dark backgrounds
+                    "base-100": "#000000",         // Pure void-black (UNIQUE)
+                    "base-200": "#181818",         // Dark void-charcoal (UNIQUE)
+                    "base-300": "#333333",         // Medium void-gray (UNIQUE)
+                    "base-content": "#E8E8E8",     // Bright silver-tinted text (UNIQUE)
+                    
+                    "info": "#CCCCCC",
                     "info-content": "#1A1A1A",
-                    "success": "#8A8A8A",
+                    "success": "#BBBBBB",
                     "success-content": "#1A1A1A",
-                    "warning": "#F6C376",
+                    "warning": "#FFCC44",
                     "warning-content": "#1A1A1A",
-                    "error": "#D56A6A",
-                    "error-content": "#1A1A1A",
+                    "error": "#FF6666",
+                    "error-content": "#FFFFFF",
                 },
             },
             // Vibrant Warm Palette
@@ -601,26 +664,406 @@ export default {
             },
             {
                 "vibrant-warm-dark": {
-                    "primary": "#F6B554",           // Brighter golden yellow
+                    // ELECTRIC SUN DARK MODE - Brilliant yellow with electric undertones
+                    "primary": "#FFDD00",           // Electric sun yellow - distinctive
                     "primary-content": "#1A1A1A",
-                    "secondary": "#DC9843",         // Brighter amber
+                    
+                    "secondary": "#FFCC22",         // Bright electric gold
                     "secondary-content": "#1A1A1A",
-                    "accent": "#FFD376",           // Brighter buttercream
+                    
+                    "accent": "#FFEE44",           // Brilliant sun accent
                     "accent-content": "#1A1A1A",
-                    "neutral": "#5A4A25",          // Dark warm brown
-                    "neutral-content": "#F8F0E1",
-                    "base-100": "#1F1A0F",         // Deep warm black
-                    "base-200": "#2A231A",         // Dark warm brown
-                    "base-300": "#352C22",         // Medium warm brown
-                    "base-content": "#F8F0E1",     // Light warm text
-                    "info": "#F6B554",
+                    
+                    "neutral": "#4A3A00",          // Deep sun neutral
+                    "neutral-content": "#FFF8B8",  // Electric sun-tinted text
+                    
+                    // Unique electric sun dark backgrounds
+                    "base-100": "#1A1500",         // Very deep sun-black (UNIQUE)
+                    "base-200": "#352A00",         // Dark electric sun (UNIQUE)
+                    "base-300": "#4A3F08",         // Medium electric sun (UNIQUE)
+                    "base-content": "#FFF8B8",     // Electric sun-tinted text (UNIQUE)
+                    
+                    "info": "#FFDD00",
                     "info-content": "#1A1A1A",
-                    "success": "#F6B554",
+                    "success": "#FFCC22",
                     "success-content": "#1A1A1A",
-                    "warning": "#FFD376",
+                    "warning": "#FFEE44",
                     "warning-content": "#1A1A1A",
-                    "error": "#D56A6A",
-                    "error-content": "#1A1A1A",
+                    "error": "#FF5577",
+                    "error-content": "#FFFFFF",
+                },
+            },
+            // === CREATIVE PALETTES - Unique designs with full creative freedom === //
+            // Cyberpunk Palette
+            {
+                "cyberpunk-light": {
+                    // NEON CITY LIGHT MODE - Bright neon with cyberpunk edge
+                    "primary": "#FF00FF",           // Electric magenta
+                    "primary-content": "#FFFFFF",
+                    
+                    "secondary": "#00FFFF",         // Electric cyan
+                    "secondary-content": "#1A1A1A",
+                    
+                    "accent": "#FFFF00",           // Electric yellow
+                    "accent-content": "#1A1A1A",
+                    
+                    "neutral": "#6A5ACD",          // Purple neutral
+                    "neutral-content": "#FFFFFF",
+                    
+                    "base-100": "#F8F8FF",         // Ghost white
+                    "base-200": "#F0F0F8",         // Very light purple
+                    "base-300": "#E8E8F0",         // Light purple-gray
+                    "base-content": "#1A0A1A",     // Deep purple-black
+                    
+                    "info": "#00FFFF",
+                    "info-content": "#1A1A1A",
+                    "success": "#00FF00",
+                    "success-content": "#1A1A1A",
+                    "warning": "#FFFF00",
+                    "warning-content": "#1A1A1A",
+                    "error": "#FF0080",
+                    "error-content": "#FFFFFF",
+                },
+            },
+            {
+                "cyberpunk-dark": {
+                    // NEON UNDERGROUND DARK MODE - Deep cyber with neon highlights
+                    "primary": "#FF44FF",           // Bright neon magenta
+                    "primary-content": "#FFFFFF",
+                    
+                    "secondary": "#44FFFF",         // Bright neon cyan
+                    "secondary-content": "#1A1A1A",
+                    
+                    "accent": "#FFFF44",           // Bright neon yellow
+                    "accent-content": "#1A1A1A",
+                    
+                    "neutral": "#4A2A4A",          // Deep cyber neutral
+                    "neutral-content": "#F8D8F8",  // Neon purple-tinted text
+                    
+                    // Unique cyberpunk dark backgrounds
+                    "base-100": "#0A0012",         // Deep cyber-black (UNIQUE)
+                    "base-200": "#150025",         // Dark neon purple (UNIQUE)
+                    "base-300": "#2A0A3A",         // Medium cyber purple (UNIQUE)
+                    "base-content": "#F8D8F8",     // Neon purple-tinted text (UNIQUE)
+                    
+                    "info": "#44FFFF",
+                    "info-content": "#1A1A1A",
+                    "success": "#44FF44",
+                    "success-content": "#1A1A1A",
+                    "warning": "#FFFF44",
+                    "warning-content": "#1A1A1A",
+                    "error": "#FF4488",
+                    "error-content": "#FFFFFF",
+                },
+            },
+            // Sunset Palette
+            {
+                "sunset-light": {
+                    // GOLDEN HOUR LIGHT MODE - Warm sunset with golden tones
+                    "primary": "#FF7A4A",           // Sunset coral
+                    "primary-content": "#FFFFFF",
+                    
+                    "secondary": "#FFB366",         // Golden orange
+                    "secondary-content": "#1A1A1A",
+                    
+                    "accent": "#FF9999",           // Soft pink
+                    "accent-content": "#1A1A1A",
+                    
+                    "neutral": "#8B6B47",          // Warm brown
+                    "neutral-content": "#FFFFFF",
+                    
+                    "base-100": "#FFF8F0",         // Warm cream white
+                    "base-200": "#FFE8D0",         // Light peach
+                    "base-300": "#FFD8B0",         // Soft orange
+                    "base-content": "#2A1A0A",     // Deep warm brown
+                    
+                    "info": "#FF7A4A",
+                    "info-content": "#FFFFFF",
+                    "success": "#66B366",
+                    "success-content": "#FFFFFF",
+                    "warning": "#FFB366",
+                    "warning-content": "#1A1A1A",
+                    "error": "#CC5555",
+                    "error-content": "#FFFFFF",
+                },
+            },
+            {
+                "sunset-dark": {
+                    // TWILIGHT DARK MODE - Deep sunset with purple undertones
+                    "primary": "#FF6A3A",           // Deep sunset orange
+                    "primary-content": "#FFFFFF",
+                    
+                    "secondary": "#CC5599",         // Twilight purple
+                    "secondary-content": "#FFFFFF",
+                    
+                    "accent": "#FF8888",           // Warm sunset pink
+                    "accent-content": "#1A1A1A",
+                    
+                    "neutral": "#4A1A3A",          // Deep twilight neutral
+                    "neutral-content": "#FFD8E8",  // Sunset-tinted text
+                    
+                    // Unique sunset dark backgrounds
+                    "base-100": "#1A0512",         // Deep sunset-black (UNIQUE)
+                    "base-200": "#2A1025",         // Dark sunset purple (UNIQUE)
+                    "base-300": "#4A2040",         // Medium sunset purple (UNIQUE)
+                    "base-content": "#FFD8E8",     // Sunset-tinted text (UNIQUE)
+                    
+                    "info": "#FF6A3A",
+                    "info-content": "#FFFFFF",
+                    "success": "#66AA66",
+                    "success-content": "#FFFFFF",
+                    "warning": "#FFAA44",
+                    "warning-content": "#1A1A1A",
+                    "error": "#FF5577",
+                    "error-content": "#FFFFFF",
+                },
+            },
+            // Mint Chocolate Palette
+            {
+                "mint-chocolate-light": {
+                    // FRESH MINT LIGHT MODE - Cool mint with chocolate accents
+                    "primary": "#4AAAA4",           // Fresh mint
+                    "primary-content": "#FFFFFF",
+                    
+                    "secondary": "#8B6F47",         // Rich chocolate
+                    "secondary-content": "#FFFFFF",
+                    
+                    "accent": "#A4E4AA",           // Light mint
+                    "accent-content": "#1A1A1A",
+                    
+                    "neutral": "#6B8B6B",          // Mint-chocolate neutral
+                    "neutral-content": "#FFFFFF",
+                    
+                    "base-100": "#F8FFF8",         // Mint white
+                    "base-200": "#F0F8F0",         // Very light mint
+                    "base-300": "#E8F0E8",         // Light mint-gray
+                    "base-content": "#1A2A1A",     // Deep mint-black
+                    
+                    "info": "#4AAAA4",
+                    "info-content": "#FFFFFF",
+                    "success": "#66BB66",
+                    "success-content": "#FFFFFF",
+                    "warning": "#B8956B",
+                    "warning-content": "#FFFFFF",
+                    "error": "#AA6666",
+                    "error-content": "#FFFFFF",
+                },
+            },
+            {
+                "mint-chocolate-dark": {
+                    // DARK MINT TRUFFLE DARK MODE - Deep chocolate with mint highlights
+                    "primary": "#66CCAA",           // Bright mint
+                    "primary-content": "#1A1A1A",
+                    
+                    "secondary": "#AA7755",         // Warm chocolate
+                    "secondary-content": "#FFFFFF",
+                    
+                    "accent": "#88EEBB",           // Electric mint
+                    "accent-content": "#1A1A1A",
+                    
+                    "neutral": "#2A1A15",          // Deep chocolate neutral
+                    "neutral-content": "#D8F8E8",  // Mint-tinted text
+                    
+                    // Unique mint chocolate dark backgrounds
+                    "base-100": "#0F1A12",         // Deep mint-chocolate-black (UNIQUE)
+                    "base-200": "#1A2A1F",         // Dark mint-chocolate (UNIQUE)
+                    "base-300": "#2A3A2F",         // Medium mint-chocolate (UNIQUE)
+                    "base-content": "#D8F8E8",     // Mint-tinted text (UNIQUE)
+                    
+                    "info": "#66CCAA",
+                    "info-content": "#1A1A1A",
+                    "success": "#88EEBB",
+                    "success-content": "#1A1A1A",
+                    "warning": "#CCAA77",
+                    "warning-content": "#1A1A1A",
+                    "error": "#CC7777",
+                    "error-content": "#FFFFFF",
+                },
+            },
+            // Rose Gold Palette
+            {
+                "rose-gold-light": {
+                    // ELEGANT ROSE LIGHT MODE - Sophisticated rose with gold accents
+                    "primary": "#E8B4B8",           // Elegant rose
+                    "primary-content": "#1A1A1A",
+                    
+                    "secondary": "#D4AF37",         // Classic gold
+                    "secondary-content": "#1A1A1A",
+                    
+                    "accent": "#F4C2C2",           // Soft blush
+                    "accent-content": "#1A1A1A",
+                    
+                    "neutral": "#8B7B7B",          // Warm neutral
+                    "neutral-content": "#FFFFFF",
+                    
+                    "base-100": "#FFF8F8",         // Rose white
+                    "base-200": "#F8F0F0",         // Very light rose
+                    "base-300": "#F0E8E8",         // Light rose-gray
+                    "base-content": "#2A1A1A",     // Deep charcoal
+                    
+                    "info": "#E8B4B8",
+                    "info-content": "#1A1A1A",
+                    "success": "#A8C8A8",
+                    "success-content": "#1A1A1A",
+                    "warning": "#D4AF37",
+                    "warning-content": "#1A1A1A",
+                    "error": "#C85A5A",
+                    "error-content": "#FFFFFF",
+                },
+            },
+            {
+                "rose-gold-dark": {
+                    // MIDNIGHT ROSE DARK MODE - Deep rose with golden highlights
+                    "primary": "#F8C8CC",           // Bright rose
+                    "primary-content": "#1A1A1A",
+                    
+                    "secondary": "#E6CC44",         // Bright gold
+                    "secondary-content": "#1A1A1A",
+                    
+                    "accent": "#FFD8DD",           // Light rose
+                    "accent-content": "#1A1A1A",
+                    
+                    "neutral": "#4A2A2A",          // Deep rose neutral
+                    "neutral-content": "#F8E8E8",  // Rose-tinted text
+                    
+                    // Unique rose gold dark backgrounds
+                    "base-100": "#1A0F0F",         // Deep rose-black (UNIQUE)
+                    "base-200": "#2A1A1A",         // Dark rose-charcoal (UNIQUE)
+                    "base-300": "#3A2525",         // Medium rose-gray (UNIQUE)
+                    "base-content": "#F8E8E8",     // Rose-tinted text (UNIQUE)
+                    
+                    "info": "#F8C8CC",
+                    "info-content": "#1A1A1A",
+                    "success": "#B8D8B8",
+                    "success-content": "#1A1A1A",
+                    "warning": "#E6CC44",
+                    "warning-content": "#1A1A1A",
+                    "error": "#DD6A6A",
+                    "error-content": "#FFFFFF",
+                },
+            },
+            // Arctic Palette
+            {
+                "arctic-light": {
+                    // ICE CRYSTAL LIGHT MODE - Cool arctic with ice blue tones
+                    "primary": "#87CEEB",           // Sky blue
+                    "primary-content": "#1A1A1A",
+                    
+                    "secondary": "#B0E0E6",         // Powder blue
+                    "secondary-content": "#1A1A1A",
+                    
+                    "accent": "#E0F6FF",           // Ice blue
+                    "accent-content": "#1A1A1A",
+                    
+                    "neutral": "#708090",          // Slate gray
+                    "neutral-content": "#FFFFFF",
+                    
+                    "base-100": "#F8FCFF",         // Arctic white
+                    "base-200": "#F0F8FF",         // Alice blue
+                    "base-300": "#E8F4F8",         // Very light blue
+                    "base-content": "#0A1A2A",     // Deep arctic blue
+                    
+                    "info": "#87CEEB",
+                    "info-content": "#1A1A1A",
+                    "success": "#5F9EA0",
+                    "success-content": "#FFFFFF",
+                    "warning": "#DDA0DD",
+                    "warning-content": "#1A1A1A",
+                    "error": "#CD5C5C",
+                    "error-content": "#FFFFFF",
+                },
+            },
+            {
+                "arctic-dark": {
+                    // POLAR NIGHT DARK MODE - Deep arctic with aurora highlights
+                    "primary": "#66DDFF",           // Bright arctic blue
+                    "primary-content": "#1A1A1A",
+                    
+                    "secondary": "#99EEFF",         // Aurora blue
+                    "secondary-content": "#1A1A1A",
+                    
+                    "accent": "#CCFFFF",           // Bright ice
+                    "accent-content": "#1A1A1A",
+                    
+                    "neutral": "#2A3A4A",          // Deep arctic neutral
+                    "neutral-content": "#D8F8FF",  // Arctic-tinted text
+                    
+                    // Unique arctic dark backgrounds
+                    "base-100": "#051218",         // Deep arctic-black (UNIQUE)
+                    "base-200": "#0A2535",         // Dark arctic blue (UNIQUE)
+                    "base-300": "#0F3A50",         // Medium arctic blue (UNIQUE)
+                    "base-content": "#D8F8FF",     // Arctic-tinted text (UNIQUE)
+                    
+                    "info": "#66DDFF",
+                    "info-content": "#1A1A1A",
+                    "success": "#77CCAA",
+                    "success-content": "#1A1A1A",
+                    "warning": "#DDAA77",
+                    "warning-content": "#1A1A1A",
+                    "error": "#FF7777",
+                    "error-content": "#FFFFFF",
+                },
+            },
+            // Coffee Palette
+            {
+                "coffee-light": {
+                    // COFFEE HOUSE LIGHT MODE - Rich coffee with cream accents
+                    "primary": "#8B4513",           // Saddle brown
+                    "primary-content": "#FFFFFF",
+                    
+                    "secondary": "#DEB887",         // Burlywood
+                    "secondary-content": "#1A1A1A",
+                    
+                    "accent": "#F5DEB3",           // Wheat
+                    "accent-content": "#1A1A1A",
+                    
+                    "neutral": "#A0522D",          // Sienna
+                    "neutral-content": "#FFFFFF",
+                    
+                    "base-100": "#FFF8DC",         // Cornsilk
+                    "base-200": "#F5F5DC",         // Beige
+                    "base-300": "#F0E68C",         // Khaki
+                    "base-content": "#2F1B14",     // Dark brown
+                    
+                    "info": "#8B4513",
+                    "info-content": "#FFFFFF",
+                    "success": "#8FBC8F",
+                    "success-content": "#1A1A1A",
+                    "warning": "#DEB887",
+                    "warning-content": "#1A1A1A",
+                    "error": "#CD853F",
+                    "error-content": "#FFFFFF",
+                },
+            },
+            {
+                "coffee-dark": {
+                    // ESPRESSO DARK MODE - Deep coffee with rich cream highlights
+                    "primary": "#D2691E",           // Chocolate orange
+                    "primary-content": "#FFFFFF",
+                    
+                    "secondary": "#F4A460",         // Sandy brown
+                    "secondary-content": "#1A1A1A",
+                    
+                    "accent": "#FFE4B5",           // Moccasin
+                    "accent-content": "#1A1A1A",
+                    
+                    "neutral": "#3A1A0A",          // Deep coffee neutral
+                    "neutral-content": "#F8E8D0",  // Coffee cream-tinted text
+                    
+                    // Unique coffee dark backgrounds
+                    "base-100": "#1A0F06",         // Deep coffee-black (UNIQUE)
+                    "base-200": "#2A1F14",         // Dark coffee brown (UNIQUE)
+                    "base-300": "#3A2F22",         // Medium coffee brown (UNIQUE)
+                    "base-content": "#F8E8D0",     // Coffee cream-tinted text (UNIQUE)
+                    
+                    "info": "#D2691E",
+                    "info-content": "#FFFFFF",
+                    "success": "#9FBC9F",
+                    "success-content": "#1A1A1A",
+                    "warning": "#F4A460",
+                    "warning-content": "#1A1A1A",
+                    "error": "#CD6839",
+                    "error-content": "#FFFFFF",
                 },
             },
             // Keep existing themes for compatibility
