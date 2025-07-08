@@ -48,24 +48,16 @@ export const education = [
 
 export const skills = [
 	{
-		title: 'Programming Languages',
-		description: 'Python • Java • C++ • SQL • JavaScript • TypeScript • Bash • Assembly • HTML/CSS • CUDA • MATLAB',
+		title: 'Programming Tools & Languages',
+		description: 'Python • Java • C/C++ • JavaScript • TypeScript • SQL • Bash • Assembly • HTML/CSS • CUDA • MATLAB',
 	},
 	{
-		title: 'Machine Learning & AI',
-		description: 'PyTorch • TensorFlow • Scikit-Learn • Deep Learning • Reinforcement Learning • LLM Fine-tuning • Computer Vision • NLP • AI Safety • Model Optimization',
+		title: 'Machine Learning Tools',
+		description: 'PyTorch • PyTorch Lightning • TensorFlow • Scikit-Learn • Hugging Face • OpenAI API • Anthropic API • HELM • GPTQ/AWQ • CVXPY • CUDA Profiling',
 	},
 	{
-		title: 'Data Science & Analytics',
-		description: 'NumPy • Pandas • Matplotlib • Seaborn • SciPy • Jupyter • Statistical Analysis • Data Visualization • Probabilistic Modeling • CVXPY',
-	},
-	{
-		title: 'Cloud & DevOps',
-		description: 'Docker • Git • GitHub Actions • AWS • PostgreSQL • MySQL • Flask • REST APIs • Linux • Slurm',
-	},
-	{
-		title: 'Specialized Tools',
-		description: 'Hugging Face • OpenAI API • Anthropic • TensorFlow.js • D3.js • React • Tailwind CSS • LaTeX • CUDA Profiling',
+		title: 'Development & Research Tools',
+		description: 'Docker • Git/GitHub • GitHub Actions • Jupyter • Slurm • NumPy • SciPy • Pandas • Matplotlib • Seaborn • TensorFlow.js • D3.js • React • Tailwind CSS • LaTeX • Flask • PostgreSQL • MySQL',
 	},
 ];
 
