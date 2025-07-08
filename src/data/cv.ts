@@ -49,20 +49,24 @@ export const education = [
 export const skills = [
 	{
 		title: 'Programming Languages',
-		description: 'Python • Java • C/C++ • SQL (PostgreSQL/MySQL) • JavaScript / TypeScript • Bash/Shell • x86/MIPS Assembly • HTML / CSS • CUDA • MATLAB',
+		description: 'Python • Java • C++ • SQL • JavaScript • TypeScript • Bash • Assembly • HTML/CSS • CUDA • MATLAB',
 	},
 	{
-		title: 'Machine Learning',
-		description: 'Supervised & unsupervised models • RL • Deep learning (Python + PyTorch / Lightning) • LLM fine-tuning & bit quantization (GPTQ/AWQ) • Reinforcement & multi-agent strategy • Convex optimization (CVXPY) • Probabilistic modeling & statistical inference • Algorithms & data-structures foundations • Distributed/network-aware ML systems • AI-safety & alignment evaluation',
+		title: 'Machine Learning & AI',
+		description: 'PyTorch • TensorFlow • Scikit-Learn • Deep Learning • Reinforcement Learning • LLM Fine-tuning • Computer Vision • NLP • AI Safety • Model Optimization',
 	},
 	{
-		title: 'Research Tools & Frameworks',
-		description: 'PyTorch / Lightning • Hugging Face Transformers & Datasets • scikit-learn • NumPy • SciPy • Pandas • Seaborn • Matplotlib • CVXPY • SQL DBs (PostgreSQL/MySQL) • Docker • Git/GitHub • GitHub Actions • JupyterLab / Notebooks • Slurm job scripting • OpenAI & Anthropic APIs • HELM eval • TensorFlow.js • D3.js • Tailwind CSS & React (basic, for personal-site work) • LaTeX / Overleaf • CUDA & Nsight profiling • Flask',
+		title: 'Data Science & Analytics',
+		description: 'NumPy • Pandas • Matplotlib • Seaborn • SciPy • Jupyter • Statistical Analysis • Data Visualization • Probabilistic Modeling • CVXPY',
 	},
-	// {
-	// 	title: 'Experimental Techniques',
-	// 	description: 'Spectroscopy, Isolation of Radioactive Elements, Radiation Measurement',
-	// },
+	{
+		title: 'Cloud & DevOps',
+		description: 'Docker • Git • GitHub Actions • AWS • PostgreSQL • MySQL • Flask • REST APIs • Linux • Slurm',
+	},
+	{
+		title: 'Specialized Tools',
+		description: 'Hugging Face • OpenAI API • Anthropic • TensorFlow.js • D3.js • React • Tailwind CSS • LaTeX • CUDA Profiling',
+	},
 ];
 
 export const publications = [
