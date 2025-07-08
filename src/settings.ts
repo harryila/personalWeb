@@ -10,12 +10,12 @@ export const profile = {
 			field: 'efficient-ml' 
 		},
 		{ 
-			title: 'Multi-Agent Learning & Reasoning', 
+			title: 'Multi-Agent Systems', 
 			description: 'Exploring collaborative AI systems where multiple agents learn and reason together, focusing on coordination strategies, emergent behaviors, and distributed problem-solving approaches.', 
 			field: 'multi-agent' 
 		},
 		{ 
-			title: 'Convex Optimization & Algorithms', 
+			title: 'Convex Optimization', 
 			description: 'Advancing theoretical foundations and practical implementations of optimization methods, with emphasis on custom solvers, Newton methods, and algorithm design for machine learning applications.', 
 			field: 'convex-optimization' 
 		},
