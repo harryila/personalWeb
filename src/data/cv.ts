@@ -53,11 +53,11 @@ export const skills = [
 	},
 	{
 		title: 'Machine Learning Tools',
-		description: 'PyTorch • PyTorch Lightning • TensorFlow • Scikit-Learn • Hugging Face • OpenAI API • Anthropic API • HELM • GPTQ/AWQ • CVXPY • CUDA Profiling',
+		description: 'Deep Learning (PyTorch) • LLM Fine-tuning (Hugging Face) • Model Quantization (GPTQ/AWQ) • Reinforcement Learning (PyTorch) • Classical ML (Scikit-Learn) • AI Safety Evaluation (HELM) • GPU Optimization (CUDA) • API Integration (OpenAI, Anthropic)',
 	},
 	{
 		title: 'Development & Research Tools',
-		description: 'Docker • Git/GitHub • GitHub Actions • Jupyter • Slurm • NumPy • SciPy • Pandas • Matplotlib • Seaborn • TensorFlow.js • D3.js • React • Tailwind CSS • LaTeX • Flask • PostgreSQL • MySQL',
+		description: 'Data Analysis (Pandas, NumPy) • Visualization (Matplotlib, D3.js) • Web Development (React, Flask) • Database Management (PostgreSQL, MySQL) • Containerization (Docker) • Version Control (Git/GitHub) • HPC Computing (Slurm) • Scientific Computing (SciPy, Jupyter)',
 	},
 ];
 
