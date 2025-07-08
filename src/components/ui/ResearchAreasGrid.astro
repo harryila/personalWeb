@@ -17,11 +17,11 @@ const { research_areas } = Astro.props;
   <!-- First row: 3 cards -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {research_areas.slice(0, 3).map((area) => (
-      <div class="group p-6 rounded-lg bg-base-200 hover:bg-base-300 transition-all duration-300 border border-base-300 hover:border-primary/20 hover:shadow-lg h-full">
-        <h3 class="text-xl font-semibold mb-3 text-primary group-hover:text-primary-focus transition-colors">
+      <div class="group p-6 rounded-lg bg-base-200 hover:bg-base-300 transition-all duration-300 border border-base-300 hover:border-primary/20 hover:shadow-lg h-full flex flex-col">
+        <h3 class="text-xl font-semibold text-primary group-hover:text-primary-focus transition-colors min-h-[3.5rem] flex items-start mb-3">
           {area.title}
         </h3>
-        <p class="text-base-content/80 leading-relaxed">
+        <p class="text-base-content/80 leading-relaxed flex-grow">
           {area.description}
         </p>
       </div>
@@ -31,11 +31,11 @@ const { research_areas } = Astro.props;
   <!-- Second row: 3 cards -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {research_areas.slice(3, 6).map((area) => (
-      <div class="group p-6 rounded-lg bg-base-200 hover:bg-base-300 transition-all duration-300 border border-base-300 hover:border-primary/20 hover:shadow-lg h-full">
-        <h3 class="text-xl font-semibold mb-3 text-primary group-hover:text-primary-focus transition-colors">
+      <div class="group p-6 rounded-lg bg-base-200 hover:bg-base-300 transition-all duration-300 border border-base-300 hover:border-primary/20 hover:shadow-lg h-full flex flex-col">
+        <h3 class="text-xl font-semibold text-primary group-hover:text-primary-focus transition-colors min-h-[3.5rem] flex items-start mb-3">
           {area.title}
         </h3>
-        <p class="text-base-content/80 leading-relaxed">
+        <p class="text-base-content/80 leading-relaxed flex-grow">
           {area.description}
         </p>
       </div>
