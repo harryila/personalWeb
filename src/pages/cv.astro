@@ -75,12 +75,13 @@ if (publications.length > 0) {
 					<div>
 						<h3 class="font-bold">UC Berkeley</h3>
 						<p class="italic font-semibold">B.A Data Science, Applied Mathematics - Minor Computer Science</p>
+						<p class="font-semibold">GPA: 3.8</p>
 					</div>
-					<span class="font-bold">June 2027</span>
+					<span class="font-bold">June 2026</span>
 				</div>
 				<ul class="ml-4 space-y-1 text-sm">
-					<li><strong>Courses:</strong> Adv Data Structures & Algorithms, Object Oriented Programming, Calculus III, Linear Algebra, Computer Architecture & Organization, Physics III, Discrete Structures, Convex Optimization, Ordinary Differential Equations</li>
-					<li><strong>Involvement:</strong> Honor Society Researcher, UCLA CCCP, Armenian Student Association, VP Psychology Club</li>
+					<li><strong>Courses:</strong> Adv Data Structures & Algorithms, Object Oriented Programming, Numerical Analysis, Linear Alg, Computer Architecture & Organization, Physics III, Discrete Structures, Convex Optimization, Ordinary Differential Equations</li>
+					<li><strong>Involvement:</strong> Honor Society Researcher, Decal Facilitator, Armenian Student Association, Directed Reading Program</li>
 				</ul>
 			</section>
 
@@ -88,15 +89,32 @@ if (publications.length > 0) {
 			<section class="mb-6">
 				<h2 class="text-xl font-bold mb-3 text-base-content border-b-2 border-black pb-1">PROFESSIONAL EXPERIENCE</h2>
 				
-				<!-- Los Angeles Mission College -->
+				<!-- SCALIS -->
 				<div class="mb-4">
 					<div class="flex justify-between items-start mb-1">
-						<h3 class="font-bold">Los Angeles Mission College</h3>
+						<h3 class="font-bold">SCALIS</h3>
+						<span class="text-sm">Berkeley, CA</span>
+					</div>
+					<div class="flex justify-between items-start mb-2">
+						<p class="italic font-semibold">Machine Learning/Backend Engineer: SWE Intern</p>
+						<span class="italic text-sm">June 2025 - Current</span>
+					</div>
+					<ul class="ml-4 space-y-1 text-sm">
+						<li>Architected async transcript pipeline (Flask, Redpanda, S3): non-blocking 202 API and scalable background workers.</li>
+						<li>Implemented LLM summarization with preprocessing and fallback models, improving consistency and robustness.</li>
+						<li>Containerized services and set up Pytest with observability and NLP quality scoring via embeddings-based coverage.</li>
+					</ul>
+				</div>
+
+				<!-- Los Angeles Community College District -->
+				<div class="mb-4">
+					<div class="flex justify-between items-start mb-1">
+						<h3 class="font-bold">Los Angeles Community College District</h3>
 						<span class="text-sm">Los Angeles, CA</span>
 					</div>
 					<div class="flex justify-between items-start mb-2">
-						<p class="italic font-semibold">Programming Assistant: SWE</p>
-						<span class="italic text-sm">December 2022 - Current</span>
+						<p class="italic font-semibold">Programming Assistant: SWE Intern</p>
+						<span class="italic text-sm">December 2022 - June 2024</span>
 					</div>
 					<ul class="ml-4 space-y-1 text-sm">
 						<li>Developed 10+ software/scripts to improve time efficiency by up to 50% for the Administrative Operations Technician.</li>
@@ -109,10 +127,10 @@ if (publications.length > 0) {
 				<div class="mb-4">
 					<div class="flex justify-between items-start mb-1">
 						<h3 class="font-bold">Stanford Action Research</h3>
-						<span class="text-sm">Los Angeles, CA</span>
+						<span class="text-sm">Palo Alto, CA</span>
 					</div>
 					<div class="flex justify-between items-start mb-2">
-						<p class="italic font-semibold">Research Fellowship, Assistant</p>
+						<p class="italic font-semibold">Research Assistant Intern</p>
 						<span class="italic text-sm">August 2023 - Current</span>
 					</div>
 					<ul class="ml-4 space-y-1 text-sm">
@@ -125,7 +143,7 @@ if (publications.length > 0) {
 				<!-- NASA -->
 				<div class="mb-4">
 					<div class="flex justify-between items-start mb-1">
-						<h3 class="font-bold">NASA - NASA Aerospace Scholars Alumni</h3>
+						<h3 class="font-bold">NASA</h3>
 						<span class="text-sm">Hampton, VA</span>
 					</div>
 					
@@ -170,6 +188,45 @@ if (publications.length > 0) {
 				</div>
 			</section>
 
+			<!-- Research -->
+			<section class="mb-6">
+				<h2 class="text-xl font-bold mb-3 text-base-content border-b-2 border-black pb-1">RESEARCH</h2>
+				
+				<!-- Multi-Agent Communication & Collusion in Poker -->
+				<div class="mb-4">
+					<div class="flex justify-between items-start mb-1">
+						<h3 class="font-bold">Multi-Agent Communication & Collusion in Poker</h3>
+						<span class="text-sm">April 2025</span>
+					</div>
+					<ul class="ml-4 space-y-1 text-sm">
+						<li>Simulated 12k+ multi-agent poker rounds; surfaced covert signaling protocols; open-sourced a training dataset for AI safety.</li>
+					</ul>
+				</div>
+
+				<!-- Alignment-Aware Quantization of LLMs -->
+				<div class="mb-4">
+					<div class="flex justify-between items-start mb-1">
+						<h3 class="font-bold">Alignment-Aware Quantization of LLMs</h3>
+						<span class="text-sm">February 2025</span>
+					</div>
+					<ul class="ml-4 space-y-1 text-sm">
+						<li>Built Llama-class GPTQ/AWQ pipeline models with minimal drop on GSM8K; proposed new LLM architecture tuning.</li>
+					</ul>
+				</div>
+
+				<!-- Hallucination ⇔ Calibration Trade-off in LLMs -->
+				<div class="mb-4">
+					<div class="flex justify-between items-start mb-1">
+						<h3 class="font-bold">Hallucination ⇔ Calibration Trade-off in LLMs</h3>
+						<span class="text-sm">January 2025</span>
+					</div>
+					<ul class="ml-4 space-y-1 text-sm">
+						<li>Derived lower bounds on hallucination under perfect calibration; validated GPT-3.5/Llama-7B with Miao–Kearns metrics.</li>
+						<li><a href="https://wp.math.berkeley.edu/drp/wp-content/uploads/sites/18/2025/05/2025_Spring_Ilanyan.pdf" class="text-primary hover:underline">https://wp.math.berkeley.edu/drp/wp-content/uploads/sites/18/2025/05/2025_Spring_Ilanyan.pdf</a></li>
+					</ul>
+				</div>
+			</section>
+
 			<!-- Projects -->
 			<section class="mb-6">
 				<h2 class="text-xl font-bold mb-3 text-base-content border-b-2 border-black pb-1">PROJECTS</h2>
@@ -199,57 +256,13 @@ if (publications.length > 0) {
 						<li>Coded both front-end and back-end; developed a new algorithm to search and sort through combinations of parameters.</li>
 					</ul>
 				</div>
-
-				<!-- Hermes Mail -->
-				<div class="mb-4">
-					<div class="flex justify-between items-start mb-1">
-						<h3 class="font-bold">Hermes Mail</h3>
-						<span class="text-sm">December 2022</span>
-					</div>
-					<ul class="ml-4 space-y-1 text-sm">
-						<li>Programmed a full-stack emailing web app, mimicking Gmail's register and email functionalities through Flask framework.</li>
-						<li>Implemented front-end design using Figma and Bootstrap to enhance UX, resulting in a 30% increase in user engagement.</li>
-						<li>Integrated with Werkzeug library for leveraged password encryption in the backend, ensuring client security and privacy.</li>
-					</ul>
-				</div>
-			</section>
-
-			<!-- Leadership -->
-			<section class="mb-6">
-				<h2 class="text-xl font-bold mb-3 text-base-content border-b-2 border-black pb-1">LEADERSHIP</h2>
-				
-				<!-- Rising Horizons Non-Profit -->
-				<div class="mb-4">
-					<div class="flex justify-between items-start mb-1">
-						<h3 class="font-bold">Rising Horizons Non-Profit</h3>
-						<span class="text-sm">July 2023</span>
-					</div>
-					<ul class="ml-4 space-y-1 text-sm">
-						<li>Leader and founder of a nonprofit aimed to increase STEM exposure to lower socioeconomic Middle Eastern students.</li>
-						<li>Organized business management and web-development strategies for Rising Horizons, aimed to reduce a 40% cost margin.</li>
-						<li>Taught lectures for 25 undergraduate students in Armenia on ML/AI; created scholarships with TCO for college students.</li>
-					</ul>
-				</div>
-
-				<!-- AI & ML Association -->
-				<div class="mb-4">
-					<div class="flex justify-between items-start mb-1">
-						<h3 class="font-bold">AI & ML Association</h3>
-						<span class="text-sm">April 2023</span>
-					</div>
-					<ul class="ml-4 space-y-1 text-sm">
-						<li>Founded and organized in collaboration with the CS Chair to enhance Machine Learning exposure for CC students.</li>
-						<li>Led weekly lessons supplementing limited ML class available districtwide, aimed at increasing student enrollment by 75%.</li>
-						<li>Partnered with UCLA's Break Through Tech AI & UCB to aid curriculum aimed to increase student satisfaction by 90%.</li>
-					</ul>
-				</div>
 			</section>
 
 			<!-- Skills -->
 			<section class="mb-6">
 				<h2 class="text-xl font-bold mb-3 text-base-content border-b-2 border-black pb-1">SKILLS</h2>
 				<div class="space-y-1 text-sm">
-					<p><strong>Skills:</strong> Python, SQL, HTML/CSS, JS, Bootstrap, Java, C++, Scikit-Learn, Numpy, Matplotlib, VBA, Excel, Pandas, Tensor</p>
+					<p><strong>Skills:</strong> Python, SQL, HTML/CSS, JS, Java, C++, Scikit-Learn, Numpy, Matplotlib, Pytorch, LLM Architecture, HuggingFace</p>
 					<p><strong>Awards & Certificates:</strong> Leadership Scholarship, Harvard: CS50, Web-Development, AI Python, Stanford: ML Specialization</p>
 				</div>
 			</section>
